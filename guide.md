@@ -21,7 +21,7 @@ The following is a list of controls built into the panel system, meaning they ca
 - Button Matrix
 - 2D Coordinate Pad
 
-The following is a list of controls that are not natively supported by Panels. This means these panels are just given an x and y for their position and a width and a height for their size, and must be manually moved and/or resized whenever the window is resized.
+The following is a list of controls that are not natively supported by Panels. This means these controls are just given an x and y for their position and a width and a height for their size, and must be manually moved and/or resized whenever the window is resized.
 - Knob
 - Large Button
 - Large Image Button
