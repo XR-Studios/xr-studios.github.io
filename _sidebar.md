@@ -1,2 +1,3 @@
 - [Home](/ "XRS OpenFrameworks")
-- [Guide](guide.md "XRS OpenFrameworks")
+- Guide
+    - [Components](guide.md "XRS OpenFrameworks")
