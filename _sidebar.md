@@ -1,2 +1,2 @@
-* [Home](/ "XRS OpenFrameworks")
-* [Guide](guide.md "XRS OpenFrameworks")
+- [Home](/ "XRS OpenFrameworks")
+- [Guide](guide.md "XRS OpenFrameworks")
