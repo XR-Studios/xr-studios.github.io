@@ -1,3 +1,5 @@
 - [Guide](/ "XRS OpenFrameworks")
+    - [Getting Started](gettingStarted.md "XRS OpenFrameworks")
     - [Components](components.md "XRS OpenFrameworks")
-    - [API](api.md "XRS OpenFrameworks")
+    - [Themes](themes.md "XRS OpenFrameworks")
+    - [Reference](api.md "XRS OpenFrameworks")
