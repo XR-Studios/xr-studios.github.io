@@ -29,6 +29,49 @@ The following is a list of controls that are not natively supported by Panels. T
 </div>
 
 Fires a trigger, listener, or some other event when clicked.
+
+>To Instantiate in Panel:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+ofxXRSPanel* panel;
+
+
+/**
+ * ofApp.cpp
+ **/
+
+void ofApp::setup() {
+    panel = new ofxXRSPanel();
+    panel->addButton("Button Label");
+}
+```
+
+>To Instantiate Free-Floating:
+```cpp
+/**
+ * ofApp.h
+ **/
+std::vector<ofxXRSComponent*> components;
+
+
+/**
+ * ofApp.cpp
+ **/
+void ofApp::setup() {
+    ofxXRSComponent* component;
+    component = new ofxXRSButton("Button Label");
+    component->setPosition(x, y);
+}
+
+void ofApp::draw() {
+    for(auto component : components) {
+        component->draw();
+    }
+}
+```
 ### Toggle
 >Class: `ofxXRSToggle`
 <div align=justify>
