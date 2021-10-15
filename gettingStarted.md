@@ -30,11 +30,17 @@ In its current state it is essentially an addon package more than an addon in it
 # My First XRS App
 Once you have successfully generated a project with the ofxXRS addon included, you can start making your UI right away.
 
-The quickest way to get a functional and nice-looking UI is via [Panels](). 
-1. Add a member variable to your app's header file to hold the panel: `ofxXRSPanel* panel;`
-2. In your app's *setup()* method, instantiate the panel and add components to it:
+The quickest way to get a functional and nice-looking UI is via [Panels](components.md#Panel).  
+Add a member variable to your app's header file to hold the panel, then in your app's *setup()* method, instantiate the panel and add components to it:
 
 ```cpp
+/**
+* ofApp.h
+**/
+
+ofxXRSPanel* panel;
+
+
 /**
  * ofApp.cpp
  **/
@@ -73,6 +79,7 @@ void onToggleEvent(ofxXRSToggleEvent e);
 void onSliderEvent(ofxXRSSliderEvent e);
 void on2dPadEvent(ofxXRS2dPadEvent e);
 
+
 /**
  * ofApp.cpp
  **/
@@ -97,23 +104,57 @@ void ofApp::on2dPadEvent(ofxXRS2dPadEvent e) {
 }
 
 void ofApp::setup() {
-    panel = new ofxXRSPanel(ofxXRSPanelAnchor::TOP_LEFT);
-    panel->addLabel("Label");
-    panel->addButton("Button");
-    panel->addToggle("Toggle");
-    panel->addSlider("Slider", 0.0f, 1.0f, 0.5f);
-    panel->add2dPad("2D Pad");
-
-    ofxXRSTheme* theme = new ofxXRSTheme(false);
-    theme->resize(1.75f);
-    theme->init();
-    panel->setTheme(theme);
-
     panel->onButtonEvent(this, &ofApp::onButtonEvent);
     panel->onToggleEvent(this, &ofApp::onToggleEvent);
     panel->onSliderEvent(this, &ofApp::onSliderEvent);
     panel->on2dPadEvent(this, &ofApp::on2dPadEvent);
 }
+```
+You now have functional controls with your Panel UI!  
+Last but not least, let's add some of the non-panel components to familiarize ourselves with them.
+They need their own event listeners because they don't pass any of the *ofxXRSEvent* objects, so they aren't compatible
+with the onButtonEvent(), etc that we just declared and implemented for our panel's components.
+
+```cpp
+/**
+* ofApp.h
+**/
+
+ofxXRSSimpleButton rectangle, circle, img;
+void rectClicked();
+void circleClicked();
+void imgClicked();
+
+/**
+* ofApp.cpp
+**/
+
+void ofApp::setup() {
+    rectangle.setup(10, 10, 100, 100, true, false, ofxXRSSimpleButton::TYPE_BUTTON, ofxXRSSimpleButton::BUTTON_RECT, ofColor::green);
+    rectangle.setName("Large Rectangular Button");
+    ofAddListener(rectangle.mousePressedEvent, this, &ofApp::rectClicked);
+
+    circle.setup(10, 120, 100, 100, true, false, ofxXRSSimpleButton::TYPE_BUTTON, ofxXRSSimpleButton::BUTTON_RECT, ofColor::red);
+    circle.setName("Large Circular Button");
+    ofAddListener(circle.mousePressedEvent, this, &ofApp::rectClicked);
+
+    img.setup(10, 240, "path/to/img.png");
+    img.setName("Large Image Button");
+    ofAddListener(img.mousePressedEvent, this, &ofApp::imgClicked);
+}
+
+void ofApp::rectClicked() {
+    std::cout << "Rectangular Button Clicked!" << std::endl;
+}
+
+void ofApp::circleClicked() {
+    std::cout << "Circular Button Clicked!" << std::endl;
+}
+
+void ofApp::imgClicked() {
+    std::cout << "Image Button Clicked!" << std::endl;
+}
+
 ```
 <p>&nbsp;</p>
 
@@ -130,7 +171,7 @@ void ofApp::setup() {
 - I get a linker or SDK error when trying to build my project in Visual Studio!
     - Are you using Visual Studio 2019? Each openFrameworks release is written for a specific version of Microsoft's C++ SDK. Currently openFrameworks only works with Visual Studio 2017 using the Visual Studio 2017 Build Tools.
 <p>&nbsp;</p>
-- It sucks that panel components and non-panel components like Large Buttons aren't aware of one another at all!
+- It sucks that panel components and non-panel components like Large Buttons aren't aware of one another at all! They shouldn't need separate event listeners!
     - I'm working on it!!!
 <p>&nbsp;</p>
 - How do I know when to use `->` versus `.` when referencing an object?
