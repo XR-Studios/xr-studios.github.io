@@ -6,7 +6,7 @@ They are divided into three types: ``Controls``, ``Monitors``, and ``Organizers`
 ## Common Methods
 What follows is a list of methods that are shared by several classes and that you will probably find useful.
 
-### Panel Components
+### Panel Components <!-- {docsify-ignore} -->
 These methods can be called on any object that interacts with the Panel system - in other words, any component that inherits ofxXRSComponent. In other other words, any component except Large Buttons and Knobs.
 
  - `ofxXRSComponent* getComponent(ofxXRSType type, string label)` | `getComponent(string label)`
@@ -93,8 +93,6 @@ Classes that inherit from *ofxXRSInteractableObject* (currently *ofxXRSFolder* a
     - Returns a pointer to the child *ofxXRSWaveMonitor* with label *label*, or nullptr if a child could not be found.
 - `ofxXRSValuePlotter* getValuePlotter(string label)`
     - Returns a pointer to the child *ofxXRSValuePlotter* with label *label*, or nullptr if a child could not be found.
-
-### Free-floating Components
 
 ## Controls
 Controls are components that are interactable, and are hooked up to control some aspect of the stage or show.
@@ -322,8 +320,12 @@ A control that allows the user to see and set the 2D Position (X, Y) of whatever
 
 ### Knob
 Like a slider but visualized as a circle rather than a rectangle.
+
+
 > Class: `TODO; Not yet implemented`
 
+#### Methods
+#### Instantiation
 
 ### Large Button
 Works exactly like a button but is free-standing and can be given custom dimensions. Can be either rectangular or circular, set via an **ofxXRSSimpleButton::BUTTON_SHAPE** passed during instantiation or to the *setShape()* function.
@@ -332,6 +334,22 @@ Works exactly like a button but is free-standing and can be given custom dimensi
 </div>
 
 >Class: `ofxXRSSimpleButton`
+
+#### Methods
+- `void setType(ofxXRSSimpleButton::TYPE_BUTTONS type)`
+    - Sets the type of this large button to *type*
+- `void setShape(ofxXRSSimpleButton::BUTTON_SHAPES shape)`
+    - Sets the shape of this large button to *shape*
+- `void setColor(ofColor color)`
+    - Sets the color of this large button to *color*
+- `void setToggleColor(ofColor color)`
+    - Sets the color of this large button to *color* when it is clicked if its type is TYPE_BUTTON, or while it is enabled if its type is TYPE_TOGGLE
+- `void setPos(ofPoint point)` | `void setPos(float x, float y)`
+    - Sets the position of the top-left corner of this large button to either *point* or (*x*, *y*)
+- `void setName(string name, float xOffset, float yOffset)`
+    - Sets the name of this large button, which will be drawn at (*xOffset*, *yOffset*) distance from the top-left of this large button
+
+#### Instantiation
 
 ### Large Image Button
 Works exactly like a Large Button but the sprite will be an image given during instantiation rather than a circle or rectangle. 
@@ -342,6 +360,13 @@ Works exactly like a Large Button but the sprite will be an image given during i
 </div>
 
 >Class: `ofxXRSSimpleButton`
+
+#### Methods
+- Since they are the same class, *ofxXRSSimpleButton*, Large Image Buttons have access to the same methods as [Large Buttons](components.md#large-button); however, methods that affect the drawing of the button, like `setShape()` and `setColor()`, will have no effect.
+- `void setAsAnimationButton(int time)`
+    - Sets this button to animate using an *ofFBO* with *time* milliseconds between frames (Needs testing)
+
+#### Instantiation
 
 <p>&nbsp;</p>
 
