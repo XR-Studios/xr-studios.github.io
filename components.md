@@ -131,13 +131,14 @@ It's a button. You get it.
 `ofxXRSButton` has no unique methods. You click it and something happens! That's it!
 
 #### Instantiation
-To Instantiate in Panel:
+To Instantiate in a Panel:
 ```cpp
 /**
  * ofApp.h
  **/
 
 ofxXRSPanel* panel;
+ofxXRSButton* button;
 
 
 /**
@@ -146,7 +147,7 @@ ofxXRSPanel* panel;
 
 void ofApp::setup() {
     panel = new ofxXRSPanel();
-    panel->addButton("Button Label");
+    button = panel->addButton("Button Label");
 }
 ```
 
@@ -162,9 +163,9 @@ std::vector<ofxXRSComponent*> components;
  * ofApp.cpp
  **/
 void ofApp::setup() {
-    ofxXRSComponent* component;
-    component = new ofxXRSButton("Button Label");
-    component->setPosition(x, y);
+    ofxXRSComponent* comp = new ofxXRSButton("Button Label");
+    comp->setPosition(10, 10);
+    components.emplace_back(comp);
 }
 
 void ofApp::draw() {
@@ -192,6 +193,53 @@ A special type of button that keeps its state when pressed - used to toggle the 
     - Returns a boolean for whether or not this component is checked or not.
 
 #### Instantiation
+> Constructors:  
+`ofxXRSToggle(string label, bool startedChecked = false)`
+
+To Instantiate in a Panel:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+ofxXRSPanel* panel;
+ofxXRSToggle* toggle;
+
+
+/**
+ * ofApp.cpp
+ **/
+
+void ofApp::setup() {
+    panel = new ofxXRSPanel(ofxXRSPanelAnchor::TOP_LEFT);
+    toggle = panel->addToggle("Toggle Label");
+}
+```
+To Instantiate Free-Floating:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+std::vector<ofxXRSComponent*> components;
+
+
+/**
+ * ofApp.cpp
+ **/
+
+void ofApp::setup() {
+    ofxXRSComponent* comp = new ofxXRSToggle("Toggle Label");
+    comp->setPosition(10, 10);
+    components.emplace_back(comp);
+}
+
+void ofApp::draw() {
+    for(auto& component : components) {
+        component->draw();
+    }
+}
+```
 
 ### Text Input
 A text box where the user can input a string.
@@ -214,6 +262,52 @@ A text box where the user can input a string.
     - Sets the input type of this field (numbers and letters, numbers only, etc) to *type*
 
 #### Instantiation
+> Constructors:  
+`ofxXRSTextInput(string label, string defaultText = "")`
+
+To Instantiate in a Panel:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+ofxXRSPanel* panel;
+ofxXRSTextInput* textInput;
+
+
+/**
+ * ofApp.cpp
+ **/
+
+void ofApp::setup() {
+    panel = new ofxXRSPanel(ofxXRSPanelAnchor::TOP_LEFT);
+    textInput = panel->addTextInput("Label", "Type Here...");
+}
+```
+To Instantiate Free-Floating:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+std::vector<ofxXRSComponent*> components;
+
+
+/**
+ * ofApp.cpp
+ **/
+void ofApp::setup() {
+    ofxXRSComponent* comp = new ofxXRSTextInput("Label", "Type Here...");
+    comp->setPosition(10, 10);
+    components.emplace_back(comp);
+}
+
+void ofApp::draw() {
+    for(auto& component : components) {
+        component->draw();
+    }
+}
+```
 
 ### Slider
 A control that sets the value of something between a minimum and maximum range.
@@ -239,6 +333,57 @@ A control that sets the value of something between a minimum and maximum range.
 
 
 #### Instantiation
+> Constructors:  
+`ofxXRSSlider(string label, float min, float max, float val)`  
+`ofxXRSSlider(string label, float min, float max)`  
+`ofxXRSSlider(ofParameter<int> p)`  
+`ofxXRSSlider(ofParameter<float> p)`
+
+!> Note: I have neither fully implemented nor tested the current implementation of the ofParameter binding. Use at your own risk.
+
+To Instantiate in a Panel:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+ofxXRSPanel* panel;
+ofxXRSSlider* slider;
+
+
+/**
+ * ofApp.cpp
+ **/
+void ofApp::setup() {
+    panel = new ofxXRSPanel(ofxXRSPanelAnchor::TOP_LEFT);
+    slider = panel->addSlider("Slider Label", 0.0f, 100.0f, 50.0f);
+}
+```
+To Instantiate Free-Floating:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+std::vector<ofxXRSComponent*> components;
+
+
+/**
+ * ofApp.cpp
+ **/
+
+void ofApp::setup() {
+    ofxXRSComponent* comp = new ofxXRSSlider("Slider Label", 0.0f, 100.0f, 50.0f);
+    comp->setPosition(10, 50);
+    components.emplace_back(comp);
+}
+
+void ofApp::draw() {
+    for(auto& component : components) {
+        component->draw();
+    }
+}
+```
 
 ### Color Picker
 A control that drops down to a color wheel when clicked which sets the color of something using **ofColor**
@@ -256,6 +401,48 @@ A control that drops down to a color wheel when clicked which sets the color of 
 
 
 #### Instantiation
+> Constructors:  
+`ofxXRSColorPicker(string label, ofColor color)`
+
+To Instantiate in a Panel:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+ofxXRSPanel* panel;
+ofxXRSColorPicker* picker;
+
+/**
+ * ofApp.cpp
+ **/
+void ofApp::setup() {
+    panel = new ofxXRSPanel(ofxXRSPanelAnchor::TOP_LEFT);
+    picker = panel->addColorPicker("Color Picker Label", ofColor::green);
+}
+```
+To Instantiate Free-Floating:
+```cpp
+/**
+ * ofApp.h
+ **/
+std::vector<ofxXRSComponent*> components;
+
+/**
+ * ofApp.cpp
+ **/
+void ofApp::setup() {
+    ofxXRSComponent* comp = new ofxXRSColorPicker("Color Picker Label", ofColor::green);
+    comp->setPosition(10, 10);
+    components.emplace_back(comp);
+}
+
+void ofApp::draw() {
+    for(auto& component : components) {
+        component->draw();
+    }
+}
+```
 
 ### Dropdown
 A control that drops down to a list of selections from which the user selects a single option
@@ -272,6 +459,56 @@ A control that drops down to a list of selections from which the user selects a 
     - Returns an int for how many options are in the dropdown
 
 #### Instantiation
+> Constructors:  
+`ofxXRSDropdown(string label, std::vector<string> options)`
+
+To Instantiate in a Panel:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+ofxXRSPanel* panel;
+ofxXRSDropdown* dropdown;
+
+/**
+ * ofApp.cpp
+ **/
+void ofApp::setup() {
+    panel = new ofxXRSPanel(ofxXRSPanelAnchor::TOP_LEFT);
+
+    std::vector<string> options = {
+        "Option1", "Option2", "Option3"
+    };
+    dropdown = panel->addDropdown("Dropdown Label", options);
+}
+```
+To Instantiate Free-Floating:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+std::vector<ofxXRSComponent*> components;
+
+/**
+ * ofApp.cpp
+ **/
+void ofApp::setup() {
+    std::vector<string> options = {
+        "Option1", "Option2", "Option3"
+    }
+    ofxXRSComponent* comp = new ofxXRSDropdown("Dropdown Label", options);
+    comp->setPosition(10, 10);
+    components.emplace_back(comp);
+}
+
+void ofApp::draw() {
+    for(auto& component : components) {
+        component->draw();
+    }
+}
+```
 
 
 ### Button Matrix
@@ -293,7 +530,50 @@ A control that allows the user to toggle one or several buttons in a grid; most 
     - Returns a pointer to the *ofxXRSMatrixButton* at *index*, or nullptr if there is no button at that index.
 
 #### Instantiation
+> Constructors:  
+`ofxXRSMatrix(string label, int numButtons, bool showLabels = false)`
 
+To Instantiate in a Panel:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+ofxXRSPanel* panel;
+ofxXRSMatrix* matrix;
+
+/**
+ * ofApp.cpp
+ **/
+
+void ofApp::setup() {
+    panel = new ofxXRSPanel(ofxXRSPanelAnchor::TOP_RIGHT);
+    matrix = panel->addMatrix("Matrix Label", 50);
+}
+```
+To Instantiate Free-Floating:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+std::vector<ofxXRSComponent*> components;
+
+/**
+ * ofApp.cpp
+ **/
+void ofApp::setup() {
+    ofxXRSComponent* comp = new ofxXRSMatrix("Matrix Label", 50, true);
+    comp->setPosition(10, 10);
+    components.emplace_back(comp);
+}
+
+void ofApp::draw() {
+    for(auto& component : components) {
+        component->draw();
+    }
+}
+```
 
 ### 2D Coordinate Pad
 A control that allows the user to see and set the 2D Position (X, Y) of whatever aspect of the stage or show is hooked up to it.
@@ -316,8 +596,51 @@ A control that allows the user to see and set the 2D Position (X, Y) of whatever
     - Moves the cursor to the exact center of the pad's graph
 
 #### Instantiation
+> Constructors:  
+`ofxXRS2dPad(string label)`  
+`ofxXRS2dPad(string label, ofRectangle bounds)`
+
+To Instantiate in a Panel:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+ofxXRSPanel* panel;
+ofxXRS2dPad* pad;
 
 
+/**
+ * ofApp.cpp
+ **/
+void ofApp::setup() {
+    panel = new ofxXRSPanel(ofxXRSPanelAnchor::TOP_LEFT);
+    pad = panel->add2dPad("2D Pad Label");
+}
+```
+To Instantiate Free-Floating:  
+```cpp
+/**
+ * ofApp.h
+ **/
+
+std::vector<ofxXRSComponent*> components;
+
+/**
+ * ofApp.cpp
+ **/
+void ofApp::setup() {
+    ofxXRSComponent* comp = new ofxXRS2dPad("2D Pad Label");
+    comp->setPosition(10, 10);
+    components.emplace_back(comp);
+}
+
+void ofApp::draw() {
+    for(auto& component : components) {
+        component->draw();
+    }
+}
+```
 ### Knob
 Like a slider but visualized as a circle rather than a rectangle.
 
@@ -325,7 +648,9 @@ Like a slider but visualized as a circle rather than a rectangle.
 > Class: `TODO; Not yet implemented`
 
 #### Methods
+Under construction.
 #### Instantiation
+Under construction.
 
 ### Large Button
 Works exactly like a button but is free-standing and can be given custom dimensions. Can be either rectangular or circular, set via an **ofxXRSSimpleButton::BUTTON_SHAPE** passed during instantiation or to the *setShape()* function.
@@ -350,6 +675,31 @@ Works exactly like a button but is free-standing and can be given custom dimensi
     - Sets the name of this large button, which will be drawn at (*xOffset*, *yOffset*) distance from the top-left of this large button
 
 #### Instantiation
+> Constructors:  
+`ofxXRSSimpleButton::setup(float x, float y, float width, float height, bool useListener)`  
+`ofxXRSSimpleButton::setup(float x, float y, float width, float height, bool useListener, bool manualRender, TYPE_BUTTONS type, BUTTON_SHAPES shape, ofColor color)`
+
+To Instantiate Free-Floating:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+ofxXRSSimpleButton button;
+
+
+/**
+ * ofApp.cpp
+ **/
+
+void ofApp::setup() {
+    button.setup(10, 10, 100, 100, true, false, TYPE_BUTTON, BUTTON_RECT, ofColor::green);
+    button.setName("Large Button");
+
+    // Since we passed "false" to the constructor's "manualRender" parameter,
+    // we do not need to call draw() on img in ofApp::draw().
+}
+```
 
 ### Large Image Button
 Works exactly like a Large Button but the sprite will be an image given during instantiation rather than a circle or rectangle. 
@@ -367,6 +717,29 @@ Works exactly like a Large Button but the sprite will be an image given during i
     - Sets this button to animate using an *ofFBO* with *time* milliseconds between frames (Needs testing)
 
 #### Instantiation
+> Constructors:  
+`ofxXRSSimpleButton::setup(float x, float y, string pathToImg, bool isAnimated, bool useListener, bool manualRender, TYPE_BUTTONS type)`
+
+To Instantiate Free-Floating:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+ofxXRSSimpleButton img;
+
+
+/**
+ * ofApp.cpp
+ **/
+void ofApp::setup() {
+    img.setup(10, 10, "img/button.png", false, true, false, TYPE_BUTTON);
+    img.setName("Large Image Button");
+
+    // Since we passed "false" to the constructor's "manualRender" parameter,
+    // we do not need to call draw() on img in ofApp::draw().
+}
+```
 
 <p>&nbsp;</p>
 
@@ -390,7 +763,27 @@ Simply displays a string of text. The alignment of the text can be set via an **
 *ofxXRSLabel* has no special methods. It's a label. Use all the label methods from [Common Methods](/components#common-methods).
 
 #### Instantiation
+> Constructors:  
+`ofxXRSLabel(string label)`
 
+To Instantiate in a Panel:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+ofxXRSPanel* panel;
+ofxXRSLabel* label;
+
+
+/**
+ * ofApp.cpp
+ **/
+void ofApp::setup() {
+    panel = new ofxXRSPanel(ofxXRSPanelAnchor::TOP_LEFT);
+    label = panel->addLabel("Label");
+}
+```
 ### Wave Monitor
 Smoothly oscillates between a negative and positive **amplitude** at a speed of **frequency** waves per second.  
 Not sure why anyone would use this.
@@ -409,6 +802,51 @@ Not sure why anyone would use this.
     - Sets the frequency limit of the wave.
 
 #### Instantiation
+> Constructors:  
+`ofxXRSWaveMonitor(string label, float frequency, float amplitude)`
+
+To Instantiate in a Panel:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+ofxXRSPanel* panel;
+ofxXRSWaveMonitor* monitor;
+
+
+/**
+ * ofApp.cpp
+ **/
+void ofApp::setup() {
+    panel = new ofxXRSPanel(ofxXRSPanelAnchor::TOP_LEFT);
+    monitor = panel->addWaveMonitor("Wave Monitor Label", 5.0f, 0.5f);
+}
+```
+
+To Instantiate Free-Floating: 
+```cpp
+/**
+ * ofApp.h
+ **/
+std::vector<ofxXRSComponent*> components;
+
+
+
+/**
+ * ofApp.cpp
+ **/
+void ofApp::setup() {
+    ofxXRSComponent* component = new ofxXRSWaveMonitor("Wave Monitor Label", 5.0f, 0.5f);
+    components.emplace_back(component);
+}
+
+void ofApp::draw() {
+    for(auto& component : components) {
+        component->draw();
+    }
+}
+```
 
 ### Value Plotter
 Charts a given **value** between a set **min** and **max** over time. Useful for performance and confidence monitors. Have whatever value is being tracked passed to `setValue()` in the update function.
@@ -429,6 +867,8 @@ Charts a given **value** between a set **min** and **max** over time. Useful for
     - It's `setMin()` and `setMax()` together at last!
 - `void setSpeed(float speed)`
     - Sets how fast the chart scrolls across the graph to *speed*
+- `void setDrawMode(ofxXRSDrawMode drawMode)`
+    - Sets the draw mode of this value plotter to *drawMode*. Currently supported draw modes are: OUTLINE, FILLED, LINES, and POINTS
 - `float getMin()`
     - Returns a float of the minimum value of this plotter.
 - `float getMax()`
@@ -437,13 +877,61 @@ Charts a given **value** between a set **min** and **max** over time. Useful for
     - Returns a float of maximum minus the minimum value of this plotter.
 
 #### Instantiation
+> Constructors:  
+`ofxXRSValuePlotter(string label, float min, float max)`  
+
+
+To Instantiate in a Panel:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+ofxXRSPanel* panel;
+ofxXRSValuePlotter* plotter;
+
+
+/**
+ * ofApp.cpp
+ **/
+
+void ofApp::setup() {
+    panel = new ofxXRSPanel(ofxXRSPanelAnchor::TOP_LEFT);
+    plotter = panel->addValuePlotter("Value Plotter Label", 0.0f, 50.0f);
+    plotter->setValue(25.0f);
+}
+```
+
+To Instantiate Free-Floating:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+ofxXRSValuePlotter* plotter;
+
+
+/**
+ * ofApp.cpp
+ **/
+
+void ofApp::setup() {
+    plotter = new ofxXRSValuePlotter("Value Plotter Label", 0.0f, 50.0f);
+    plotter->setPosition(10.0f, 10.0f);
+    plotter->setValue(25.0f);
+}
+
+void ofApp::draw() {
+    plotter->draw();
+}
+```
 
 <p>&nbsp;</p>
 
 ## Organizers
 Organizers serve no functional purpose - they are used, as the name implies, to organize your application's monitors and controls. 
 
-!> Headers, footers, and folders work ***exclusively*** with Panels. Do not try to put a Large Button in a Folder.
+!> Headers, footers, and folders work ***exclusively*** with Panels. Do not try to put a Large Button in a Panel.
 
 ### Panel
 Groups together multiple components into an on-screen panel. Constructor takes two floats for the panel's X,Y coordinates or an **ofxXRSPanelAnchor**
@@ -478,8 +966,28 @@ Groups together multiple components into an on-screen panel. Constructor takes t
     - Returns a pointer to the child *ofxXRSDropdown* with label *label*, or nullptr if a child could not be found.
 
 #### Instantiation
-!> Using X,Y coordinates calculated via the application window's width and height is recommended over using an **ofxXRSPanelAnchor** - they do not play nice with resizing windows.
+> Constructors:  
+`ofxXRSPanel(float x, float y)`  
+`ofxXRSPanel(ofxXRSPanelAnchor anchor)`
 
+
+!> Using X,Y coordinates calculated via the application window's width and height is recommended over using an **ofxXRSPanelAnchor** - they do not play nice with resizing windows.
+```cpp
+/**
+ * ofApp.h
+ **/
+
+ofxXRSPanel* panel;
+
+
+/**
+ * ofApp.cpp
+ **/
+
+void ofApp::setup() {
+    panel = new ofxXRSPanel(ofxXRSPanelAnchor::TOP_LEFT);
+}
+```
 
 ### Header
 A special label for a panel that automatically places itself at the top of the panel and allows the panel to be repositioned
@@ -489,6 +997,33 @@ A special label for a panel that automatically places itself at the top of the p
 
 >Class: `ofxXRSHeader`
 
+#### Methods
+*ofxXRSHeader* has no special methods.
+
+#### Instantiation
+> Constructors:  
+`ofxXRSHeader(string label = "")`
+
+
+To add a header to your panel:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+ofxXRSPanel* panel;
+ofxXRSHeader* header;
+
+
+/**
+ * ofApp.cpp
+ **/
+
+void ofApp::setup() {
+    panel = new ofxXRSPanel(ofxXRSPanelAnchor::TOP_LEFT);
+    header = panel->addHeader("Header Label");
+}
+```
 
 ### Footer
 A special label for a panel that automatically places itself at the bottom of the panel and allows the panel to be resized
@@ -498,7 +1033,33 @@ A special label for a panel that automatically places itself at the bottom of th
 
 >Class: `ofxXRSFooter`
 
+#### Methods
+*ofxXRSFooter* has no special methods.
 
+#### Instantiation
+> Constructors:  
+`ofxXRSFooter()`
+
+
+To add a footer to your panel:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+ofxXRSPanel* panel;
+ofxXRSFooter* footer;
+
+
+/**
+ * ofApp.cpp
+ **/
+ofApp::setup() {
+    panel = new ofxXRSPanel(ofxXRSPanelAnchor::TOP_LEFT);
+    footer = panel->addFooter();
+}
+
+```
 
 ### Folder
 Groups together multiple components within a panel into a labeled, collapsable folder view.
@@ -507,6 +1068,66 @@ Groups together multiple components within a panel into a labeled, collapsable f
 </div>
 
 >Class: `ofxXRSFolder`
+
+#### Methods
+The folder has no special methods that have not already been detailed in [Common Methods](components.md#common-methods)
+
+#### Instantiation
+> Constructors:  
+`ofxXRSFolder(string label, ofColor color = ofColor::white)`
+
+To Instantiate in Panel:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+ofxXRSPanel* panel;
+ofxXRSFolder* folder;
+
+
+/**
+ * ofApp.cpp
+ **/
+
+void ofApp::setup() {
+    panel = new ofxXRSPanel(ofxXRSPanelAnchor::TOP_LEFT);
+    folder = panel->addFolder("Folder");
+    folder->addButton("Child Button");
+    folder->addToggle("Child Toggle");
+}
+
+```
+
+To Instantiate Free-Floating:
+```cpp
+/**
+ * ofApp.h
+ **/
+
+std::vector<ofxXRSComponent*> components;
+
+
+/**
+ * ofApp.cpp
+ **/
+
+void ofApp::setup() {
+    ofxXRSComponent* folder = new ofxXRSFolder("Folder");
+    folder->setPosition(10, 10);
+    folder->addButton("Child Button");
+    folder->addToggle("Child Toggle");
+}
+
+void ofApp::draw() {
+    for(auto& component : components) {
+        component->draw();
+    }
+}
+```
+
+!>Note: Might need to add folder's children to *components* and *draw()* them as well. You might even only be able to add folders to panels. Idk I ain't tried this yet.
+
 
 ### Scroll View
 Similar to a folder, except instead of expanding to show its children via a dropdown, it is a fixed size and the user can scroll through the options when mousing over the component.
