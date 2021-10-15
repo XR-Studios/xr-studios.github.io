@@ -931,7 +931,7 @@ void ofApp::draw() {
 ## Organizers
 Organizers serve no functional purpose - they are used, as the name implies, to organize your application's monitors and controls. 
 
-!> Headers, footers, and folders work ***exclusively*** with Panels. Do not try to put a Large Button in a Panel.
+!> Headers, footers, and folders work ***exclusively*** with Panels. Do not try to put a folder in a folder.
 
 ### Panel
 Groups together multiple components into an on-screen panel. Constructor takes two floats for the panel's X,Y coordinates or an **ofxXRSPanelAnchor**
