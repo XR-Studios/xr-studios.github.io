@@ -7,7 +7,7 @@ ofxXRS is a library for creating consistent UIs for any proprietary software or 
 
 ofxXRS is an addon for [openFrameworks](https://openframeworks.cc/), a C++ toolkit for easy creation and rendering of applications.
 
-In its current state it is essentially an addon package more than an addon in its own right, it combines the following openFrameworks addons into one, with slight modifications to make them include or branding assets and play nice with one another:
+In its current state it is essentially an addon package more than an addon in its own right, it combines the following openFrameworks addons into one, with slight modifications to make them include our branding assets and play nice with one another:
 - [ofxDatGui](https://braitsch.github.io/ofxDatGui/) by braitsch
 - [ofxSimpleButton](https://github.com/azuremous/ofxSimpleButton) by azuremous
 - [ofxGuiExtended](https://github.com/frauzufall/ofxGuiExtended) by frauzufall

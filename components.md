@@ -33,6 +33,9 @@ Fires a trigger, listener, or some other event when clicked.
 Hooked up via an event listener function, a void method that takes an ofxXRSButtonEvent as an argument.  
 Flashes a different color when clicked or hovered over.  
 
+
+It's a button. You get it.
+
 >To Instantiate in Panel:
 ```cpp
 /**
