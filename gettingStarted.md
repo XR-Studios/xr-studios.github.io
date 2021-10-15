@@ -16,13 +16,13 @@ In its current state it is essentially an addon package more than an addon in it
 
 # Setup
 1. Download and setup [openFrameworks](https://openframeworks.cc/download/)
-2. Download the openFrameworks addon as a .zip from its [GitHub Repo]()
+2. Download the openFrameworks addon as a .zip from its [GitHub Repo](https://github.com/XR-Studios/ofxXRS)
 3. Extract the repo to your `openFrameworks/addons/` folder, removing "-master" from the folder name (the folder should just read *ofxXRS* similar to all the other addons in that folder)
-4. Run the **projectGenerator** and create a project. Make sure *ofxXRS* is included in the **addons** section. If *ofxXRS* does not appear as an option you did something wrong in steps 2-3.
+4. Run the **projectGenerator** and create a project. Make sure *ofxXRS* is included in the **addons** section. If *ofxXRS* does not appear as an option you did something wrong in steps 2-3. Check out openFrameworks' [guide for installing addons](https://openframeworks.cc/learning/01_basics/how_to_add_addon_to_project/) if you need help.
 5. Navigate to your `openFrameworks/addons/ofxXRS/` folder.
 6. Copy the **ofxXRS_img** folder itself into your project's data folder: `openFrameworks/apps/myApps/(projectName)/bin/data`
 7. Open your generated project.
-8. In your *ofApp.h*, `#include "ofxXRS.h"`
+8. In your *ofApp.h*, `#include "ofxXRS.h"` and `#include "ofxXRSSimpleButton.h"`
 9. You now have access to the ofxXRS library!
 
 <p>&nbsp;</p>
@@ -37,6 +37,7 @@ Add a member variable to your app's header file to hold the panel, then in your 
 /**
 * ofApp.h
 **/
+#include "ofxXRS.h"
 
 ofxXRSPanel* panel;
 
@@ -115,10 +116,15 @@ Last but not least, let's add some of the non-panel components to familiarize ou
 They need their own event listeners because they don't pass any of the *ofxXRSEvent* objects, so they aren't compatible
 with the onButtonEvent(), etc that we just declared and implemented for our panel's components.
 
+
+!> Note that these non-panel components have their own include file: *ofxXRSSimpleButton.h*
+
 ```cpp
 /**
 * ofApp.h
 **/
+
+#include "ofxXRSSimpleButton.h"
 
 ofxXRSSimpleButton rectangle, circle, img;
 void rectClicked();
