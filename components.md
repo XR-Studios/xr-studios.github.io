@@ -458,7 +458,7 @@ A control that drops down to a list of selections from which the user selects a 
 - `int size()`
     - Returns an int for how many options are in the dropdown
 - `string getSelected()`
-    - Returns a string for the currently selected option. Returns this dropdown's label if nothing has been selected.
+    - Returns a string for the currently selected option. Returns this dropdown's label if nothing has been selected (I think; have not tried)
 
 #### Instantiation
 > Constructors:  
