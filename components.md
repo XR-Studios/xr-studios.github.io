@@ -4,13 +4,13 @@ Components are the individual UI elements that make up your application.
 They are divided into three types: ``Controls``, ``Monitors``, and ``Organizers``
 
 ## Common Methods
-What follows is a list of methods that can be called on any object and that you will probably find useful.
+What follows is a list of methods that are shared by several classes and that you will probably find useful.
 
 ### Panel Components
 These methods can be called on any object that interacts with the Panel system - in other words, any component that inherits ofxXRSComponent. In other other words, any component except Large Buttons and Knobs.
 
  - `ofxXRSComponent* getComponent(ofxXRSType type, string label)` | `getComponent(string label)`
-     - Returns a pointer to the child object component matching *type* and/or *label*, or nullptr if no matching children could be found. Note that this method returns a generic ofxXRSComponent - use a more specific getter like `getButton(string label)` to get back an *ofxXRSButton\** or `getToggle(string label)` to get back an *ofxXRSToggle\**, etc. if you need to access component-specific methods.
+     - Returns a pointer to the child object component matching *type* and/or *label*, or nullptr if no matching children could be found. Note that this method returns a generic ofxXRSComponent.
 - `string getLabel()`
      - Returns a string of this component's label.
 - `void setLabel(string label)`

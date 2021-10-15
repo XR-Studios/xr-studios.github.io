@@ -22,7 +22,7 @@ In its current state it is essentially an addon package more than an addon in it
 5. Navigate to your `openFrameworks/addons/ofxXRS/` folder.
 6. Copy the **ofxXRS_img** folder itself into your project's data folder: `openFrameworks/apps/myApps/(projectName)/bin/data`
 7. Open your generated project.
-8. In your *ofApp.h*, `#include "ofxXRS.h"` and `#include "ofxXRSSimpleButton.h"`
+8. In your *ofApp.h*, `#include "ofxXRS.h"`
 9. You now have access to the ofxXRS library!
 
 <p>&nbsp;</p>
@@ -37,6 +37,7 @@ Add a member variable to your app's header file to hold the panel, then in your 
 /**
 * ofApp.h
 **/
+
 #include "ofxXRS.h"
 
 ofxXRSPanel* panel;
@@ -116,20 +117,16 @@ Last but not least, let's add some of the non-panel components to familiarize ou
 They need their own event listeners because they don't pass any of the *ofxXRSEvent* objects, so they aren't compatible
 with the onButtonEvent(), etc that we just declared and implemented for our panel's components.
 
-
-!> Note that these non-panel components have their own include file: *ofxXRSSimpleButton.h*
-
 ```cpp
 /**
 * ofApp.h
 **/
 
-#include "ofxXRSSimpleButton.h"
-
 ofxXRSSimpleButton rectangle, circle, img;
 void rectClicked();
 void circleClicked();
 void imgClicked();
+
 
 /**
 * ofApp.cpp
