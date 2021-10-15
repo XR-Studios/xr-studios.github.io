@@ -3,6 +3,41 @@ Components are the individual UI elements that make up your application.
 
 They are divided into three types: ``Controls``, ``Monitors``, and ``Organizers``
 
+### Common Methods
+What follows is a list of methods that can be called on any object and that you will probably find useful.
+
+#### Panel Components
+These methods can be called on any object that interacts with the Panel system - in other words, any component that inherits ofxXRSComponent. In other other words, any component except Large Buttons and Knobs.
+
+- **ofxXRSComponent**
+    - `getComponent(ofxXRSType type, string label)` | `getComponent(string label)`
+        - Returns a pointer to the child object component matching *type* and/or *label*, or nullptr if no matching children could be found. Note that this method returns a generic ofxXRSComponent - use a more specific getter like getButton() or getToggle() if you need to access component-specific methods.
+    - `getLabel()`
+        - Returns a string of this component's label.
+    - `setLabel(string label)`
+        - Set this component's label to *label*.
+    - `setLabelColor(ofColor color)`
+        - Sets the color of this component's label text to *color*.
+    - `getX()`
+        - Returns a float of this component's current X coordinate.
+    - `getY()`
+        - Returns a float of this component's current Y coordinate.
+    - `setVisible(bool visible)`
+        - Sets whether or not this component is visible equal to *visible*.
+    - `setStripeColor(ofColor color)`
+        - Sets the color of this component's stripe (See [Customizing Components]() for usage details)
+    - `setBackgroundColor(ofColor color)`
+        - Sets the color of this component's background (See [Customizing Components]() for usage details)
+    - `setBackgroundColorOnMouseOver(ofColor color)`
+        - Sets the color of this component's background while the user is mousing over it (See [Customizing Components]() for usage details)
+    - `setBackgroundColorOnMouseDown(ofColor color)`
+        - Sets the color that this component flashes when it is clicked (See [Customizing Components]() for usage details)
+    - `setEnabled(bool enabled)`
+        - Sets whether or not this component is enabled equal to *enabled*. Disabled elements will still draw but will not update or respond to any events.
+
+
+#### Free-floating Components
+
 ## Controls
 Controls are components that are interactable, and are hooked up to control some aspect of the stage or show.
 What follows is a list of controls that are implemented as part of the ofxXRS library:
@@ -36,7 +71,8 @@ Flashes a different color when clicked or hovered over.
 
 It's a button. You get it.
 
->To Instantiate in Panel:
+#### Instantiation
+To Instantiate in Panel:
 ```cpp
 /**
  * ofApp.h
@@ -55,7 +91,7 @@ void ofApp::setup() {
 }
 ```
 
->To Instantiate Free-Floating:
+To Instantiate Free-Floating:
 ```cpp
 /**
  * ofApp.h
@@ -78,6 +114,8 @@ void ofApp::draw() {
     }
 }
 ```
+#### Usage
+
 ### Toggle
 >Class: `ofxXRSToggle`
 <div align=justify>
