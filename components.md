@@ -28,7 +28,10 @@ The following is a list of controls that are not natively supported by Panels. T
 <img width="75%" src="./img/components/button.png"/>
 </div>
 
-Fires a trigger, listener, or some other event when clicked.
+Fires a trigger, listener, or some other event when clicked.  
+
+Hooked up via an event listener function, a void method that takes an ofxXRSButtonEvent as an argument.  
+Flashes a different color when clicked or hovered over.  
 
 >To Instantiate in Panel:
 ```cpp
