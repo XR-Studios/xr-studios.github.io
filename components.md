@@ -3,10 +3,10 @@ Components are the individual UI elements that make up your application.
 
 They are divided into three types: ``Controls``, ``Monitors``, and ``Organizers``
 
-### Common Methods
+## Common Methods
 What follows is a list of methods that can be called on any object and that you will probably find useful.
 
-#### Panel Components
+### Panel Components
 These methods can be called on any object that interacts with the Panel system - in other words, any component that inherits ofxXRSComponent. In other other words, any component except Large Buttons and Knobs.
 
  - `ofxXRSComponent* getComponent(ofxXRSType type, string label)` | `getComponent(string label)`
@@ -46,10 +46,55 @@ Classes that inherit from *ofxXRSGroup* (currently *ofxXRSFolder* and *ofxXRSDro
     - Get the height of the element in pixels.
 - `bool getIsExpanded()`
     - Returns a bool for whether or not this component is currently expanded.
-    
 
 
-#### Free-floating Components
+Classes that inherit from *ofxXRSInteractableObject* (currently *ofxXRSFolder* and *ofxXRSPanel*) have the following common methods, related to managing their child components:
+- `ofxXRSLabel* addLabel(string label)`
+    - Adds a label to the bottom of this component and returns a pointer to it.
+- `ofxXrsButton* addButton(string label)`
+    - Adds a button to the bottom of this component and returns a pointer to it.
+- `ofxXRSToggle* addToggle(string label, bool state)`
+    - Adds a toggle to the bottom of this component and returns a pointer to it. If you want a toggle to default to starting checked, set *state* to true.
+- `ofxXRSSlider* addSlider(string label, float min, float max, float value)`
+    - Adds a slider to the bottom of this component and returns a pointer to it.
+- `ofxXRSTextInput* addTextInput(string label, string value)`
+    - Adds a text input to the bottom of this component and returns a pointer to it.
+- `ofxXRSColorPicker* addColorPicker(string label, ofColor color)`
+    - Adds a color picker to the bottom of this component set to *color* and returns a pointer to it.
+- `ofxXRSBreak* addBreak()`
+    - Adds a horizontal break to the bottom of this component and returns a pointer to it.
+- `ofxXRS2dPad* add2dPad(string label)`
+    - Adds a 2D Coordinate Pad to the bottom of this component and returns a pointer to it.
+- `ofxXRSMatrix* addMatrix(string label, int numButtons, bool showLabels)`
+    - Adds a Button Matrix with *numButtons* buttons to the bottom of this component and returns a pointer to it. If *showLabels* is true, the index of each button will be drawn in the center of it.
+- `ofxXRSWaveMonitor* addWaveMonitor(string label, float frequency, float amplitude)`
+    - Adds a Wave Monitor with amplitude *amplitude* and frequency *frequency* to the bottom of this component and returns a pointer to it.
+- `ofxXRSValuePlotter* addValuePlotter(string label, float min, float max)`
+    - Adds a value plotter from range \[*min*-*max*\] to the bottom of this component and returns a pointer to it.
+- `void attachItem(ofxXRSComponent* item)`
+    - Attaches *item* to the bottom of this component.
+- `ofxXRSLabel* getLabel(string label)`
+    - Returns a pointer to the child *ofxXRSLabel* with label *label*, or nullptr if a child could not be found.
+- `ofxXRSButton* getButton(string label)`
+    - Returns a pointer to the child *ofxXRSButton* with label *label*, or nullptr if a child could not be found.
+- `ofxXRSToggle* getToggle(string label)`
+    - Returns a pointer to the child *ofxXRSToggle* with label *label*, or nullptr if a child could not be found.
+- `ofxXRSSlider* getSlider(string label)`
+    - Returns a pointer to the child *ofxXRSSlider* with label *label*, or nullptr if a child could not be found.
+- `ofxXRS2dPad* get2dPad(string label)`
+    - Returns a pointer to the child *ofxXRS2dPad* with label *label*, or nullptr if a child could not be found.
+- `ofxXRSTextInput* getTextInput(string label)`
+    - Returns a pointer to the child *ofxXRSTextInput* with label *label*, or nullptr if a child could not be found.
+- `ofxXRSColorPicker* getColorPicker(string label)`
+    - Returns a pointer to the child *ofxXRSColorPicker* with label *label*, or nullptr if a child could not be found.
+- `ofxXRSMatrix* getMatrix(string label)`
+    - Returns a pointer to the child *ofxXRSMatrix* with label *label*, or nullptr if a child could not be found.
+- `ofxXRSWaveMonitor* getWaveMonitor(string label)`
+    - Returns a pointer to the child *ofxXRSWaveMonitor* with label *label*, or nullptr if a child could not be found.
+- `ofxXRSValuePlotter* getValuePlotter(string label)`
+    - Returns a pointer to the child *ofxXRSValuePlotter* with label *label*, or nullptr if a child could not be found.
+
+### Free-floating Components
 
 ## Controls
 Controls are components that are interactable, and are hooked up to control some aspect of the stage or show.
@@ -78,10 +123,11 @@ Flashes a different color when clicked or hovered over.
 
 
 It's a button. You get it.
->Class: `ofxXRSButton`
 <div align=justify>
 <img width="75%" src="./img/components/button.png"/>
 </div>
+
+>Class: `ofxXRSButton`
 
 #### Methods
 `ofxXRSButton` has no unique methods. You click it and something happens! That's it!
@@ -133,10 +179,11 @@ void ofApp::draw() {
 
 ### Toggle
 A special type of button that keeps its state when pressed - used to toggle the state of something between "enabled" or "disabled", or set a variable to either 1 or 0, etc.
->Class: `ofxXRSToggle`
 <div align=justify>
 <img width="75%" src="./img/components/toggle.png"/>
 </div>
+
+>Class: `ofxXRSToggle`
 
 #### Methods
 - `void toggle()`
@@ -150,10 +197,11 @@ A special type of button that keeps its state when pressed - used to toggle the 
 
 ### Text Input
 A text box where the user can input a string.
->Class: `ofxXRSTextInput`
 <div align=justify>
 <img width="75%" src="./img/components/textInput.png"/>
 </div>
+
+>Class: `ofxXRSTextInput`
 
 #### Methods
 - `void setText(string text)`
@@ -171,10 +219,11 @@ A text box where the user can input a string.
 
 ### Slider
 A control that sets the value of something between a minimum and maximum range.
->Class: `ofxXRSSlider`
 <div align=justify>
 <img width="75%" src="./img/components/slider.png"/>
 </div>
+
+>Class: `ofxXRSSlider`
 
 #### Methods
 - `void setMin(float min)`
@@ -195,10 +244,11 @@ A control that sets the value of something between a minimum and maximum range.
 
 ### Color Picker
 A control that drops down to a color wheel when clicked which sets the color of something using **ofColor**
->Class: `ofxXRSColorPicker`
 <div align=justify>
 <img width="75%" src="./img/components/colorPicker.png"/>
 </div>
+
+>Class: `ofxXRSColorPicker`
 
 #### Methods
 - `void setColor(ofColor color)` | `setColor(int hex)` | `setColor(int r, int g, int b, int a)`
@@ -211,10 +261,11 @@ A control that drops down to a color wheel when clicked which sets the color of 
 
 ### Dropdown
 A control that drops down to a list of selections from which the user selects a single option
->Class: `ofxXRSDropdown`
 <div align=justify>
 <img width="75%" src="./img/components/dropdown.png"/>
 </div>
+
+>Class: `ofxXRSDropdown`
 
 #### Methods
 - `void select(int index)`
@@ -226,39 +277,71 @@ A control that drops down to a list of selections from which the user selects a 
 
 
 ### Button Matrix
->Class: `ofxXRSMatrix`
+A control that allows the user to toggle one or several buttons in a grid; most often used for cue lists.
 <div align=justify>
 <img width="75%" src="./img/components/buttonMatrix.png"/>
 </div>
 
-A control that allows the user to toggle one or several buttons in a grid; most often used for cue lists.
+>Class: `ofxXRSMatrix`
+
+#### Methods
+- `void setRadioMode(bool radioMode)`
+    - Sets whether or not this matrix is in radio mode (only one button can be active at a time) to *radioMode*
+- `void setSelected(std::vector<int> listOfIndices)`
+    - Sets all the button numbers in *listOfIndices* to active. Note that even if this matrix is set to radio mode, if there is more than one element in *listOfIndices*, they will all be set to active.
+- `std::vector<int> getSelected()`
+    - Returns a vector with a list of the indices of buttons that are currently active on this matrix.
+- `ofxXRSMatrixButton* getButtonAtIndex(int index)`
+    - Returns a pointer to the *ofxXRSMatrixButton* at *index*, or nullptr if there is no button at that index.
+
+#### Instantiation
+
+
 ### 2D Coordinate Pad
->Class: `ofxXRS2dPad`
+A control that allows the user to see and set the 2D Position (X, Y) of whatever aspect of the stage or show is hooked up to it.
 <div align=justify>
 <img width="75%" src="./img/components/2dpad.png"/>
 </div>
 
-A control that allows the user to see and set the 2D Position (X, Y) of whatever aspect of the stage or show is hooked up to it.
-### Knob
-> Class: `TODO`
+>Class: `ofxXRS2dPad`
 
+#### Methods
+- `void setPoint(ofPoint pt)`
+    - Moves the cursor to the location at *pt*. Does nothing if *pt* is outside of the bounds of this pad's graph.
+- `ofPoint getPoint()`
+    - Returns an *ofPoint* for the cursor's current location within the graph.
+- `void setBounds(ofRectangle bounds, bool scaleOnResize)`
+    - Sets this pad's graph to cover the coordinates spanning *bounds*. If *scaleOnResize* is true, the graph's coordinate system will resize with the pad.
+- `ofRectangle getBounds()`
+    - Returns an *ofRectangle* for the graph of this pad
+- `void reset()`
+    - Moves the cursor to the exact center of the pad's graph
+
+#### Instantiation
+
+
+### Knob
 Like a slider but visualized as a circle rather than a rectangle.
+> Class: `TODO; Not yet implemented`
+
+
 ### Large Button
->Class: `ofxXRSSimpleButton`
+Works exactly like a button but is free-standing and can be given custom dimensions. Can be either rectangular or circular, set via an **ofxXRSSimpleButton::BUTTON_SHAPE** passed during instantiation or to the *setShape()* function.
 <div align=justify>
 <img width="33%" src="./img/components/largeButton.png"/>
 </div>
 
-Works exactly like a button but is free-standing and can be given custom dimensions. Can be either rectangular or circular, set via an **ofxXRSSimpleButton::BUTTON_SHAPE** passed during instantiation or to the *setShape()* function.
-### Large Image Button
 >Class: `ofxXRSSimpleButton`
+
+### Large Image Button
+Works exactly like a Large Button but the sprite will be an image given during instantiation rather than a circle or rectangle. 
+
+!> Note that the button will appear *exactly* as its source image; there will be no border, cropping, resizing, or blending.
 <div align=justify>
 <img width="33%" src="./img/components/largeImageButton.png"/>
 </div>
 
-Works exactly like a Large Button but the sprite will be an image given during instantiation rather than a circle or rectangle. 
-
-!> Note that the button will appear *exactly* as its source image; there will be no border, cropping, resizing, or blending.
+>Class: `ofxXRSSimpleButton`
 
 <p>&nbsp;</p>
 
@@ -271,27 +354,64 @@ The following is a list of monitors built into the panel system, meaning they ca
 - Value Plotter
 
 ### Label
->Class: `ofxXRSLabel`
+Simply displays a string of text. The alignment of the text can be set via an **ofxXRSAlignment** passed to the *setLabelAlignment()* function
 <div align=justify>
 <img width="75%" src="./img/components/label.png"/>
 </div>
 
-Simply displays a string of text. The alignment of the text can be set via an **ofxXRSAlignment** passed to the *setLabelAlignment()* function
+>Class: `ofxXRSLabel`
+
+#### Methods
+*ofxXRSLabel* has no special methods. It's a label. Use all the label methods from [Common Methods](/components#common-methods).
+
+#### Instantiation
+
 ### Wave Monitor
->Class: `ofxXRSWaveMonitor`
+Smoothly oscillates between a negative and positive **amplitude** at a speed of **frequency** waves per second.  
+Not sure why anyone would use this.
 <div align=justify>
 <img width="75%" src="./img/components/waveMonitor.png"/>
 </div>
 
-Smoothly oscillates between a negative and positive **amplitude** at a speed of **frequency** waves per second.  
-Not sure why anyone would use this.
+>Class: `ofxXRSWaveMonitor`
+
+#### Methods
+- `void setAmplitude(float amp)`
+    - Sets the amplitude of the wave to *amp*. Amplitude is a multiplier that affects the vertical height of the wave and should be a value between 0 and 1.
+- `void setFrequency(float freq)`
+    - Sets the frequency of the wave to *freq*, within this monitor's frequency limit.
+- `void setFrequencyLimit(float limit)`
+    - Sets the frequency limit of the wave.
+
+#### Instantiation
+
 ### Value Plotter
->Class: `ofxXRSValuePlotter`
+Charts a given **value** between a set **min** and **max** over time. Useful for performance and confidence monitors. Have whatever value is being tracked passed to `setValue()` in the update function.
 <div align=justify>
 <img width="75%" src="./img/components/valuePlotter.png"/>
 </div>
 
-Charts a given **value** between a set **min** and **max** over time. Useful for performance and confidence monitors.
+>Class: `ofxXRSValuePlotter`
+
+#### Methods
+- `void setValue(float value)`
+    - Sets the current value of this plotter to *value*
+- `void setMin(float min)`
+    - Sets the minimum value of this value plotter to *min*
+- `void setMax(float max)`
+    - Sets the maximum value of this value plotter to *max*
+- `void setRange(float min, float max)`
+    - It's `setMin()` and `setMax()` together at last!
+- `void setSpeed(float speed)`
+    - Sets how fast the chart scrolls across the graph to *speed*
+- `float getMin()`
+    - Returns a float of the minimum value of this plotter.
+- `float getMax()`
+    - Returns a float of the maximum value of this plotter.
+- `float getRange()`
+    - Returns a float of maximum minus the minimum value of this plotter.
+
+#### Instantiation
 
 <p>&nbsp;</p>
 
@@ -301,43 +421,70 @@ Organizers serve no functional purpose - they are used, as the name implies, to 
 !> Headers, footers, and folders work ***exclusively*** with Panels. Do not try to put a Large Button in a Folder.
 
 ### Panel
-> Class: `ofxXRSPanel`
+Groups together multiple components into an on-screen panel. Constructor takes two floats for the panel's X,Y coordinates or an **ofxXRSPanelAnchor**
 <div align=justify>
 <img width="75%" src="./img/braitsch.png"/>
 </div>
 
-Groups together multiple components into an on-screen panel. Constructor takes two floats for the panel's X,Y coordinates or an **ofxXRSPanelAnchor**
+> Class: `ofxXRSPanel`
 
+#### Methods
+- `void setOpacity(float opacity)`
+    - Sets the opacity of this panel and the components within to *opacity*, between 0 and 1.
+- `void setLabelAlignment(ofxXRSAlignment alignment)`
+    - Sets how label text is justified to *alignment*
+- `void setAutoDraw(bool autoDraw)`
+    - Sets whether or not this panel automatically draws itself and its components (if false, you will have to call `draw()` on this panel in your app's *draw()* method)
+- `ofxXRSHeader* addHeader(string label, bool draggable)`
+    - Adds a header to this panel and returns a pointer to it. A panel can only have one header. Any subsequent `addHeader()` calls will override the previous header.
+- `ofxXRSFolder* addFolder(string label, ofColor color)`
+    - Adds a folder to the bottom of this panel and returns a pointer to it.
+- `ofxXRSDropDown* addDropdown(string label, std::vector<string> options)`
+    - Adds a dropdown populated with *options* to the bottom of this panel and returns a pointer to it.
+- `ofxXRSFooter* addFooter()`
+    - Adds a footer to the bottom of this panel and returns a pointer to it. A panel can only have one footer. It cannot have a label (yet). A footer will always be on the bottom of the panel regardless of in what order it was added.
+- `ofxXRSHeader* getHeader()`
+    - Returns a pointer to this panel's header, or nullptr if it has none.
+- `ofxXRSFooter* getFooter()`
+    - Returns a pointer to this panel's footer, or nullptr if it has none.
+- `ofxXRSFolder* getFolder(string label)`
+    - Returns a pointer to the child *ofxXRSFolder* with label *label*, or nullptr if a child could not be found.
+- `ofxXRSDropdown* getDropdown(string label)`
+    - Returns a pointer to the child *ofxXRSDropdown* with label *label*, or nullptr if a child could not be found.
+
+#### Instantiation
 !> Using X,Y coordinates calculated via the application window's width and height is recommended over using an **ofxXRSPanelAnchor** - they do not play nice with resizing windows.
 
 
 ### Header
->Class: `ofxXRSHeader`
+A special label for a panel that automatically places itself at the top of the panel and allows the panel to be repositioned
 <div align=justify>
 <img width="75%" src="./img/components/header.png"/>
 </div>
 
-A special label for a panel that automatically places itself at the top of the panel and allows the panel to be repositioned
+>Class: `ofxXRSHeader`
 
 
 ### Footer
->Class: `ofxXRSFooter`
+A special label for a panel that automatically places itself at the bottom of the panel and allows the panel to be resized
 <div align=justify>
 <img width="75%" src="./img/components/footer.png"/>
 </div>
 
-A special label for a panel that automatically places itself at the bottom of the panel and allows the panel to be resized
+>Class: `ofxXRSFooter`
+
 
 
 ### Folder
->Class: `ofxXRSFolder`
+Groups together multiple components within a panel into a labeled, collapsable folder view.
 <div align=justify>
 <img width="75%" src="./img/components/folder.png"/>
 </div>
 
-Groups together multiple components within a panel into a labeled, collapsable folder view.
+>Class: `ofxXRSFolder`
 
 ### Scroll View
+Similar to a folder, except instead of expanding to show its children via a dropdown, it is a fixed size and the user can scroll through the options when mousing over the component.
+
 >Class: `ofxXRSScrollView`
 
-Similar to a folder, except instead of expanding to show its children via a dropdown, it is a fixed size and the user can scroll through the options when mousing over the component.
