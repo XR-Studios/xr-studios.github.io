@@ -9,31 +9,44 @@ What follows is a list of methods that can be called on any object and that you 
 #### Panel Components
 These methods can be called on any object that interacts with the Panel system - in other words, any component that inherits ofxXRSComponent. In other other words, any component except Large Buttons and Knobs.
 
-- **ofxXRSComponent**
-    - `getComponent(ofxXRSType type, string label)` | `getComponent(string label)`
-        - Returns a pointer to the child object component matching *type* and/or *label*, or nullptr if no matching children could be found. Note that this method returns a generic ofxXRSComponent - use a more specific getter like getButton() or getToggle() if you need to access component-specific methods.
-    - `getLabel()`
-        - Returns a string of this component's label.
-    - `setLabel(string label)`
-        - Set this component's label to *label*.
-    - `setLabelColor(ofColor color)`
-        - Sets the color of this component's label text to *color*.
-    - `getX()`
-        - Returns a float of this component's current X coordinate.
-    - `getY()`
-        - Returns a float of this component's current Y coordinate.
-    - `setVisible(bool visible)`
-        - Sets whether or not this component is visible equal to *visible*.
-    - `setStripeColor(ofColor color)`
-        - Sets the color of this component's stripe (See [Customizing Components]() for usage details)
-    - `setBackgroundColor(ofColor color)`
-        - Sets the color of this component's background (See [Customizing Components]() for usage details)
-    - `setBackgroundColorOnMouseOver(ofColor color)`
-        - Sets the color of this component's background while the user is mousing over it (See [Customizing Components]() for usage details)
-    - `setBackgroundColorOnMouseDown(ofColor color)`
-        - Sets the color that this component flashes when it is clicked (See [Customizing Components]() for usage details)
-    - `setEnabled(bool enabled)`
-        - Sets whether or not this component is enabled equal to *enabled*. Disabled elements will still draw but will not update or respond to any events.
+ - `ofxXRSComponent* getComponent(ofxXRSType type, string label)` | `getComponent(string label)`
+     - Returns a pointer to the child object component matching *type* and/or *label*, or nullptr if no matching children could be found. Note that this method returns a generic ofxXRSComponent - use a more specific getter like `getButton(string label)` to get back an *ofxXRSButton\** or `getToggle(string label)` to get back an *ofxXRSToggle\**, etc. if you need to access component-specific methods.
+- `string getLabel()`
+     - Returns a string of this component's label.
+- `void setLabel(string label)`
+     - Set this component's label to *label*.
+- `void setLabelColor(ofColor color)`
+    - Sets the color of this component's label text to *color*.
+- `float getX()`
+    - Returns a float of this component's current X coordinate.
+- `float getY()`
+    - Returns a float of this component's current Y coordinate.
+- `void setVisible(bool visible)`
+    - Sets whether or not this component is visible equal to *visible*.
+- `void setStripeColor(ofColor color)`
+    - Sets the color of this component's stripe (See [Customizing Components]() for usage details)
+- `void setBackgroundColor(ofColor color)`
+    - Sets the color of this component's background (See [Customizing Components]() for usage details)
+- `void setBackgroundColorOnMouseOver(ofColor color)`
+    - Sets the color of this component's background while the user is mousing over it (See [Customizing Components]() for usage details)
+- `void setBackgroundColorOnMouseDown(ofColor color)`
+    - Sets the color that this component flashes when it is clicked (See [Customizing Components]() for usage details)
+- `void setEnabled(bool enabled)`
+    - Sets whether or not this component is enabled equal to *enabled*. Disabled elements will still draw but will not update or respond to any events.
+
+
+Classes that inherit from *ofxXRSGroup* (currently *ofxXRSFolder* and *ofxXRSDropdown*) have the following common methods:
+- `void expand()`
+    - Expands the component as if the user had clicked it while it was closed.
+- `void collapse()`
+    - Collapses the component as if the user had clicked it while it was open.
+- `void toggle()`
+    - If the component is expanded it collapses it, and vice versa.
+- `int getHeight()`
+    - Get the height of the element in pixels.
+- `bool getIsExpanded()`
+    - Returns a bool for whether or not this component is currently expanded.
+    
 
 
 #### Free-floating Components
@@ -58,11 +71,6 @@ The following is a list of controls that are not natively supported by Panels. T
 - Large Image Button
 
 ### Button
->Class: `ofxXRSButton`
-<div align=justify>
-<img width="75%" src="./img/components/button.png"/>
-</div>
-
 Fires a trigger, listener, or some other event when clicked.  
 
 Hooked up via an event listener function, a void method that takes an ofxXRSButtonEvent as an argument.  
@@ -70,6 +78,13 @@ Flashes a different color when clicked or hovered over.
 
 
 It's a button. You get it.
+>Class: `ofxXRSButton`
+<div align=justify>
+<img width="75%" src="./img/components/button.png"/>
+</div>
+
+#### Methods
+`ofxXRSButton` has no unique methods. You click it and something happens! That's it!
 
 #### Instantiation
 To Instantiate in Panel:
@@ -117,40 +132,99 @@ void ofApp::draw() {
 #### Usage
 
 ### Toggle
+A special type of button that keeps its state when pressed - used to toggle the state of something between "enabled" or "disabled", or set a variable to either 1 or 0, etc.
 >Class: `ofxXRSToggle`
 <div align=justify>
 <img width="75%" src="./img/components/toggle.png"/>
 </div>
 
-A special type of button that keeps its state when pressed - used to toggle the state of something between "enabled" or "disabled", or set a variable to either 1 or 0, etc.
+#### Methods
+- `void toggle()`
+    - Toggles this component from checked to unchecked or vice versa.
+- `void setChecked(bool checked)`
+    - Sets this component's checked state. Like `ofxXRSToggle::toggle()`, but you have control over the new state instead of just swapping.
+- `bool getChecked()`
+    - Returns a boolean for whether or not this component is checked or not.
+
+#### Instantiation
+
 ### Text Input
+A text box where the user can input a string.
 >Class: `ofxXRSTextInput`
 <div align=justify>
 <img width="75%" src="./img/components/textInput.png"/>
 </div>
 
-A text box where the user can input a string.
+#### Methods
+- `void setText(string text)`
+    - Sets the text of this input to *text*, as if it had been entered by the user.
+- `string getText()`
+    - Returns a string of the current value of this input
+- `void setUpperCase(bool isUpper)`
+    - Sets whether or not the text in the field is displayed in all-caps to *isUpper*
+- `bool getTextUpperCase()`
+    - Returns a boolean for whether or not the text in the field is displayed in all-caps
+- `void setInputType(ofxXRSInputType type)`
+    - Sets the input type of this field (numbers and letters, numbers only, etc) to *type*
+
+#### Instantiation
+
 ### Slider
+A control that sets the value of something between a minimum and maximum range.
 >Class: `ofxXRSSlider`
 <div align=justify>
 <img width="75%" src="./img/components/slider.png"/>
 </div>
 
-A control that sets the value of something between a minimum and maximum range.
+#### Methods
+- `void setMin(float min)`
+    - Sets the minimum value of this slider to *min*
+- `void setMax(float max)`
+    - Sets the maximum value of this slider to *max*
+- `void setValue(float value, bool dispatchEvent = true)`
+    - Sets the value of this slider to *value* (or min, or max, if outside that range). If dispatchEvent is false it will not fire this slider's *ofxXRSSliderEvent*
+- `void setScale(float scale)`
+    - Like `ofxXRSSlider::setValue()`, except *scale* must be between 0.0f and 1.0f, and it will map that value to the slider's range.
+- `float getValue()`
+    - Returns a float for the current value of this slider
+- `float getScale()`
+    - Returns a float for the current value of this slider between 0 and 1
+
+
+#### Instantiation
+
 ### Color Picker
+A control that drops down to a color wheel when clicked which sets the color of something using **ofColor**
 >Class: `ofxXRSColorPicker`
 <div align=justify>
 <img width="75%" src="./img/components/colorPicker.png"/>
 </div>
 
-A control that drops down to a color wheel when clicked which sets the color of something using **ofColor**
+#### Methods
+- `void setColor(ofColor color)` | `setColor(int hex)` | `setColor(int r, int g, int b, int a)`
+    - Sets the current color value of this color picker to *color* or *hex*, as if it had been selected by the user.
+- `ofColor getColor()`
+    - Returns an ofColor for the current color value of this color picker.
+
+
+#### Instantiation
+
 ### Dropdown
+A control that drops down to a list of selections from which the user selects a single option
 >Class: `ofxXRSDropdown`
 <div align=justify>
 <img width="75%" src="./img/components/dropdown.png"/>
 </div>
 
-A control that drops down to a list of selections from which the user selects a single option
+#### Methods
+- `void select(int index)`
+    - Selects the *index*-th option from the Dropdown as if it had been selected by the user.
+- `int size()`
+    - Returns an int for how many options are in the dropdown
+
+#### Instantiation
+
+
 ### Button Matrix
 >Class: `ofxXRSMatrix`
 <div align=justify>
