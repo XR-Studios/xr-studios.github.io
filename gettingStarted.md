@@ -81,17 +81,17 @@ void ofApp::onButtonEvent(ofxXRSButtonEvent e) {
     std::cout << "onButtonEvent from component: " << e.target->getLabel() << std::endl; 
 }
 
-void onToggleEvent(ofxXRSToggleEvent e) {
+void ofApp::onToggleEvent(ofxXRSToggleEvent e) {
     std::cout << "onToggleEvent from component: " << e.target->getLabel() << std::endl; 
     std::cout << "onToggleEvent state set to: " << e.target->getChecked() << std::endl;
 }
 
-void onSliderEvent(ofxXRSSliderEvent e) {
+void ofApp::onSliderEvent(ofxXRSSliderEvent e) {
     std::cout << "onSliderEvent from component: " << e.target->getLabel() << std::endl;
     std::cout << "onSliderEvent value: " << e.value << std::endl;
 }
 
-void on2dPadEvent(ofxXRS2dPadEvent e) {
+void ofApp::on2dPadEvent(ofxXRS2dPadEvent e) {
     std::cout << "on2dPadEvent from component: " << e.target->getLabel() << std::endl; 
     std::cout << "on2dPadEvent Coords: (" << e.x << ", " << e.y << ")" << std::endl;
 }
