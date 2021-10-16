@@ -170,9 +170,9 @@ We want our application to both send and receive data from d3, so we need to set
 
 First, import the addon that contains your desired communication protocol via **projectGenerator**. For d3, we'll use ofxOsc, which comes preinstalled in your **addons** folder.  
 Next, let's get our d3 project ready to be communicated with:
-1. Add a new Local **EventTransportOSC** under the "Transport" menu, let's call it *ofxXRS* for now.
-2. Give that transport a new **OSC Device**, let's call it *ofxXRS_device* for now.
-3. Give *ofxXRS_device* an IP address of `127.0.0.1` and assign it ports; for my example I'll set it to receive on port `12345` and send on port `12346`.
+1. Add a new Local *EventTransportOSC* under the "Transport" menu, let's call it **ofxXRS** for now.
+2. Give that transport a new *OSC Device*, let's call it **ofxXRS_device** for now.
+3. Give **ofxXRS_device** an IP address of `127.0.0.1` and assign it ports; for my example I'll set it to receive on port `12345` and send on port `12346`.
 4. Engage your transport in d3.
 
 !> Note: At the time of writing this, there is a bug in d3 where the OSC Device's "Send" IP Address will need to be re-entered every time your application is launched.
