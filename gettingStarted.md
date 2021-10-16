@@ -190,7 +190,7 @@ See the [ofxOsc Documentation](https://openframeworks.cc/documentation/ofxOsc/) 
 ofxOscReceiver receiver;
 ofxOscSender sender;
 
-ofxXRSLabel* label; // Store label we can operate on it even if we dont know its text
+ofxXRSLabel* label; // Store label so we can operate on it even if we dont know its text
 
 
 /**
