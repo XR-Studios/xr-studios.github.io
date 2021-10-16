@@ -202,8 +202,8 @@ void ofApp::setup() {
 
     receiver.start();
 
-    // Store label that we created in earlier example
-    label = panel->getLabel("Label");
+    // Create label like in first example, but store it for later
+    label = panel->addLabel("Label");
 }
 
 void ofApp::update() {
