@@ -161,7 +161,7 @@ void ofApp::imgClicked() {
 ```
 <p>&nbsp;</p>
 
-# Communicating with other Applications
+# External Communication
 So, we've got our first app with a nice little UI set up with some event listeners. But we want it to talk to other apps! We integrate content here, we don't develop software for creating content! Well, let's get our app talking to our primary stage tools so we can get it interacting with our ecosystem.
 
 For this example, we'll get our application talking to d3.  
