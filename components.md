@@ -699,7 +699,7 @@ void ofApp::setup() {
     button.setName("Large Button");
 
     // Since we passed "false" to the constructor's "manualRender" parameter,
-    // we do not need to call draw() on img in ofApp::draw().
+    // we do not need to call draw() on button in ofApp::draw().
 }
 ```
 
