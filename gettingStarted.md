@@ -161,6 +161,74 @@ void ofApp::imgClicked() {
 ```
 <p>&nbsp;</p>
 
+# Communicating with other Applications
+So, we've got our first app with a nice little UI set up with some event listeners. But we want it to talk to other apps! We integrate content here, we don't develop software for creating content! Well, let's get our app talking to our primary stage tools so we can get it interacting with our ecosystem.
+
+For this example, we'll get our application talking to d3.  
+
+We want our application to both send and receive data from d3, so we need to set up both an **ofxOscSender** and an **ofxOscReceiver**. For our **ofxOscSender**, let's make it so that when we press the rectangular button we set up in the [My First XRS App](gettingStarted.md#my-first-xrs-app), it goes to the next section on the current track in d3. For our **ofxOscReceiver**, let's simply set the label we created in our first panel to monitor the heartbeat that d3 sends out over OSC.
+
+First, import the addon that contains your desired communication protocol via **projectGenerator**. For d3, we'll use ofxOsc, which comes preinstalled in your **addons** folder.  
+Next, let's get our d3 project ready to be communicated with:
+1. Add a new Local EventTransportOSC under the "Transport" menu, let's call it "ofxXRS" for now.
+2. Give that transport a new OSC Device, let's call it "ofxXRS_device" for now.
+3. Give ofxXRS_device an IP address of 127.0.0.1 and assign it ports; for my example I'll set it to receive on port 12345 and send on port 12346.
+4. Engage your transport in d3.
+
+!> Note: At the time of writing this, there is a bug in d3 where the OSC Device's "Send" IP Address will need to be re-entered every time your application is launched.
+
+See the [ofxOsc Documentation](https://openframeworks.cc/documentation/ofxOsc/) if you're unsure about what's going on with ofxOsc.
+```cpp
+/**
+ * ofApp.h
+ **/
+
+#include "ofxOsc.h"
+#define D3_OSC_RECEIVE_PORT 12345
+#define D3_OSC_SEND_PORT 12346
+
+ofxOscReceiver receiver;
+ofxOscSender sender;
+
+ofxXRSLabel* label; // Store label we can operate on it even if we dont know its text
+
+
+/**
+ * ofApp.cpp
+ **/
+void ofApp::setup() {
+    receiver.setup(D3_OSC_RECEIVE_PORT);
+    sender.setup("localhost", D3_OSC_SEND_PORT);
+
+    receiver.start();
+
+    // Store label that we created in earlier example
+    label = panel->getLabel("Label");
+}
+
+void ofApp::update() {
+    while(receiver.hasWaitingMessages()) {
+        ofxOscMessage msg;
+        receiver.getNextMessage(msg);
+        std::string address = msg.getAddress();
+        if(address == "/d3/showcontrol/heartbeat") {
+            float value = msg.getArgAsFloat(0);
+            label->setLabel(std::to_string(value));
+        }
+    }
+}
+
+void ofApp::rectClicked() {
+    ofxOscMessage msg;
+    msg.setAddress("/d3/showcontrol/nextsection");
+    msg.addStringArg("GO");
+    sender.sendMessage(msg);
+}
+```
+Now we're driving d3 via our proprietary app! Woo hoo!
+
+<p>&nbsp;</p>
+
 # Gotchas
  - I installed the addon properly, but when I run my app, it says it can't find a .png or .ttf file and halts!
     - You have improperly set up the folder path to the fonts and images for the UI, which is hardcoded. The folder structure should be as follows for your application's library to properly locate its resources:  
