@@ -323,7 +323,7 @@ A control that sets the value of something between a minimum and maximum range.
 - `void setMax(float max)`
     - Sets the maximum value of this slider to *max*
 - `void setValue(float value, bool dispatchEvent = true)`
-    - Sets the value of this slider to *value* (or min, or max, if outside that range). If dispatchEvent is false it will not fire this slider's *ofxXRSSliderEvent*
+    - Sets the value of this slider to *value* (or min, or max, if outside that range) as if it had been set by the user. If dispatchEvent is false it will not fire this slider's *ofxXRSSliderEvent*
 - `void setScale(float scale)`
     - Like `ofxXRSSlider::setValue()`, except *scale* must be between 0.0f and 1.0f, and it will map that value to the slider's range.
 - `float getValue()`
