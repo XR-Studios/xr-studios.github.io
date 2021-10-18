@@ -264,8 +264,5 @@ Now we're driving d3 via our proprietary app! Woo hoo!
 - I get a linker or SDK error when trying to build my project in Visual Studio!
     - Are you using Visual Studio 2019? Each openFrameworks release is written for a specific version of Microsoft's C++ SDK. Currently openFrameworks only works with Visual Studio 2017 using the Visual Studio 2017 Build Tools.
 <p>&nbsp;</p>
-- It sucks that panel components and non-panel components like Large Buttons aren't aware of one another at all! They shouldn't need separate event listeners!
-    - I'm working on it!!!
-<p>&nbsp;</p>
 - How do I know when to use `->` versus `.` when referencing an object?
     - You do not know C++ well enough to effectively develop native applications. Ask Jeremy for the CodeAcademy login and take some classes.
