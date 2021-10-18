@@ -48,6 +48,7 @@ ofxXRSPanel* panel;
  **/
 
 void ofApp::setup() {
+    // Init our panel and add some components to it
     panel = new ofxXRSPanel(ofxXRSPanelAnchor::TOP_LEFT);
     panel->addLabel("Label");
     panel->addButton("Button");
@@ -76,6 +77,7 @@ In our application's header file, add methods to handle all our events, and impl
  * ofApp.h
  **/
 
+// e.target will be a pointer to the component that was triggered
 void onButtonEvent(ofxXRSButtonEvent e);
 void onToggleEvent(ofxXRSToggleEvent e);
 void onSliderEvent(ofxXRSSliderEvent e);
@@ -113,9 +115,9 @@ void ofApp::setup() {
 }
 ```
 You now have functional controls with your Panel UI!  
-Last but not least, let's add some of the non-panel components to familiarize ourselves with them.
-They need their own event listeners because they don't pass any of the *ofxXRSEvent* objects, so they aren't compatible
-with the onButtonEvent(), etc that we just declared and implemented for our panel's components.
+Last but not least, let's add some of the non-panel components to familiarize ourselves with them, and add them to our event listeners.
+
+Since the in-panel buttons are a different class than the free-floating buttons, the argument they pass to the event listener will be different. If the `onButtonEvent`'s **targetSimple** variable is a *nullptr*, the `onButtonEvent` was called by an in-panel button. Otherwise, if the `onButtonEvent`'s **target** variable is a *nullptr*, the `onButtonEvent` was called by a Large Button.
 
 ```cpp
 /**
@@ -123,9 +125,6 @@ with the onButtonEvent(), etc that we just declared and implemented for our pane
 **/
 
 ofxXRSSimpleButton rectangle, circle, img;
-void rectClicked();
-void circleClicked();
-void imgClicked();
 
 
 /**
@@ -133,29 +132,32 @@ void imgClicked();
 **/
 
 void ofApp::setup() {
+    // Init our buttons:
+    // x, y, width, height, useEvent, manualRender, type, shape, color
     rectangle.setup(10, 10, 100, 100, true, false, ofxXRSSimpleButton::TYPE_BUTTON, ofxXRSSimpleButton::BUTTON_RECT, ofColor::green);
     rectangle.setName("Large Rectangular Button");
-    ofAddListener(rectangle.mousePressedEvent, this, &ofApp::rectClicked);
+    rectangle.onButtonEvent(this, &ofApp::onButtonEvent);
 
-    circle.setup(10, 120, 100, 100, true, false, ofxXRSSimpleButton::TYPE_BUTTON, ofxXRSSimpleButton::BUTTON_RECT, ofColor::red);
+    // The same as above but "shape" is BUTTON_CIRCLE
+    circle.setup(10, 120, 100, 100, true, false, ofxXRSSimpleButton::TYPE_BUTTON, ofxXRSSimpleButton::BUTTON_CIRCLE, ofColor::red);
     circle.setName("Large Circular Button");
-    ofAddListener(circle.mousePressedEvent, this, &ofApp::rectClicked);
+    circle.onButtonEvent(this, &ofApp::onButtonEvent);
 
+    // Init our Large Image Button:
+    // x, y, pathToImage
     img.setup(10, 240, "path/to/img.png");
     img.setName("Large Image Button");
-    ofAddListener(img.mousePressedEvent, this, &ofApp::imgClicked);
+    img.onButtonEvent(this, &ofApp::onButtonEvent);
 }
 
-void ofApp::rectClicked() {
-    std::cout << "Rectangular Button Clicked!" << std::endl;
-}
-
-void ofApp::circleClicked() {
-    std::cout << "Circular Button Clicked!" << std::endl;
-}
-
-void ofApp::imgClicked() {
-    std::cout << "Image Button Clicked!" << std::endl;
+void ofApp::onButtonEvent(ofxXRSButtonEvent e) {
+    if(e.targetSimple != nullptr) {
+        // e.targetSimple is populated, so e has come from an ofxXRSSimpleButton
+        std::cout << "onButtonEvent from component: " << e.targetSimple->getName() << std::endl;
+    } else if (e.target != nullptr) {
+        // e.target is populated, so e has come from an ofxXRSButton
+        std::cout << "onButtonEvent from component: " << e.target->getLabel() << std::endl;
+    }
 }
 
 ```
@@ -197,6 +199,8 @@ ofxXRSLabel* label; // Store label so we can operate on it even if we dont know 
  * ofApp.cpp
  **/
 void ofApp::setup() {
+    // Setup our sender and receiver to match our 
+    // d3 project's OSC transport settings
     receiver.setup(D3_OSC_RECEIVE_PORT);
     sender.setup("localhost", D3_OSC_SEND_PORT);
 
@@ -207,22 +211,40 @@ void ofApp::setup() {
 }
 
 void ofApp::update() {
+    // ofxOscReceiver::hasWaitingMessages() will be true whenever 
+    // receiver gets a message. It will remain true until emptied by
+    // calling ofxOscReceiver::getNextMessage()
     while(receiver.hasWaitingMessages()) {
         ofxOscMessage msg;
-        receiver.getNextMessage(msg);
+
+        // Populates msg with the contents of the next waiting message
+        receiver.getNextMessage(msg); 
+
+        // Wait for the specific message we want because d3 sends dozens
         std::string address = msg.getAddress();
         if(address == "/d3/showcontrol/heartbeat") {
+            // Get the value of the message and write it to label
             float value = msg.getArgAsFloat(0);
             label->setLabel(std::to_string(value));
         }
     }
 }
 
-void ofApp::rectClicked() {
-    ofxOscMessage msg;
-    msg.setAddress("/d3/showcontrol/nextsection");
-    msg.addStringArg("GO");
-    sender.sendMessage(msg);
+void ofApp::onButtonEvent(ofxXRSButtonEvent e) {
+    if(e.targetSimple != nullptr) {
+        if(e.targetSimple->getName() == "Large Rectangular Button") {
+            // Init a message and send it. This specific OSC command takes
+            // a string value per d3 (hover over each OSC input in d3 to see
+            // its argument type) of any value; simply pinging the address
+            // with any string will trigger the effect.
+            ofxOscMessage msg;
+            msg.setAddress("/d3/showcontrol/nextsection");
+            msg.addStringArg("GO");
+            sender.sendMessage(msg);
+        }
+    } else if (e.target != nullptr) {
+        std::cout << "onButtonEvent from component: " << e.target->getLabel() << std::endl;
+    }
 }
 ```
 Now we're driving d3 via our proprietary app! Woo hoo!
