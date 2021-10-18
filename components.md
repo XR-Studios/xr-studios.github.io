@@ -125,7 +125,9 @@ It's a button. You get it.
 <img width="75%" src="./img/components/button.png"/>
 </div>
 
->Class: `ofxXRSButton`
+> Class: `ofxXRSButton`
+
+> Event Listener: `ofxXRSButton::onButtonEvent(*owner, &owner::void(ofxXRSButtonEvent))`
 
 #### Methods
 `ofxXRSButton` has no unique methods. You click it and something happens! That's it!
@@ -183,6 +185,8 @@ A special type of button that keeps its state when pressed - used to toggle the 
 </div>
 
 >Class: `ofxXRSToggle`
+
+> Event Listener: `ofxXRSToggle::onToggleEvent(*owner, &owner::void(ofxXRSToggleEvent))`
 
 #### Methods
 - `void toggle()`
@@ -248,6 +252,8 @@ A text box where the user can input a string.
 </div>
 
 >Class: `ofxXRSTextInput`
+
+> Event Listener: `ofxXRSTextInput::onTextInputEvent(*owner, &owner::void(ofxXRSTextInputEvent))`
 
 #### Methods
 - `void setText(string text)`
@@ -315,7 +321,9 @@ A control that sets the value of something between a minimum and maximum range.
 <img width="75%" src="./img/components/slider.png"/>
 </div>
 
->Class: `ofxXRSSlider`
+> Class: `ofxXRSSlider`
+
+> Event Listener: `ofxXRSSlider::onSliderEvent(*owner, &owner::void(ofxXRSSliderEvent))`
 
 #### Methods
 - `void setMin(float min)`
@@ -393,6 +401,8 @@ A control that drops down to a color wheel when clicked which sets the color of 
 
 >Class: `ofxXRSColorPicker`
 
+> Event Listener: `ofxXRSColorPicker::onColorPickerEvent(*owner, &owner::void(ofxXRSColorPickerEvent))`
+
 #### Methods
 - `void setColor(ofColor color)` | `setColor(int hex)` | `setColor(int r, int g, int b, int a)`
     - Sets the current color value of this color picker to *color* or *hex*, as if it had been selected by the user.
@@ -451,6 +461,8 @@ A control that drops down to a list of selections from which the user selects a 
 </div>
 
 >Class: `ofxXRSDropdown`
+
+> Event Listener: `ofxXRSDropdown::onDropdownEvent(*owner, &owner::void(ofxXRSDropdownEvent))`
 
 #### Methods
 - `void select(int index)`
@@ -521,6 +533,8 @@ A control that allows the user to toggle one or several buttons in a grid; most 
 
 >Class: `ofxXRSMatrix`
 
+> Event Listener: `ofxXRSMatrix::onMatrixEvent(*owner, &owner::void(ofxXRSMatrixEvent))`
+
 #### Methods
 - `void setRadioMode(bool radioMode)`
     - Sets whether or not this matrix is in radio mode (only one button can be active at a time) to *radioMode*
@@ -584,6 +598,8 @@ A control that allows the user to see and set the 2D Position (X, Y) of whatever
 </div>
 
 >Class: `ofxXRS2dPad`
+
+> Event Listener: `ofxXRS2dPad::on2dPadEvent(*owner, &owner::void(ofxXRS2dPadEvent))`
 
 #### Methods
 - `void setPoint(ofPoint pt)`
@@ -662,6 +678,8 @@ Works exactly like a button but is free-standing and can be given custom dimensi
 
 >Class: `ofxXRSSimpleButton`
 
+> Event Listener: `ofxXRSSimpleButton::onButtonEvent(*owner, &owner::void(ofxXRSButtonEvent))`
+
 #### Methods
 - `void setType(ofxXRSSimpleButton::TYPE_BUTTONS type)`
     - Sets the type of this large button to *type*
@@ -713,6 +731,8 @@ Works exactly like a Large Button but the sprite will be an image given during i
 
 >Class: `ofxXRSSimpleButton`
 
+> Event Listener: `ofxXRSSimpleButton::onButtonEvent(*owner, &owner::void(ofxXRSButtonEvent))`
+
 #### Methods
 - Since they are the same class, *ofxXRSSimpleButton*, Large Image Buttons have access to the same methods as [Large Buttons](components.md#large-button); however, methods that affect the drawing of the button, like `setShape()` and `setColor()`, will have no effect.
 - `void setAsAnimationButton(int time)`
@@ -761,6 +781,8 @@ Simply displays a string of text. The alignment of the text can be set via an **
 
 >Class: `ofxXRSLabel`
 
+> Event Listener: None
+
 #### Methods
 *ofxXRSLabel* has no special methods. It's a label. Use all the label methods from [Common Methods](/components#common-methods).
 
@@ -794,6 +816,8 @@ Not sure why anyone would use this.
 </div>
 
 >Class: `ofxXRSWaveMonitor`
+
+> Event Listener: None
 
 #### Methods
 - `void setAmplitude(float amp)`
@@ -857,6 +881,8 @@ Charts a given **value** between a set **min** and **max** over time. Useful for
 </div>
 
 >Class: `ofxXRSValuePlotter`
+
+> Event Listener: None
 
 #### Methods
 - `void setValue(float value)`
@@ -942,6 +968,8 @@ Groups together multiple components into an on-screen panel. Constructor takes t
 </div>
 
 > Class: `ofxXRSPanel`
+
+> Event Listener: None
 
 #### Methods
 - `void setOpacity(float opacity)`
@@ -1035,6 +1063,8 @@ A special label for a panel that automatically places itself at the bottom of th
 
 >Class: `ofxXRSFooter`
 
+> Event Listener: None
+
 #### Methods
 *ofxXRSFooter* has no special methods.
 
@@ -1070,6 +1100,8 @@ Groups together multiple components within a panel into a labeled, collapsable f
 </div>
 
 >Class: `ofxXRSFolder`
+
+> Event Listener: None
 
 #### Methods
 The folder has no special methods that have not already been detailed in [Common Methods](components.md#common-methods)
@@ -1136,3 +1168,4 @@ Similar to a folder, except instead of expanding to show its children via a drop
 
 >Class: `ofxXRSScrollView`
 
+> Event Listener: None
