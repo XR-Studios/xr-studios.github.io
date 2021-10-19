@@ -1,4 +1,6 @@
 # Documentation
 This section serves as an API Reference for the ofxXRS library.
 
-Right now only the [Getting Started](gettingStarted.md) and [Components](components.md) sections exist, so head to one of those pages for more details.
+Head to the [Getting Started](gettingStarted.md) page if you want to set up an app with the XRS library.
+
+If you're all set up head to [Components](components.md) or [Themes](themes.md) for reference details.
