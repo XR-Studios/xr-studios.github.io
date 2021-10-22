@@ -16,10 +16,13 @@ In its current state it is essentially an addon package more than an addon in it
 
 # Setup
 1. Download and setup [openFrameworks](https://openframeworks.cc/download/)
-2. Download the openFrameworks addon as a .zip from its [GitHub Repo](https://github.com/XR-Studios/ofxXRS)
-3. Extract the repo to your `openFrameworks/addons/` folder, removing "-master" from the folder name (the folder should just read *ofxXRS* similar to all the other addons in that folder)
-4. Run the **projectGenerator** and create a project. Make sure *ofxXRS* is included in the **addons** section. If *ofxXRS* does not appear as an option you did something wrong in steps 2-3. Check out openFrameworks' [guide for installing addons](https://openframeworks.cc/learning/01_basics/how_to_add_addon_to_project/) if you need help.
-5. Navigate to your `openFrameworks/addons/ofxXRS/` folder.
+    - At time of writing, openFrameworks' Windows Setup Guide is quite outdated. All you need to do to start working in openFrameworks is the following:
+        1. Have Visual Studio 2017 installed (incl. C++ development support)
+        2. Download openFrameworks for Visual Studio 2017 and extract the .zip somewhere
+2. Download the XRS openFrameworks addon as a .zip from its [GitHub Repo](https://github.com/XR-Studios/ofxXRS)
+3. Extract the XRS openFrameworks addon .zip to your extracted openFrameworks folder's addons folder, removing "-master" from the folder name (the folder should just read *ofxXRS* similar to all the other addons in that folder)
+4. Run `projectGenerator.exe` located in your extracted openFrameworks folder's **projectGenerator** folder and create a project. Make sure *ofxXRS* is included in the **addons** section. If *ofxXRS* does not appear as an option you did something wrong in steps 2-3. Check out openFrameworks' [guide for installing addons](https://openframeworks.cc/learning/01_basics/how_to_add_addon_to_project/) if you need help.
+5. Navigate to your extracted openFrameworks folder's **addons/ofxXRS** folder.
 6. Copy the **ofxXRS_img** folder itself into your project's data folder: `openFrameworks/apps/myApps/(projectName)/bin/data`
 7. Open your generated project.
 8. In your *ofApp.h*, `#include "ofxXRS.h"`
@@ -67,6 +70,10 @@ void ofApp::setup() {
     panel->setTheme(theme);
 }
 ```
+
+<p>&nbsp;</p>
+
+
 Note that by default, all UI elements in ofxXRS auto-draw, and thus nothing needs to be done with your components in the *draw()* method.
 
 Run your app, and ta-da! A nice fancy UI in the corner. However, the UI as it currently exists is just graphics. Let's add some event listeners to hook it up.
@@ -114,6 +121,10 @@ void ofApp::setup() {
     panel->on2dPadEvent(this, &ofApp::on2dPadEvent);
 }
 ```
+
+<p>&nbsp;</p>
+
+
 You now have functional controls with your Panel UI!  
 Last but not least, let's add some of the non-panel components to familiarize ourselves with them, and add them to our event listeners.
 
@@ -174,7 +185,7 @@ First, import the addon that contains your desired communication protocol via **
 Next, let's get our d3 project ready to be communicated with:
 1. Add a new Local *EventTransportOSC* under the "Transport" menu, let's call it **ofxXRS** for now.
 2. Give that transport a new *OSC Device,* let's call it **ofxXRS_device** for now.
-3. Give **ofxXRS_device** an IP address of `127.0.0.1` (or the IP address of the machine running the d3 project) and assign it ports; for my example I'll set it to receive on port `12345` and send on port `12346`.
+3. Give **ofxXRS_device** an IP address of `127.0.0.1` (or the IP address of the machine running your application) and assign it ports; for my example I'll set it to receive on port `12345` and send on port `12346`.
 4. Engage your transport in d3.
 
 !> Note: At the time of writing this, there is a bug in d3 where the OSC Device's "Send" IP Address will need to be re-entered every time your application is launched.
