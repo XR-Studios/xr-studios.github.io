@@ -2,3 +2,4 @@
     - [Getting Started](gettingStarted.md "XRS OpenFrameworks")
     - [Components](components.md "XRS OpenFrameworks")
     - [Themes](themes.md "XRS OpenFrameworks")
+    - [Release Guide](release.md "XRS OpenFrameworks")
