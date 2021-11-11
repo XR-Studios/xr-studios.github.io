@@ -1,6 +1,6 @@
 # Documentation
-This section serves as an API Reference for the ofxXRS library.
+This section serves as a hub for documentation for software developed by XR Studios.
 
-Head to the [Getting Started](gettingStarted.md) page if you want to set up an app with the XRS library.
-
-If you're all set up head to [Components](components.md) or [Themes](themes.md) for reference details.
+Our currently released software are:
+- [TouchDesigner RenderStream Plugin](touchRender/guide.md)
+- [XRS OpenFrameworks Addon](ofxXRS/guide.md)
