@@ -2,7 +2,7 @@
 ## About
 RenderStream for TouchDesigner, called *TouchRender* for short, is a plugin for [Disguise's](http://disguise.one) RenderStream protocol, which allows controlling third-party render engines from the disguise software. This plugin allows Derivative's [TouchDesigner](http://derivative.ca) to be used as one of said third-party render engines alongside the natively-supported Unreal Engine and Notch Builder.
 
-TouchRender exists as a set up of Custom Operators for TouchDesigner that, when launched as a RenderStream Asset from Disguise, allow for streaming of TouchDesigner content directly to Disguise as if it were any normal content layer.
+TouchRender exists as a set of Custom Operators for TouchDesigner that, when launched as a RenderStream Asset from Disguise, allow for streaming of TouchDesigner content directly to Disguise as if it were any normal content layer.
 
 <p>&nbsp;</p>
 
