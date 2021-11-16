@@ -184,3 +184,5 @@ void ofApp::windowResized(int w, int h) {
     m_customized = false;
 }
 ```
+
+!> Protip: Calling `themeVar->resize(2.367)` will resize your panels enough that three of them will fit snugly in a 1080-width window
