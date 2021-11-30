@@ -8,8 +8,8 @@ TODO map with entrances and google map pin
 
 ## Technical Information
 ### Physical Space
- * 70ft. 9in. by 19ft. 8in. LED Stage Area
- * 73ft. by 74ft. 1in. Total Usable Stage Space
+ * LED Stage Area: 53' x 35' x 20' 
+ * Total Studio Space: 97' x 69' 
 
 ### Cameras
 * 4x RED Komodo
