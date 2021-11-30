@@ -1,0 +1,7 @@
+- [Home](/)
+- [Studio](docs/stage/sunset/studioInfo.md)
+- [Content](docs/content/guide.md)
+- [Software](docs/software/home.md)
+    - [TouchDesigner RenderStream](docs/software/touchRender/guide.md "XRS TouchRender")
+        - [Getting Started](docs/software/touchRender/gettingStarted.md "XRS TouchRender")
+    - [ofxXRS](docs/software/ofxXRS/guide.md "XRS OpenFrameworks")
