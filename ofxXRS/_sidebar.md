@@ -1,7 +1,0 @@
-- [Home](../)
-    - [TouchDesigner RenderStream](touchRender/guide.md "XRS TouchRender")
-    - [ofxXRS](ofxXRS/guide.md "XRS OpenFrameworks")
-        - [Getting Started](ofxXRS/gettingStarted.md "XRS OpenFrameworks")
-        - [Components](ofxXRS/components.md "XRS OpenFrameworks")
-        - [Themes](ofxXRS/themes.md "XRS OpenFrameworks")
-        - [Release Guide](ofxXRS/release.md "XRS OpenFrameworks")

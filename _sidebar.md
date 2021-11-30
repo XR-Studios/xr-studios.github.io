@@ -1,3 +1,4 @@
-- [Home](/ "XRS Software")
-    - [TouchDesigner RenderStream](touchRender/guide.md "XRS TouchRender")
-    - [ofxXRS](ofxXRS/guide.md "XRS OpenFrameworks")
+- [Home](/ "XR Studios")
+- [Studio](docs/stage/sunset/studioInfo.md "XR Studios")
+- [Content](docs/content/guide.md "XR Studios Content Integration")
+- [Software](docs/software/home.md "XRS Software")
