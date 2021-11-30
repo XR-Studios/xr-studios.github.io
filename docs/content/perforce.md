@@ -47,7 +47,7 @@ You can open the template from your local workspace folder.
 
 Either navigate to it's directory, or find them directly in perforce in the workspace tab.  
 
-!> Note: When saving files, do not alter the directory from their current location.
+!> When saving files, do not alter the directory from their current location.
 
 Depending on the type of project file supplied, please read through the relevant information about the working with the template scene files:
 - [Unreal Engine](docs/content/unreal.md)
@@ -70,9 +70,9 @@ Any changed you make to the file will now ask for you to check out the modified 
 It is good practice to check out a level before working on it, and to check out only the assets that you need.
 Adding a new asset while connected to source control will automatically mark the asset to be added in your next submission.
 
-> Tip: While connected to source control, you gain additional options when right clicking assets in the content browser. Items may be refreshed, synced, checked out,  submitted, and reverted among other options.
+> While connected to source control, you gain additional options when right clicking assets in the content browser. Items may be refreshed, synced, checked out,  submitted, and reverted among other options.
 
-> Tip: If an asset has a yellow question mark or exclamation point, it is out of sync with the depot, you may need to refresh and sync the asset.
+> If an asset has a yellow question mark or exclamation point, it is out of sync with the depot, you may need to refresh and sync the asset.
 
 ## 6: Submit your Content
 You should submit updates regularly throughout your content creation process. It's good practice to get into the habit of submitting updates after completing small milestones, often multiple times per-day.
