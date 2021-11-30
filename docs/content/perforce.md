@@ -1,5 +1,5 @@
 # Content Delivery via Perforce
-![logo](https://lh6.googleusercontent.com/qxB_FUP-lGDqAr_M8Rt-woGQ1eelVnJ8hCX2g3J0K_gInSppBVAoMr8EemcBpf5adRgtuDzi8nKo_2bxO3gjbjvYjE7jE8cz40FCIYoh23vRUD__=w1280)
+![logo](../../img/p4v/flowchart.png)
 
 Content is delivered and managed through Perforce.  
 Perforce provides a single solution for filesharing, backups, maintenance, and collaboration with XR Studios.  
