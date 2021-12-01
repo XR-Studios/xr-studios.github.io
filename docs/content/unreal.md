@@ -28,7 +28,7 @@ All of your content will go inside the project's *Content* folder. The Content f
                     - Song B Sequence (.uasset)
 - *Stage* folder: This folder contains all the technical assets related to the physical stage like LED Reference Geometry, Cameras, and Demo Content. You shouldn't need to modify anything in here.
     - Demo Scene: This contains a level and a sequence that contain reference objects to the Stage and the Cameras. Additionally, there are examples of different common XR content types.
-    - Stage A References: Meshes and 3D Objects exactly matching the XR Studios Stage A to help visualize the content's relation to the real world.
+    - Stage A References: Meshes and 3D Objects exactly matching the XR Studios Stage A to help visualize the content's relationship to the real world.
     - XR Cameras: A scene containing the cameras that will stream your content to the LED Stage. Add this as a sublevel to your content's level to gain access to the cameras.
 
 ## Creating Content with the Template
@@ -37,3 +37,10 @@ All of your content will go inside the project's *Content* folder. The Content f
 * There should be an individual folder for each Scene in your project
 * Name your Scene's folder, level, and level sequence with corresponding name
 * Keep all content related to each scene inside its respective folder
+
+### Sequences
+* Ensure sequences are built at a 60fps time base
+* All animation that needs to sync to timecode should be included in the sequencer
+* Include 5 seconds (300frames) of pre-roll and post-roll to compensate for any delay
+
+### FBX Sequences
