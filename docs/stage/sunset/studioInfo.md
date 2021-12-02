@@ -24,6 +24,6 @@
 
 ### Stage Layout
 [![Foo](../../../../img/stage/floorPlan.png)](https://xr-studios.github.io/img/stage/floorPlan.png)
+![![Foo](../../../../img/stage/render3.jpg)](https://xr-studios.github.io/img/stage/render3.jpg)
 ![![Foo](../../../../img/stage/render1.jpg)](https://xr-studios.github.io/img/stage/render1.jpg)
 ![![Foo](../../../../img/stage/render2.jpg)](https://xr-studios.github.io/img/stage/render2.jpg)
-![![Foo](../../../../img/stage/render3.jpg)](https://xr-studios.github.io/img/stage/render3.jpg)
