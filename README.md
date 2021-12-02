@@ -3,7 +3,7 @@ Welcome to the XR Studios Content Integration Portal!
 
 This site serves as a hub for all public resources and guides for working with XR Studios.  
 
-[![Foo](img/flowchart.jpg ':size=100%')](https://xr-studios.github.io/img/flowchart.jpg)
+![img](img/flowchart.jpg)
 
 ## XR Stage and Studio Info
 Want to know more details about the physical space, like the studio's address or the camera specifications?  
