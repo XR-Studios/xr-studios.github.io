@@ -5,8 +5,6 @@ This site serves as a hub for all public resources and guides for working with X
 
 [![Foo](img/flowchart.jpg ':size=100%')](https://xr-studios.github.io/img/flowchart.jpg)
 
-&nbsp;
-
 ## XR Stage and Studio Info
 Want to know more details about the physical space, like the studio's address or the camera specifications?  
 Check out the [Studio](docs/stage/sunset/studioInfo.md) page for Studio and Stage info.
