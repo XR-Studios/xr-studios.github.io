@@ -13,15 +13,15 @@ A typical workflow involves:
 The steps for getting started are outlined below.
 
 ## 1: Download and Install Perforce P4V
-[![Foo](../../img/p4v/step1.png)]()
+[![Foo](../../img/p4v/step1.png)](https://xr-studios.github.io/img/p4v/step1.png)
 
 Download the Perforce Visual Client: https://www.perforce.com/downloads/helix-visual-client-p4v
 
 Follow the default installation steps provided by the installer.
 
 ## 2: Launch and Create a Workspace
-[![Foo](../../img/p4v/step2_1.jpg)]()
-[![Foo](../../img/p4v/step2_2.jpg)]()
+[![Foo](../../img/p4v/step2_1.jpg)](https://xr-studios.github.io/img/p4v/step2_1.png)
+[![Foo](../../img/p4v/step2_2.jpg)](https://xr-studios.github.io/img/p4v/step2_2.png)
 
 1. Launch P4V. First we must connect to the XR Studios perforce server, and download the template files to your workspace. (Contact us if you do not have these credentials)
 2. *Server:* Enter the server name provided by XR Studios. (There are multiple perforce servers)
@@ -33,7 +33,7 @@ Follow the default installation steps provided by the installer.
 8. Leave the rest of the settings as default, and click OK.
 
 ## 3: Syncing the Template Files to your Workspace
-[![Foo](../../img/p4v/step3.png)]()
+[![Foo](../../img/p4v/step3.png)](https://xr-studios.github.io/img/p4v/step3.png)
 
 Now that you are successfully connected and have a local workspace - you are ready to download the template files for you to begin creating content. 
 
