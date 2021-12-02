@@ -1,5 +1,5 @@
 # Unreal XR Content Guide
-TODO embed video walkthrough
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/534588250?h=7edf94bba3&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="XR Studios | External Unreal Content Integration Guide"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 ## Getting the Unreal Template Files
 Access the Unreal Project Template using Perforce (P4V). 
@@ -9,7 +9,8 @@ If you have not used Perforce before, follow the [Content Delivery via Perforce]
 ## Getting the Cinema4D Asset Files
 Use the following 3D assets to ensure the content is built out with accurate cameras and stage dimensions.
 
-TODO link c4d files
+<a href="https://drive.google.com/drive/folders/1sZdLxl7ijTaw9Odrlam8zAg5OLbZpIiO?usp=sharing"><button type="button">Download C4D Resources</button></a>
+
 
 ## Project File Overview
 All of the content will go inside the project's *Content* folder. The Content folder should be set up as such:
@@ -77,9 +78,6 @@ Exposable parameters allow blueprint variables in Unreal to be modified from the
 Follow [this guide](https://help.disguise.one/Content/Configuring/Render-engines/RenderStream-Unreal.htm#exposed-parameters) for details on how to add Exposed Parameters to the project.
 
 !> Ensure all Exposed Parameters are being tracked in the Project Document
-
-### Remote Texture Parameters
-TODO
 
 ### Optimization and Performance
 - Scenes must run at or above 60fps on Disguise RX2 Hardware
