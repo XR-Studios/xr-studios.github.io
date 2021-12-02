@@ -17,7 +17,10 @@
     * 1x 18ft. jib cam
     * 2x ped cam
     * 1x tripod cam
-* Lens Options: 19-90, 14-45, 85-300
+* Lens Options: 
+    * 19-90
+    * 14-45
+    * 85-300
 
 ### Stage Layout
 [![Foo](../../../../img/stage/floorPlan.png)](https://xr-studios.github.io/img/stage/floorPlan.png)
