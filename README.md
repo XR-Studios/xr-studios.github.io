@@ -7,7 +7,22 @@ This site serves as a hub for all public resources and guides for working with X
 Want to know more details about the physical space, like the studio's address or the camera specifications?  
 Check out the [Studio](docs/stage/sunset/studioInfo.md) page for Studio and Stage info.
 
-![img](img/flowchart.jpg)
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Content <!-- {docsify-ignore} -->
+
+&nbsp;
+
+&nbsp;
+
+![img](img/flowchart.jpg ':size=50%')
+
+## Template Files
+<a href="https://xr-studios.github.io/#/docs/content/templates"><button type="button">Template Files for each supported software</button></a>
 
 &nbsp;
 
