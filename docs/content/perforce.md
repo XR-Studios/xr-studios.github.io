@@ -72,7 +72,7 @@ Adding a new asset while connected to source control will automatically mark the
 
 > While connected to source control, you gain additional options when right clicking assets in the content browser. Items may be refreshed, synced, checked out,  submitted, and reverted among other options.
 
-!> If an asset has a yellow question mark or exclamation point, it is out of sync with the depot, you may need to refresh and sync the asset.
+!> If an asset has a yellow question mark or exclamation point, it is out of sync with the depot; you may need to refresh and sync the asset.
 
 ## 6: Submit your Content
 You should submit updates regularly throughout your content creation process. It's good practice to get into the habit of submitting updates after completing small milestones, often multiple times per-day.
