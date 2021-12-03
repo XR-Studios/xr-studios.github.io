@@ -1,4 +1,3 @@
 - [Home](/)
 - [Studio](docs/stage/sunset/studioInfo.md)
 - [Content](docs/content/guide.md)
-- [Software](docs/software/home.md)
