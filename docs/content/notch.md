@@ -7,7 +7,7 @@
 <a target="_blank" href="https://drive.google.com/drive/folders/1sZdLxl7ijTaw9Odrlam8zAg5OLbZpIiO?usp=sharing"><button type="button">Download C4D Resources</button></a>
 
 ## Creating Content with the Template
-!> Note that this guide video is using an outdated Stage model
+!> Note that this tutorial video was made using an outdated Cinema4D Template
 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/460347309?h=4026549de3&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="XR Studios | Notch Content Integration Guide"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 ### Performance
