@@ -29,7 +29,7 @@ Check out the [Studio](docs/stage/sunset/studioInfo.md) page for Studio and Stag
 ## Content Guidelines & Resources
 Are you preparing for a shoot with XRS and need to prepare your content?  
 First get set up to send and receive content by following the [Content Delivery via Perforce](docs/content/perforce.md) guide,  
-then refer to either the [Unreal](docs/content/unreal.md), [Notch](docs/content/notch.md) XR Content Guides below for specific workflows and resources.
+then refer to either the [Unreal](docs/content/unreal.md) or [Notch](docs/content/notch.md) XR Content Guides below for specific workflows and resources.
 
 &nbsp;
 
