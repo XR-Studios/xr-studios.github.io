@@ -1,11 +1,10 @@
 # Unreal XR Content Guide
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/534588250?h=7edf94bba3&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="XR Studios | External Unreal Content Integration Guide"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<!-- <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/534588250?h=7edf94bba3&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="XR Studios | External Unreal Content Integration Guide"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script> -->
 
-## Quick Start Checklist
-This list is a short overview of the steps to prepare Unreal content for delivery, intended as a quick reference for those who are familiar with the XR Studios workflow. For a much more in-depth guide on XRS Unreal Content for first-time creators, see the rest of the sections below.
+This is a short overview of the steps to prepare Unreal content for delivery, intended as a quick reference for those who are familiar with the XR Studios workflow. For a much more in-depth guide on XRS Unreal Content for first-time creators, see the rest of the sections below.
 
 * Download the Unreal Template File from Perforce following [this guide](docs/content/perforce.md).
-    - There is also a <a href="https://drive.google.com/drive/folders/1sZdLxl7ijTaw9Odrlam8zAg5OLbZpIiO?usp=sharing">C4D file</a> with of the stage with proper scale and orientation for reference during modelling.
+    * There is also a <a href="https://drive.google.com/drive/folders/1sZdLxl7ijTaw9Odrlam8zAg5OLbZpIiO?usp=sharing">C4D file</a> with of the stage with proper scale and orientation for reference during modelling.
 * If transferring content from a different Unreal project, be sure to follow the folder hierarchy found in the template file. An overview of this file can be found [below](docs/content/unreal.md#project-file-overview).
 * Import the "XR cameras" and "Stage Reference" levels found in the "Stage" folder to the current scene. The XR cameras are what Disguise uses to interface with the current scene and are essential. The XR cameras level also includes the frontplate layer. The stage reference is to help with placement of shots and the height of the floor which must be at 0,0,0. Anywhere talent is intended to walk on should be level with the stage floor.
 * Add any objects that should occlude talent to the frontplate layer in the scene

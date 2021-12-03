@@ -5,4 +5,3 @@
     - [Content Delivery via Perforce](docs/content/perforce.md "XR Studios Content Integration")
     - [Unreal XR Content Guide](docs/content/unreal.md "XR Studios Content Integration")
     - [Notch XR Content Guide](docs/content/notch.md "XR Studios Content Integration")
-    - [After Effects XR Content Guide](docs/content/afterEffects.md "XR Studios Content Integration")

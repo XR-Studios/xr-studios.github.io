@@ -2,7 +2,7 @@
 [![Foo](../../img/AEScreenshot.jpg ':size=66%')](https://xr-studios.github.io/img/AEScreenshot.jpg)
 
 ## Getting the After Effects Template Files
-<a href="https://drive.google.com/drive/folders/1sZy3VMLCT0cLxHtEgEtLGc2dv4hG3i5q?usp=sharing"><button type="button">Download AE Template</button></a>
+<a href="https://drive.google.com/drive/folders/1sZy3VMLCT0cLxHtEgEtLGc2dv4hG3i5q?usp=sharing" target="_blank"><button type="button">Download AE Template</button></a>
 
 ## Inside the Template File
 * There will be Working Comps for each section of the XR stage with Pixel dimensions. These are then linked to Delivery Comps that are to be exported as individual files for each wall segment.
