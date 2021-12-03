@@ -13,13 +13,13 @@ Check out the [Studio](docs/stage/sunset/studioInfo.md) page for Studio and Stag
 
 &nbsp;
 
-# Content <!-- {docsify-ignore} -->
+# XR Show Content <!-- {docsify-ignore} -->
 
 &nbsp;
 
 &nbsp;
 
-![img](img/flowchart.jpg ':size=35%')
+![img](img/flowchart.jpg ':size=45%')
 
 ## Template Files
 <a href="https://xr-studios.github.io/#/docs/content/templates"><button type="button">Template Files for each supported software</button></a>
