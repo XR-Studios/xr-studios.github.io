@@ -19,7 +19,7 @@ Check out the [Studio](docs/stage/sunset/studioInfo.md) page for Studio and Stag
 
 &nbsp;
 
-![img](img/flowchart.png ':size=65%')
+![img](img/flowchart.png ':size=667x115')
 
 ## Template Files
 <a href="https://xr-studios.github.io/#/docs/content/templates"><button type="button">Template Files for each supported software</button></a>
