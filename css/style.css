@@ -6,3 +6,7 @@ button {
     border: 2px solid darkgray;
     cursor: pointer;
 }
+
+h1 {
+    font-family: '/css/Aeonik.ttf';
+}
