@@ -55,7 +55,7 @@ Depending on the type of project file supplied, please read through the relevant
 
 ## 5: Connect Unreal to Source Control
 
-If you are not using Unreal Engine, or making changes to files unrelated to Unreal Engine, skip this step.  
+If you are not using Unreal Engine, or are making changes to files unrelated to Unreal Engine, skip this step.  
 With P4V open, and connected to the XRStudios perforce server, launch the Unreal project from your workspace directory.
 
 Along the top banner within Unreal, select the source control option next to “save current”, click *Connect to source control*
