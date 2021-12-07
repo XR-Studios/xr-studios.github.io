@@ -29,7 +29,7 @@ Follow the default installation steps provided by the installer.
 4. *Workspace:* This is a dedicated location on your local machine which will contain all the project files whilst developing content. After entering your server address and user, click New workspace.
 5. *Workspace Name:* This can be any name that makes sense to you. It's helpful when working on multiple projects to have a clearly identifiable name for the project, but its not important what you call it.
 6. *Workspace Root:* Is the filepath where you will be working on local files before submitting them. Ensure you choose a directory with enough storage to facilitate the project.
-7. *Stream:* This is a path to referencing files in our server network. Click Browse and select the MAIN stream. There might be multiple streams on different servers, if that is the case, select the stream 	matching the depot you need to access.
+7. *Stream:* This is a path to referencing files in our server network. Click Browse and select the `MAIN` stream. If you are downloading just the Template from the template server, select the `TEMPLATE` stream.
 8. Leave the rest of the settings as default, and click OK.
 
 ## 3: Syncing the Template Files to your Workspace
