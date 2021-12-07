@@ -6,8 +6,8 @@ This is a short overview of the steps to prepare Unreal content for delivery, in
 * Download the Unreal Template File from Perforce following [this guide](docs/content/perforce.md).
     * There is also a <a href="https://drive.google.com/drive/folders/1sZdLxl7ijTaw9Odrlam8zAg5OLbZpIiO?usp=sharing">C4D file</a> with of the stage with proper scale and orientation for reference during modelling.
 * If transferring content from a different Unreal project, be sure to follow the folder hierarchy found in the template file. An overview of this file can be found [below](docs/content/unreal.md#project-file-overview).
-* Import the "XR cameras" and "Stage Reference" levels found in the "Stage" folder to the current scene. The XR cameras are what Disguise uses to interface with the current scene and are essential. The XR cameras level also includes the frontplate layer. The stage reference is to help with placement of shots and the height of the floor which must be at 0,0,0. Anywhere talent is intended to walk on should be level with the stage floor.
-* Add any objects that should occlude talent to the frontplate layer in the scene
+* Import the "XR cameras" and "Stage Reference" levels found in the "Stage" folder to the current scene. The XR cameras are what Disguise uses to interface with the current scene and are essential. The stage reference is to help with placement of shots and the height of the floor which must be at 0,0,0. Anywhere talent is intended to walk on should be level with the stage floor.
+* Add any objects that should occlude talent to a frontplate layer in the scene (Select desired actors in World Outliner -> Layers -> Add Selected Actors to New Layer)
 * Expose any control variables to the d3 timeline for real time control by [following this guide](http://help.disguise.one/Content/Configuring/Render-engines/RenderStream-Unreal.htm) 
 
 ## Getting the Unreal Template Files
@@ -90,7 +90,7 @@ Follow [this guide](https://help.disguise.one/Content/Configuring/Render-engines
 
 ### Optimization and Performance
 - Scenes must run at or above 60fps on Disguise RX2 Hardware
-- As a general rule, keep your project's Game Time under 8ms, and its TOtal Frame Time under 16ms. Lower is always better!
+- As a general rule, keep your project's Game Time under 8ms, and its Total Frame Time under 16ms. Lower is always better!
 
 Be aware of building and developing optimized content. There are a number of areas in your scene that may be reducing performance. Utilize profiling and debug tools to find good candidates for optimization. Common areas include:
 - Lighting:
