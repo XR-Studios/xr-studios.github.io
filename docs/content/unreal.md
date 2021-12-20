@@ -8,7 +8,7 @@ This is a short overview of the steps to prepare Unreal content for delivery, in
 * If transferring content from a different Unreal project, be sure to follow the folder hierarchy found in the template file. An overview of this file can be found [below](docs/content/unreal.md#project-file-overview).
 * Import the "XR cameras" and "Stage Reference" levels found in the "Stage" folder to the current scene. The XR cameras are what Disguise uses to interface with the current scene and are essential. The stage reference is to help with placement of shots and the height of the floor which must be at 0,0,0. Anywhere talent is intended to walk on should be level with the stage floor.
 * Add any objects that should occlude talent to a frontplate layer in the scene (Select desired actors in World Outliner -> Layers -> Add Selected Actors to New Layer)
-* Expose any control variables to the d3 timeline for real time control by [following this guide](http://help.disguise.one/Content/Configuring/Render-engines/RenderStream-Unreal.htm) 
+* Expose any control variables to the d3 timeline for real-time control by following the "Exposed Parameters" section of [this guide](http://help.disguise.one/Content/Configuring/Render-engines/RenderStream-Unreal.htm) 
 
 ## Getting the Unreal Template Files
 Access the Unreal Project Template using Perforce (P4V). 
