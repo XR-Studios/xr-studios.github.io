@@ -17,7 +17,7 @@ First, download the [Git CLI](https://git-scm.com/downloads) to be able to push 
 
 After logging into or creating a GitHub account, ask Ryan or Scott to add your account to the XR Studios group.
 
-When that is done, the left column of your [GitHub homepage](https://github.com/) should be populated with the XR Studios repositories you have been given access to (namely, the repository for this site).
+When that is done, the left column of your [GitHub homepage](https://github.com/) should be populated with the XR Studios repositories to which you have been given access (namely, the repository for this site)
 
 From the repository for this page, you can make simple or quick edits right in the browser without having to download anything. However, these changes **will not be pushed to the internet** until someone updates the repository conventionally (i.e. not in the browser). For this reason it is highly recommended to not edit any of the files directly from the GitHub.
 
