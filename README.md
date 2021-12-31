@@ -1,4 +1,4 @@
-# XR Studios
+# XR Studios {docsify-ignore-all}
 Welcome to the XR Studios Content Integration Portal!
 
 This site serves as a hub for all public resources and guides for working with XR Studios.  
