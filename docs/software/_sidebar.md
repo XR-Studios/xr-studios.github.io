@@ -4,3 +4,4 @@
 - [Software](docs/software/home.md)
     - [TouchDesigner RenderStream](docs/software/touchRender/guide.md)
     - [ofxXRS](docs/software/ofxXRS/guide.md)
+    - [Documentation Site](docs/software/modify.md)
