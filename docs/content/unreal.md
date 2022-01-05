@@ -82,9 +82,9 @@ Media can be added to a scene in the form of a 60fps EXR or PNG Image Sequence v
 > See an example of this in the Demo Scene included with the Template File
 
 ### Exposable Parameters
-Exposable parameters allow blueprint variables in Unreal to be modified from the Disguise media server without opening Unreal Engine.
+Exposable parameters are a useful feature that allow for quick tweaking onsite by our media server operators without having to go into the unreal scene itself. With values exposed, we build in the flexibility to adapt to any unseen looks and can keyframe these values if they need to change throughout a performance. Examples of this are positions of specific objects, lighting color or intensity, timing of animations, etc. 
 
-Follow [this guide](https://help.disguise.one/Content/Configuring/Render-engines/RenderStream-Unreal.htm#exposed-parameters) for details on how to add Exposed Parameters to the project.
+To do this, go inside your level blueprint and create a variable based upon your needs. When a variable is selected, check instance editable, this will allow access to this variable. The eye icon in the variables left hand side dropdown will appear to inform you that this is now visible inside of the media server. Additionally inside of the specific variable you can control the category selection and the default value which will be the starting point. Make sure you compile the blueprint upon completion of steps.
 
 !> Ensure all Exposed Parameters are being tracked in the Project Document
 
