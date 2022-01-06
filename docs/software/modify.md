@@ -13,15 +13,13 @@ Just write your content like you're writing a basic text file and keep [this pag
 
 First, download either the [GitHub Desktop App](https://desktop.github.com/) for a UI or the [Git CLI](https://git-scm.com/downloads) for command-line usage. The GitHub Desktop App is recommended.
 
-After logging into or creating a GitHub account, ask Ryan or Scott to add your account to the XR Studios group.
+Then, head to [GitHub](http://github.com); after logging into or creating a GitHub account, ask Ryan or Scott to add your account to the XR Studios group.
 
 When that is done, the left column of your [GitHub homepage](https://github.com/) should be populated with the XR Studios repositories to which you have been given access (namely, the repository for this site)
 
 From the repository for this page, you can make simple or quick edits right in the browser without having to download anything. However, these changes **will not be pushed to the internet** until someone updates the repository conventionally (i.e. not in the browser). For this reason it is highly recommended to not edit any of the files directly from the GitHub.
 
 &nbsp;
-
-To download the repository, mouse over the green `Code` button, select `HTTPS`, and copy the text in the textbox (or click `Open with GitHub Desktop` if using the desktop app)
 
 ## GitHub Desktop
 1. To download the repository, mouse over the green `Code` button on the GitHub page, and click `Open with GitHub Desktop`
