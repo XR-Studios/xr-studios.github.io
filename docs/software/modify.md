@@ -10,10 +10,8 @@ If you're worried about "not knowing markdown", don't be. Markdown files are jus
 Just write your content like you're writing a basic text file and keep [this page](https://www.markdownguide.org/cheat-sheet/) open so you can format it.
 
 ## Connecting to the GitHub
-First, download the [Git CLI](https://git-scm.com/downloads) to be able to push and pull repositories on your computer.
 
-
-!> There is also a [desktop app](https://desktop.github.com/) with a GUI that can do the exact same things as the CLI and is quite possibly easier for new GitHub users to understand. I do not use it and thus cannot write steps for it but if the CLI is giving you grief, try to follow along with the desktop app (there should just be buttons somewhere for each of the commands I give)
+First, download either the [GitHub Desktop App](https://desktop.github.com/) for a UI or the [Git CLI](https://git-scm.com/downloads) for command-line usage. The GitHub Desktop App is recommended.
 
 After logging into or creating a GitHub account, ask Ryan or Scott to add your account to the XR Studios group.
 
@@ -25,22 +23,33 @@ From the repository for this page, you can make simple or quick edits right in t
 
 To download the repository, mouse over the green `Code` button, select `HTTPS`, and copy the text in the textbox (or click `Open with GitHub Desktop` if using the desktop app)
 
-1. Open Command Prompt (or Windows Terminal if using Windows 11) and navigate to wherever you'd like the repository to be placed (use the `cd [folder]` command to move and the `dir` command to see folders)
-2. Enter the command `git clone [paste the text you copied from GitHub]` to download the repository
-3. Navigate inside the repo's folder from your command prompt with the `cd` command
-4. Enter `git pull` to make sure your local files are up-to-date with the GitHub
-5. Alter/add pages as desired, following the other sections of this guide
-6. When you are finished working, enter `git add .`
-7. Enter `git commit -m "Summary of Changes"` (incl. quotes)
-8. Enter `git push`
-9. Start with step 3 whenever editing the site again in the future. Forgetting step 4 will cause problems!
+## GitHub Desktop
+1. To download the repository, mouse over the green `Code` button on the GitHub page, and click `Open with GitHub Desktop`
+2. When GitHub Desktop opens, on the top tool bar, select `Repository > Pull` to make sure your local files are up-to-date with the GitHub
+3. Navigate to the download location and alter/add pages as desired, following the other sections of this guide
+4. When you are finished working, fill in the bottom half of the left column, ensuring every file in the left column above is checked. Summarize your changes in the title and give details in the description section.
+5. Click "Commit to main" in the bottom of the left column
+6. Select `Repository > Push` to submit your modified/new files to the GitHub
+7. Start with step 2 whenever editing the site in the future. Not pulling before starting your work will cause problems!
+
+## Command Line
+1. To download the repository, mouse over the green `Code` button on the GitHub page, select `HTTPS`, and copy the text in the text box.
+2. Open Command Prompt (or Windows Terminal if using Windows 11) and navigate to wherever you'd like the repository to be placed (use the `cd [folder]` command to move and the `dir` command to see folders)
+3. Enter the command `git clone [paste the text you copied from GitHub]` to download the repository
+4. Navigate inside the repo's folder from your command prompt with the `cd` command
+5. Enter `git pull` to make sure your local files are up-to-date with the GitHub
+6. Alter/add pages as desired, following the other sections of this guide
+7. When you are finished working, enter `git add .`
+8. Enter `git commit -m "Summary of Changes"` (incl. quotes)
+9. Enter `git push`
+10. Start with step 3 whenever editing the site again in the future. Forgetting step 4 will cause problems!
 
 !> Note that if you are using the desktop app, steps 1 and 2 are already covered by clicking **Open with GitHub Desktop** on the GitHub page
 
 ## Altering a Page
 To add or modify the content on an existing page, simply find that page's markdown file in the /docs/ folders. If you are only altering existing pages, you should not need to worry about folder structure or the _sidebar.md files.
 
-Modify the page(s) as desired then return to step 5 in the above section.
+Modify the page(s) as desired then return to step 5 if using the command-line, or step 4 if using GitHub Desktop.
 
 ## Adding a new Page
 To add a page, simply create a Markdown (.md) file for it in the /docs/ folder structure, ensuring it exactly mirrors the structure of the website (i.e. if you want the page to go under the "Content" section with the Unreal and Notch documentation, create `newPage.md` in `/docs/content/`).
