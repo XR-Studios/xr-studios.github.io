@@ -42,8 +42,6 @@ From the repository for this page, you can make simple or quick edits right in t
 9. Enter `git push`
 10. Start with step 3 whenever editing the site again in the future. Forgetting step 4 will cause problems!
 
-!> Note that if you are using the desktop app, steps 1 and 2 are already covered by clicking **Open with GitHub Desktop** on the GitHub page
-
 ## Altering a Page
 To add or modify the content on an existing page, simply find that page's markdown file in the /docs/ folders. If you are only altering existing pages, you should not need to worry about folder structure or the _sidebar.md files.
 
