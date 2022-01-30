@@ -18,9 +18,9 @@
     * 2x ped cam
     * 1x tripod cam
 * Lens Options: 
-    * 19-90
-    * 14-45
-    * 85-300
+    * 19-90mm
+    * 14-35mm
+    * 85-300mm
 
 ### Stage Layout
 [![Foo](../../../../img/stage/floorPlan.png ':size=70%')](https://xr-studios.github.io/img/stage/floorPlan.png)
