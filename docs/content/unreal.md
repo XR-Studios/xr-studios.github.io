@@ -88,6 +88,19 @@ To do this, go inside your level blueprint and create a variable based upon your
 
 !> Ensure all Exposed Parameters are being tracked in the Project Document
 
+### Remote Texture Sharing
+The RenderStream plugin offers support for the sharing of textures through the use of exposed parameters. This allows a two-way flow of video content between disguise and the Unreal Engine project.
+Follow these steps to configure:
+
+1. Add a 3D Object into the scene onto which the texture will be streamed
+2. Create a new Render Target and Material:
+    1. Create a new Asset under Materials & Textures -> Render Target
+    2. Drop the Render Target onto the 3D Object you created in Step 1
+    3. Ensure that a new material has been created for the Render Target, and has been set as a material element in the "Materials" component of the 3D Object
+3. Expose the Render Texture as an exposed parameter, following the steps in the section above
+    - The Blueprint Variable created should be of type `Texture Render Target 2D`
+    - The variable's Default Value should be the Render Target created in Step 2
+
 ### Optimization and Performance
 - Scenes must run at or above 60fps on Disguise RX2 Hardware
 - As a general rule, keep your project's Game Time under 8ms, and its Total Frame Time under 16ms. Lower is always better!
