@@ -53,6 +53,8 @@ All of the content will go inside the project's *Content* folder. The Content fo
 * All animation that needs to sync to timecode should be included in the sequencer
 * Include 5 seconds (300frames) of pre-roll and post-roll to compensate for any delay
 
+!> Do *not* use the cameras from the XRCameras sublevel in your sequences.
+
 ### FBX Sequences
 To import an FBX Sequence into your scene, navigate to `File > Import into Level`
 
