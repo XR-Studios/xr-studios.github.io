@@ -56,9 +56,7 @@ All of the content will go inside the project's *Content* folder. The Content fo
 !> Do **not** use the cameras from the XRCameras sublevel in your sequences.
 
 ### FBX Sequences
-To import an FBX Sequence into your scene, navigate to `File > Import into Level`
-
-!> The "Import" button in the Content Browser will not take you to the correct dialog
+To import an FBX Sequence into your scene, navigate to `File > Import into Level`. The "Import" button in the Content Browser ***will not*** take you to the correct dialog
 
 In the file menu popup, choose a location within the scene's folder for the imported sequence to reside. Once this is done, a dialogue with the FBX Scene Import Options should appear. Click Import.
 
