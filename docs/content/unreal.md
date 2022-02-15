@@ -6,7 +6,8 @@ This is a short overview of the steps to prepare Unreal content for delivery, in
 * Download the Unreal Template File from Perforce following [this guide](docs/content/perforce.md).
     * There is also a <a href="https://drive.google.com/drive/folders/1sZdLxl7ijTaw9Odrlam8zAg5OLbZpIiO?usp=sharing">C4D file</a> with of the stage with proper scale and orientation for reference during modelling.
 * If transferring content from a different Unreal project, be sure to follow the folder hierarchy found in the template file. An overview of this file can be found [below](docs/content/unreal.md#project-file-overview).
-* Import the "XR cameras" and "Stage Reference" levels found in the "Stage" folder to the current scene. The XR cameras are what Disguise uses to interface with the current scene and are essential. The stage reference is to help with placement of shots and the height of the floor which must be at 0,0,0. Anywhere talent is intended to walk on should be level with the stage floor.
+* Import the "XR cameras" and "Stage Reference" levels found in the "Stage" folder to the current scene. The XR Cameras are what Disguise uses to interface with the current scene and are essential. The stage reference is to help with placement of shots and the height of the floor which must be at 0,0,0. Anywhere talent is intended to walk on should be level with the stage floor.
+    * Use the StageA_References assets for Previs. Do **not** modify the CineCam actors in the XRCameras levels.
 * Add any objects that should occlude talent to a frontplate layer in the scene named "FG" (Select desired actors in World Outliner -> Layers -> Add Selected Actors to New Layer). Ensure the Actor Layer is named `FG`
 * Expose any control variables to the d3 timeline for real-time control by following the "Exposed Parameters" section of [this guide](http://help.disguise.one/Content/Configuring/Render-engines/RenderStream-Unreal.htm) 
 
@@ -53,7 +54,7 @@ All of the content will go inside the project's *Content* folder. The Content fo
 * All animation that needs to sync to timecode should be included in the sequencer
 * Include 5 seconds (300frames) of pre-roll and post-roll to compensate for any delay
 
-!> Do **not** use the cameras from the XRCameras sublevel in your sequences.
+!> Do **not** use the cameras from the XRCameras sublevel in your sequences, or modify them in any way. The only interaction one should have with the XRCameras Sub-Level is adding it as a Sub-Level and setting the Sub-Level to "Always Loaded". Use the cameras in the StageA_References scene to previs.
 
 ### FBX Sequences
 To import an FBX Sequence into your scene, navigate to `File > Import into Level`. The "Import" button in the Content Browser ***will not*** take you to the correct dialog
