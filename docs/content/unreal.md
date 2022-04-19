@@ -8,7 +8,8 @@ This is a short overview of the steps to prepare Unreal content for delivery, in
 * If transferring content from a different Unreal project, be sure to follow the folder hierarchy found in the template file. An overview of this file can be found [below](docs/content/unreal.md#project-file-overview).
 * Import the "XR cameras" and "Stage Reference" levels found in the "Stage" folder to the current scene. The XR Cameras are what Disguise uses to interface with the current scene and are essential. The stage reference is to help with placement of shots and the height of the floor which must be at 0,0,0. Anywhere talent is intended to walk on should be level with the stage floor.
     * Use the StageA_References assets for Previs. Do **not** modify the CineCam actors in the XRCameras levels.
-* Add any objects that should occlude talent to a frontplate layer in the scene named "FG" (Select desired actors in World Outliner -> Layers -> Add Selected Actors to New Layer). Ensure the Actor Layer is named `FG`
+* Add any objects that should occlude talent to a frontplate layer in the scene named "FG" (Select desired actors in World Outliner -> Layers -> Add Selected Actors to New Layer). Ensure the Actor Layer is named `FG`.
+    * Note that objects in the frontplate layer cannot receive lighting from any other layers. Ensure the frontplate layer has lights in it.
 * Expose any control variables to the d3 timeline for real-time control by following the "Exposed Parameters" section of [this guide](http://help.disguise.one/Content/Configuring/Render-engines/RenderStream-Unreal.htm) 
 
 ## Getting the Unreal Template Files
@@ -50,7 +51,7 @@ All of the content will go inside the project's *Content* folder. The Content fo
 * Keep all content related to each scene inside its respective folder
 
 ### Sequences
-* Ensure sequences are built at a 60fps time base
+* Ensure sequences are built at a time base consistent with the shoot (e.g. 23.976fps shoot = 23.976fps level sequence)
 * All animation that needs to sync to timecode should be included in the sequencer
 * Include 5 seconds (300frames) of pre-roll and post-roll to compensate for any delay
 
@@ -102,7 +103,20 @@ Follow these steps to configure:
     - The Blueprint Variable created should be of type `Texture Render Target 2D`
     - The variable's Default Value should be the Render Target created in Step 2
 
-### Optimization and Performance
+### Optimization
+There are a number of default options in Unreal Engine that are not suitable for use with RenderStream. Note that this can sometimes be mitigated with padding and overlap, but this must be evaluated on a case-by-case basis.
+- Vignette
+- Lens Flare
+- Temporal Anti-Aliasing
+- Screen Space Global Illumination (SSGI)
+- Screen Space Ambient Occlusion (SSAO)
+- Screen Space Reflections (SSR)
+- RayTracing Denoising
+- Chromatic Abberations
+- Motion Blur
+- Ambient Cubemap
+
+### Performance
 - Scenes must run at or above 60fps on Disguise RX2 Hardware
 - As a general rule, keep your project's Game Time under 8ms, and its Total Frame Time under 16ms. Lower is always better!
 
