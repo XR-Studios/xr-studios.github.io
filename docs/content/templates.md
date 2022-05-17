@@ -1,7 +1,7 @@
 # Templates
 
 ## After Effects
-<a target="_blank" href="https://drive.google.com/file/d/1CFf5tf0tDLNEEQSMpOTKlTbj4XJQjKBK/view?usp=sharing"><button type="button">Download C4D Resources</button></a>
+<a target="_blank" href="https://drive.google.com/file/d/1CFf5tf0tDLNEEQSMpOTKlTbj4XJQjKBK/view?usp=sharing"><button type="button">Download AE Template</button></a>
 
 ## Cinema4D
 <a target="_blank" href="https://drive.google.com/drive/folders/1sZdLxl7ijTaw9Odrlam8zAg5OLbZpIiO?usp=sharing"><button type="button">Download C4D Resources</button></a>
