@@ -59,4 +59,4 @@ The fixed plate render is a video file rendered from a fixed camera position tha
 
 &nbsp;
 
-*contact: integration@xrstudios.live*
+*contact: cts@xrstudios.live*
