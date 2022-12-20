@@ -38,7 +38,7 @@ then refer to either the [Unreal](docs/content/unreal.md) or [Notch](docs/conten
 &nbsp;
 
 [![Foo](img/p4v/logo.png ":size=90x90")](docs/content/perforce.md)
-[![Foo](img/ue4/logo.png ":size=90x90")](docs/content/unreal.md)
+[![Foo](img/ue4/logo.png ":size=120x90")](docs/content/unreal.md)
 [![Foo](img/notch/logo.jpg ":size=160x90")](docs/content/notch.md)
 
 &nbsp;
