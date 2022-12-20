@@ -75,12 +75,12 @@ Select the source control option in Unreal and click _Connect to source control_
 ### UE4 Location
 Top left next to the "Save Current" icon
 
-[![Foo](../../img/p4v/UE4_sourcecontrol_stuff.png)](https://xr-studios.github.io/img/p4v/ue4_sourcecontrol.png)
+[![Foo](../../img/p4v/UE4_sourcecontrol.png)](https://xr-studios.github.io/img/p4v/ue4_sourcecontrol.png)
 
 ### UE5 Location
 Bottom right corner
 
-[![Foo](../../img/p4v/UE5_sourcecontrol_stuff.png ":size=80%")](https://xr-studios.github.io/img/p4v/ue5_sourcecontrol.png)
+[![Foo](../../img/p4v/UE5_sourcecontrol.png ":size=80%")](https://xr-studios.github.io/img/p4v/ue5_sourcecontrol.png)
 
 In the dialog box that appears, select Perforce as your provider, then sign in using the same credentials that you are using for P4V. After filling in server and user name, you should be able to select your current workspace from the available workspaces tab (P4V must be running and connected to the server).
 
