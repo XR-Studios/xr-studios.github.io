@@ -75,7 +75,7 @@ Select the source control option in Unreal and click _Connect to source control_
 ### UE4 Location
 Top left next to the "Save Current" icon
 
-[![Foo](../../img/p4v/UE4_sourcecontrol.PNG)](https://xr-studios.github.io/img/p4v/ue4_sourcecontrol.png)
+[![Foo](../../img/p4v/UE4_sourcecontrol.png)](https://xr-studios.github.io/img/p4v/ue4_sourcecontrol.png)
 
 ### UE5 Location
 Bottom right corner
