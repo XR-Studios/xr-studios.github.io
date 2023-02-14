@@ -21,4 +21,4 @@ then refer to either the [Unreal](docs/content/unreal.md) or [Notch](docs/conten
 [![Foo](img/ue4/logo.png ":size=120x90")](docs/content/unreal.md)
 [![Foo](img/notch/logo.jpg ":size=160x90")](docs/content/notch.md)
 
-Any questions? Reach out to *tech@xrstudios.live*???? HOW SHOULD WE COMMUNICATE WITH CLINETS???
+Any questions? Reach out to *cts@xrstudios.live*!
