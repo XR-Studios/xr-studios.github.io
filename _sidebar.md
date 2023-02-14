@@ -1,3 +1,3 @@
-- [Home](/ "XR Studios")
-- [Studio](docs/stage/hollywood/studioInfo.md "XR Studios")
-- [Content](docs/content/guide.md "XR Studios Content Integration")
+-   [Home](/ "XR Studios")
+-   [Studios](docs/studios/hollywood/studioInfo.md "Studio Information")
+-   [Content](docs/content/guide.md "XR Studios Content Integration")

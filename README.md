@@ -1,4 +1,4 @@
-# XR Studios {docsify-ignore-all}
+# XR Studios
 
 Welcome to the XR Studios Content Integration Portal!
 
@@ -7,7 +7,7 @@ This site serves as a hub for all public resources and guides for working with X
 ## XR Stage and Studio Info
 
 Want to know more details about the physical space, like the studio's address or the camera specifications?  
-Check out the [Studio](docs/stage/sunset/studioInfo.md) page for Studio and Stage info.
+Check out the [Studio](docs/studios/hollywood/studioInfo.md) page for Studio and Stage info.
 
 &nbsp;
 
@@ -15,7 +15,7 @@ Check out the [Studio](docs/stage/sunset/studioInfo.md) page for Studio and Stag
 
 &nbsp;
 
-# XR Show Content <!-- {docsify-ignore} -->
+# XR Show Content
 
 &nbsp;
 

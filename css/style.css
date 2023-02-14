@@ -1,15 +1,15 @@
 @font-face {
-  font-family: Aeonik;
-  src: url(./Aeonik.ttf);
+	font-family: Aeonik;
+	src: url(./Aeonik.ttf);
 }
 
 button {
-  background-color: #272727;
-  color: #e6e6e6;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: 2px solid darkgray;
-  cursor: pointer;
+	background-color: #272727;
+	color: #e6e6e6;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: 2px solid darkgray;
+	cursor: pointer;
 }
 
 h1,
@@ -18,14 +18,16 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Aeonik;
+	font-family: Aeonik;
 }
 
-/*The below lines are edits to the Docsify Dark Theme markdown defaults. */
-.content h1 {
-  font-size: 40px !important;
+/* ~~~ The below lines are edits to the Docsify Dark Theme markdown defaults. ~~~ */
+.app-name-link {
+	font-weight: bold;
+	color: white !important;
 }
 
-.tip, .tip * {
-  color: #f66 !important;
+:root {
+	--content-max-width: 75em;
+	--theme-color: orange;
 }
