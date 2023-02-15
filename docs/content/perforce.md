@@ -2,47 +2,54 @@
 
 ![logo](../../img/p4v/flowchart.png)
 
-XR Studios uses Perforce for content delivery and change management.
-Perforce provides a single solution for filesharing, backups, maintenance, and collaboration with XR Studios.  
-It replaces the need to manually send multiple files back and forth via email or link sharing, and acts as a method for both XR Studios and external partners to work on project files simultaneously.
+XR Studios uses **Perforce** for content delivery and version control. Perforce provides a single solution for sharing large files, backups, maintenance, and collaboration with XR Studios.  
+It replaces the need to manually send many large, complex files back and forth via email or link sharing, and acts as a method for both XR Studios and external partners to work on project files simultaneously. Additionally, Perforce allows for "versioning" of files and file history (similar to tools like Git), allowing for us to rollback changes if necessary.
 
-A typical workflow:
+The typical workflow for Perforce is as follows:
 
-1. Install Perforce and connect to XR Studios using the supplied credentials.
+1. Install Perforce and connect to your project depot on the XR Studios Perforce server using the supplied credentials.
 2. Download the template scene files via Perforce.
 3. Create content and periodically submit updates via Perforce.
 
 The steps for getting started are outlined below.
 
-## 1: Download and Install Perforce P4V
+## 1: Download and Install Helix Visual Client (P4V)
 
-[![Foo](../../img/p4v/step1.png ":size=50%")](https://xr-studios.github.io/img/p4v/step1.png)
+![Screenshot of the P4V download page](../../img/p4v/step1.png ':size=50%')
 
-Download the Perforce Visual Client: https://www.perforce.com/downloads/helix-visual-client-p4v
+From Perforce's website, download [Helix Visual Client (P4V)](https://www.perforce.com/downloads/helix-visual-client-p4v), then follow the default instructions provided by the installer.
 
-Follow the default installation steps provided by the installer.
+?> If you are comfortable using a terminal, you can also use the [command-line interface (P4)](https://www.perforce.com/downloads/helix-command-line-client-p4) to do your work. However, P4V tends to be a bit easier to work with, so we recommend using that.
 
-## 2: Launch and Create a Workspace
+## 2: Connect to the Depot
 
-### Open Connection
+![Screenshot of the P4V login window](../../img/p4v/step2.png ':size=50%')
 
-1. _Launch P4V:_ First we must connect to the XR Studios perforce server, and download the template files to your workspace. (Contact us if you do not have these credentials)
-2. _Server:_ Enter the server name provided by XR Studios. (There are multiple perforce servers)
-3. _User:_ Your supplied username provided by XR Studios.
+Once P4V has been installed, launch it and you will be greeted by the above window. From here, you will need to input the following information:
 
-[![Foo](../../img/p4v/p4v_connection.png)](https://xr-studios.github.io/img/p4v/p4v_connection.png)
+-   **Server:** This should always be _ssl:perforce.xrstudios.live:1666_
+-   **User:** This should be the username provided to you by XR Studios, typically along the lines of _{project-name}-collab-user-{number}_ (for example, _cheese-collab-user-1_).
+-   **Workspace:** Leave this blank when initially logging in; once you create a workspace you can optionally populate this when logging in to switch to a given workspace immediately.
 
-### Create a New Workspace
+Once this done, hit "Ok". You may get a message about trusting the connection; click "Trust this connection". From here, you will be asked to input the password given to you by XR Studios. Once entered, you will be connected to the server, and should see something like this:
+
+![Screenshot of the P4V main screen](../../img/p4v/step3.png ':size=50%')
+
+...with a view of your depots on the left (which should only be one, named after the project name) and your files/pending changes on the right. If you open up the project depot using the arrows, you should see a **dev** folder containing our Unreal Engine 5.1 Template.
+
+If the username or password do not work, or you don't see the template anywhere, reach out to *cts@xrstudios.live* and will help you get things figured out!
+
+## 3: Create a New Workspace
 
 4. _Workspace:_ This is a dedicated location on your local machine which will contain all the project files whilst developing content. After entering your server address and user, click New Workspace.
-5. _Workspace Name:_ The XRS preferred Workspace name structure is _username\_computername\_server\_projectname_ . If this heavily conflicts with the way you name your projects, you may disregard. Please just choose something that makes sense.
+5. _Workspace Name:_ The XRS preferred Workspace name structure is _username_computername_server_projectname_ . If this heavily conflicts with the way you name your projects, you may disregard. Please just choose something that makes sense.
 6. _Workspace Root:_ Is the filepath where you will be working on local files before submitting them. The example below shows a local Workspace mapped to the D drive, but you can put your Workspace anywhere you'd like. Ensure you choose a directory with enough storage to facilitate the project.
 7. _Stream:_ This is a path to referencing files in our server network. Click Browse and select the `MAIN` stream. If you are downloading just the Template from the template server, select the `TEMPLATE` stream.
 8. Leave the rest of the settings as default, and click OK.
 
-[![Foo](../../img/p4v/p4v_workspace.PNG)](https://xr-studios.github.io/img/p4v/p4v_workspace.PNG)
+![Foo](../../img/p4v/p4v_workspace.PNG)](https://xr-studios.github.io/img/p4v/p4v_workspace.PNG)
 
-## 3: Syncing the Template Files to your Workspace
+## 4: Syncing the Template Files to your Workspace
 
 [![Foo](../../img/p4v/step3.png)](https://xr-studios.github.io/img/p4v/step3.png)
 
@@ -61,8 +68,8 @@ Either navigate to it's directory, or find them directly in Perforce in the work
 
 Depending on the type of project file supplied, please read through the relevant information about the working with the template scene files:
 
-- [Unreal Engine](docs/content/unreal.md)
-- [Notch](docs/content/notch)
+-   [Unreal Engine](docs/content/unreal.md)
+-   [Notch](docs/content/notch)
 
 ## 5: Connect Unreal to Source Control
 
@@ -73,14 +80,16 @@ With P4V open and connected to the XR Studios perforce server, launch the Unreal
 Select the source control option in Unreal and click _Connect to source control_. This option is located in different places depending on whether you are working in UE4 or UE5:
 
 ### UE4 Location
+
 Top left next to the "Save Current" icon
 
 [![Foo](../../img/p4v/UE4_sourcecontrol.png)](https://xr-studios.github.io/img/p4v/ue4_sourcecontrol.png)
 
 ### UE5 Location
+
 Bottom right corner
 
-[![Foo](../../img/p4v/UE5_sourcecontrol.png ":size=80%")](https://xr-studios.github.io/img/p4v/ue5_sourcecontrol.png)
+[![Foo](../../img/p4v/UE5_sourcecontrol.png ':size=80%')](https://xr-studios.github.io/img/p4v/ue5_sourcecontrol.png)
 
 In the dialog box that appears, select Perforce as your provider, then sign in using the same credentials that you are using for P4V. After filling in server and user name, you should be able to select your current workspace from the available workspaces tab (P4V must be running and connected to the server).
 
@@ -94,7 +103,7 @@ Adding a new asset while connected to source control will automatically mark the
 
 > While connected to source control, you gain additional options when right clicking assets in the content browser. Items may be Refreshed, Synced, Checked Out, Submitted, and Reverted, among other options.
 
-!> If an asset has a yellow question mark or exclamation point, it is out of sync with the Depot; you may need to refresh and sync the asset.
+?> If an asset has a yellow question mark or exclamation point, it is out of sync with the Depot; you may need to refresh and sync the asset.
 
 ## 6: Submit your Content
 
@@ -113,5 +122,4 @@ Press Submit.
 
 ## Further Reading
 
-Perforce recently launched its own learning platform called [Perforce U](https://perforceu.perforce.com/vp/merging-collaborating-unreal-engine
-). You can enroll in a free, self-paced course if you would like a more in-depth tutorial.
+Perforce recently launched its own learning platform called [Perforce U](https://perforceu.perforce.com/vp/merging-collaborating-unreal-engine). You can enroll in a free, self-paced course if you would like a more in-depth tutorial.

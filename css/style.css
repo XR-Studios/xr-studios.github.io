@@ -29,5 +29,8 @@ h6 {
 
 :root {
 	--content-max-width: 75em;
-	--theme-color: orange;
+	--theme-color: #fd371c;
+	--link-color: #fd371c;
+	--strong-color: #fd371c;
+	/* --link-color--hover: ??? */
 }
