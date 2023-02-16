@@ -27,10 +27,22 @@ h6 {
 	color: white !important;
 }
 
+.sidebar .search .input-wrap {
+	align-items: center;
+}
+
 :root {
 	--content-max-width: 75em;
 	--theme-color: #fd371c;
 	--link-color: #fd371c;
 	--strong-color: #fd371c;
+	--sidebar-width: 20rem;
 	/* --link-color--hover: ??? */
+}
+
+#xrs-studio-view {
+	height: 25rem;
+	width: 100%;
+	object-fit: cover;
+	object-position: 50% -125px;
 }

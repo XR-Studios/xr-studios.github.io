@@ -119,7 +119,7 @@ While connected to source control, you gain additional options when right clicki
 
 ## 6: Submit your Content
 
-To submit your content, you will need to add your changes to a changelist (if they have not already been added automatically by Unreal Engine). You can do this by right-clicking in your workspace tab in P4V and selecting "Mark for Add" on the files you want to add to the changelist. Assets may already be marked for ad. You can check what you are about to submit by checking the Changelog under “Pending”. (If you do not see this option in P4V, go to View > Pending Changelists). You can expand your Pending Changelog to show all assets that will be submitted. Use this as a tool to confirm you are submitting the correct assets.
+To submit your content, you will need to add your changes to a changelist (if they have not already been added automatically by Unreal Engine). You can do this by right-clicking in your workspace tab in P4V and selecting "Mark for Add" on the files you want to add to the changelist. Assets may already be marked for ad. You can check what you are about to submit by checking the changelog under “Pending”. (If you do not see this option in P4V, go to View > Pending Changelists). You can expand your Pending Changelog to show all assets that will be submitted. Use this as a tool to confirm you are submitting the correct assets.
 
 A dialog box will appear asking you what Changelist you’d like to add your assets to. You can leave this option set to Default, and then press Okay.
 

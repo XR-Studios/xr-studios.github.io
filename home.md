@@ -1,6 +1,12 @@
+# XR Studios - Content Integration Portal <!-- {docsify-ignore-all} -->
+
+![XR Studios - Studio Image](img/xrs/studio-view-1-cropped.jpg)
+
+<!-- <img src="getRandomHomepageImage()" alt="XR Studios - Studio View" id="xrs-studio-view"> -->
+
 Welcome to the XR Studios Content Integration Portal! This site serves as a hub for all public resources and guides for working with XR Studios, including studio information and content delivery.
 
-## XR Stages and Studio Info <!-- {docsify-ignore-all} -->
+## XR Stages and Studio Info
 
 Want to know more details about the physical space, like the studio's address or the camera specifications?  
 Check out the [Studio](docs/studios/hollywood/studioInfo.md) page for Studio and Stage info.
@@ -8,8 +14,6 @@ Check out the [Studio](docs/studios/hollywood/studioInfo.md) page for Studio and
 ## Template Files
 
 <a href="https://xr-studios.github.io/#/docs/content/templates"><button type="button">Template Files for each supported software</button></a>
-
-RENAME THE TEMPLATE WHEN YOU GET IT YA BUMS
 
 ## Content Guidelines & Resources
 
