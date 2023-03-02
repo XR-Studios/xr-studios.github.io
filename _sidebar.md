@@ -1,6 +1,6 @@
--   [Home](/ "XR Studios")
--   [Studios](docs/studios/hollywood/studioInfo.md "Studio Information")
--   [Content](docs/content/guide.md "XR Studios Content Integration")
+-   [Home](/ 'XR Studios')
+-   [Studios](docs/studios/hollywood/studioInfo.md 'Studio Information')
+-   [Content](docs/content/guide.md 'XR Studios Content Integration')
 <!-- -   **Links**
 -   [![Code](assets/img/code.svg)Demo Sandbox](https://codesandbox.io/s/xv36w4695o)
 -   [![Github](assets/img/github.svg)Github](https://github.com/jhildenbiddle/docsify-themeable)

@@ -27,15 +27,3 @@
 The template for creating XR Content in Unreal Engine is served through Perforce.
 
 See our [Content Delivery via Perforce](docs/content/perforce.md) Guide for details.
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-contact: *cts@xrstudios.live*
