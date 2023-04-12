@@ -10,9 +10,9 @@ Welcome to the XR Studios Content Integration Portal! This site serves as a hub 
 
 The [Studio](docs/studios/hollywood/studioInfo.md) tab contains information about our physical studio location, including:
 
--   Address
--   Equipment
--   Stage layouts
+- Address
+- Equipment
+- Stage layouts
 
 ## Content Guidelines & Resources
 

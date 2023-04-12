@@ -1,6 +1,6 @@
 # Studio Information
 
-## Location
+## 🗺️Location
 
 XR Studios is located in the heart of Hollywood in Los Angeles, at the corner of Santa Monica Blvd and North Las Palmas Ave. Our address is [**6700 Santa Monica Blvd, Los Angeles, CA 90038** <span style="color: lightgrey">(open in Google Maps)</span>](https://goo.gl/maps/AYyAmU6jxDP2Dm1m8). Our campus contains our studios, our offices, parking, and loading docks.
 
@@ -12,7 +12,7 @@ When arriving at XR Studios, you should enter from Las Palmas Ave, shortly off o
 
 Our studio manager should provide more information about parking and other logistics.
 
-## Shared Equipment
+## 🎥Shared Equipment
 
 ### Cameras
 
@@ -28,7 +28,7 @@ Our studio manager should provide more information about parking and other logis
 
 <!-- TODO more information here about other equipment? -->
 
-## Stage A
+## 🅰️ Stage A
 
 <!-- TODO Info about Stage A -->
 
@@ -41,7 +41,7 @@ Our studio manager should provide more information about parking and other logis
 
 [![Foo](../../../../img/stage/StudioA_FloorPlan.png ':size=60%')](https://xr-studios.github.io/img/stage/StudioA_FloorPlan.png)
 
-## Stage B
+## 🅱️Stage B
 
 <!-- TODO Info about Stage B -->
 
