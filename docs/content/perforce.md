@@ -6,7 +6,11 @@ XR Studios uses **Perforce** for Unreal Engine content delivery and version cont
 
 The steps for integrating your project with Perforce are outlined below:
 
-## 1: Download and Install Perforce
+?> Note that the below screenshots were done on Windows and in P4V's Dark Mode. Your P4V interface may look slightly different.
+
+## 🗃️Getting our Templates from Perforce
+
+### 1: Download and Install Perforce
 
 ![P4V download page](../../img/p4v/step1a.png ':size=50%')
 
@@ -20,14 +24,14 @@ When you run the P4 installer, you should see the following screen, asking which
 
 ?> If you are comfortable using a terminal, you can also use the [command-line interface (P4)](https://www.perforce.com/downloads/helix-command-line-client-p4) for tracking your work. However, P4V tends to be easier to use, so we recommend using that.
 
-## 2: Connect to the Depot
+### 2: Connect to the Depot
 
 ![P4V login window](../../img/p4v/step2a.png ':size=50%')
 
 Once P4V has been installed, launch it and you will be greeted by the above window. From here, you will need to input the following information:
 
 -   **Server:** This should always be _ssl:perforce.xrstudios.live:1666_
--   **User:** This should be the username provided to you by XR Studios, typically along the lines of _{project-name}-collab-user-{number}_ (for example, _cheese-collab-user-1_).
+-   **User:** This should be the username provided to you by XR Studios, typically along the lines of _{project-name}-collab-user-{number}_ (for example, _cheese-collab-user-1_). If only one user was provided, there won't be a number after the _collab-user_ part of the username.
 -   **Workspace:** Leave this blank when initially logging in; once you create a workspace you can optionally populate this when logging in to switch to a given workspace immediately.
 
 Once this done, hit "Ok". You may get a message about trusting the connection; click "Trust this connection". From here, you will be asked to input the password given to you by XR Studios. Once entered, you will be connected to the server, and should see something like this:
@@ -38,7 +42,7 @@ Once this done, hit "Ok". You may get a message about trusting the connection; c
 
 If the username or password do not work, or you don't see the template anywhere, reach out to *cts@xrstudios.live* and will help you get things figured out!
 
-## 3: Create a New Workspace
+### 3: Create a New Workspace
 
 ![P4V workspace tab](../../img/p4v/step3a.png ':size=50%')
 
@@ -60,7 +64,7 @@ From here, you will need to fill out the following things:
 
 Leave the rest of the settings as default, then click "OK", and your workspace will get created on your computer.
 
-## 4: Syncing the Template Files to your Workspace
+### 4: Syncing the Template Files to your Workspace
 
 ![Getting latest revision creator](../../img/p4v/step4.png ':size=50%')
 
@@ -70,52 +74,27 @@ From here, you should now have a copy of the template on your computer. You can 
 
 !> Make sure NOT to move the directory from its current location - Perforce workspaces aren't able to be moved! If you want to create a different directory for the files, create a new workspace using the steps above.
 
-Depending on the type of project file supplied, please read through the relevant information about the working with the template scene files:
+## 📝Working with the Content (The Workflow)
+
+Depending on the type of project file supplied, please read through the relevant information about the working with the template scene files in more detail:
 
 -   [Unreal Engine](docs/content/unreal.md)
 -   [Notch](docs/content/notch)
 
-## 5: Connect Unreal to Source Control
+When you want to make changes to a file in Perforce, you typically start by "checking out" the file; i.e., you tell Perforce that you're going to edit the file on your local machine. You can then make changes to the file and save your changes locally without affecting the existing item on the server. If you want to add or delete new file, you can also "mark for add" or "mark for delete", respectively. Lastly, if you make changes to a file but want to undo them, Perforce has an option to "revert" the file to what's currently on the server.
 
-If you are not using Unreal Engine, or are making changes to files unrelated to Unreal Engine, skip this step.
+?> In P4V, there is also an option called "Reconcile Offline Work...", which will check your local files against the server's files and automatically add / delete / check out any files that are different. Use this feature before submitting to verify everything that's needed in the changelist is there. <br> ![Reconcile offline work](../../img/p4v/reconcile.png ':size=50%')
 
-With P4V open and connected to the XR Studios Perforce, launch the Unreal project from your workspace directory.
+Any changes you make are then stored in a _changelist_, which is a collection of changes that you want to submit to the Perforce server. You can create multiple changelists, allowing you to work on different changes simultaneously without interfering with each other. You view any changelogs under the _"Pending"_ tab (if you do not see this option in P4V, go to _View → Pending Changelists_). Use this as a tool to confirm you're editing all the correct / necessary files.
 
-Select the source control option in Unreal and click _"Connect to source control"_. This option is located in different places depending on whether you are working in UE4 or UE5:
+![Changelist tab](../../img/p4v/changelist.png ':size=100%')
 
-### UE4 Location
+Once you have completed your changes, you will then submit the changelist to the server. To do this, you can right-click on a changelist and click _"Submit"_, or click _"Submit"_ in the top menu.
 
-In UE4, the icon is in the top left corner, next to the "Save Current" icon.
+![Submit locations](../../img/p4v/submit.png ':size=100%')
 
-![UE4 source control location](../../img/p4v/UE4_sourcecontrol.png)
+Doing this will pull up the following dialog box. From here, you can add a comment and review all the files in the changelist. Once this is all confirmed, you can click the _"Submit"_ button at the bottom, which will submit the content to the server. When this happens, the server performs several checks to ensure that the changes don't conflict with any other changes that have been made to the codebase. If there are no conflicts, the changes are accepted and become part of the main project. Others can then update their local copies of the project to include the changes made in the submitted changelist.
 
-### UE5 Location
-
-In UE5, the icon is in the bottom right corner.
-
-![UE5 source control location](../../img/p4v/UE5_sourcecontrol.png)
-
-In the dialog box that appears, select Perforce as your provider, then sign in using the same credentials that you are using for P4V. After filling in server and user name, you should be able to select your current workspace from the available workspaces tab (P4V must be running and connected to the server).
-
-Click _"Accept Settings"_, and your UE project should now be connected to Perforce source control.
-
-!> Any changes you make to the file will now ask for you to check out the modified content. Checking out a file means that you are the only person you can edit it while it is checked out, and any changes made will be pushed to the depot when the asset is checked in. Please be advised that if you have a file checked out, no one else will be able to work on it until you finalize and commit your changes.
-
-It is good practice to check out a level before working on it, and to check out only the assets that you need. Adding a new asset while connected to source control will automatically mark the asset for add in your next submission.
-
-While connected to source control, you gain additional options when right clicking assets in the content browser. Items may be Refreshed, Synced, Checked Out, Submitted, and Reverted, among other options.
-
-?> If an asset has a yellow question mark or exclamation point, it is out of sync with the Depot; you may need to refresh and sync the asset.
-
-## 6: Submit your Content
-
-To submit your content, you will need to add your changes to a changelist (if they have not already been added automatically by Unreal Engine). You can do this by right-clicking in your workspace tab in P4V and selecting "Mark for Add" on the files you want to add to the changelist. Assets may already be marked for ad. You can check what you are about to submit by checking the changelog under “Pending”. (If you do not see this option in P4V, go to View > Pending Changelists). You can expand your Pending Changelog to show all assets that will be submitted. Use this as a tool to confirm you are submitting the correct assets.
-
-A dialog box will appear asking you what Changelist you’d like to add your assets to. You can leave this option set to Default, and then press Okay.
-
-From the banner at the top of P4V, click Submit. This will submit your Pending Changelog, and all of the changes contained within, to the Depot.
-
-A dialog box will appear asking you to provide a comment to describe the changes you are submitting. Please provide a helpful description of your changes so that others can quickly see what you have changed without needing to look at the logs. In this dialog you can also see all of the assets that you are submitting. Verify the list of assets contains what you expect.  
-Press Submit.
+![Submit locations](../../img/p4v/submit-changelist.png ':size=50%')
 
 ?> You should submit updates regularly throughout your content creation process. It's good practice to get into the habit of submitting updates after completing small milestones, often multiple times per day. This is useful because:<br>**1.** Each revision (changelist) acts like a backup, meaning you will still have your work in case of a computer crash, or you need to restore a previous version of your project.<br>**2.** Each revision also requires a comment of what work was done, meaning work can easily be tracked between revisions.

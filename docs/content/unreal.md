@@ -1,13 +1,15 @@
-# Unreal XR Content Guide
+# Unreal Engine XR Content Guide
 
 <!-- <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/534588250?h=7edf94bba3&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="XR Studios | External Unreal Content Integration Guide"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script> -->
 
-## Quick Start
+<!-- TODO record new video? -->
+
+!> Only continue on once you've pulled the XR Studios Unreal Engine Template from Perforce - look at [this guide](docs/content/perforce.md) for more information if you don't have that yet.
+
+## 🏃Quick Start
 
 This is a short overview of the steps to prepare Unreal content for delivery, intended as a quick reference for those who are already familiar with the XR Studios workflow. For a more in-depth guide on XRS Unreal Content for first-time creators, see the rest of the sections below
 
--   Download the Unreal Template File from Perforce following [this guide](docs/content/perforce.md).
-    -   There are also <a href="https://drive.google.com/drive/folders/1sZdLxl7ijTaw9Odrlam8zAg5OLbZpIiO?usp=sharing" target="_blank">C4D Files</a> of the stage with proper scale and orientation for reference during modelling.
 -   If transferring content from a different Unreal project, be sure to follow the folder hierarchy found in the template file. An overview of this file can be found [below](docs/content/unreal.md#project-file-overview).
 -   Import the "XRCameras" and "StageA_References" levels found in the "Stage" folder to your current scene. The XR Cameras are what Disguise uses to interface with the current scene and are ESSENTIAL. The stage reference is to help with placement of shots and the height of the floor which must be at 0,0,0. Anywhere talent is intended to walk on should be level with the stage floor.
     -   Use the StageA_References assets for Previs. Do **not** modify the CineCam actors in the XRCameras levels.
@@ -15,47 +17,45 @@ This is a short overview of the steps to prepare Unreal content for delivery, in
     -   Note that objects in the frontplate layer cannot receive lighting from any other layers. Ensure the frontplate layer has lights in it. Alternatively, it might be helpful to build any frontplate objects as Actor Blueprints so that all Lighting and Meshes exist in the same Actor Blueprint container.
 -   Expose any control variables to the d3 timeline for real-time control by following the "Exposed Parameters" section of [this guide](http://help.disguise.one/Content/Configuring/Render-engines/RenderStream-Unreal.htm)
 
-## Step-by-Step Instructions
+## 📋Perforce in Unreal Engine
 
-### Getting the Unreal Template Files
+### Connecting to Perforce
 
-Access the Unreal Project Template using Perforce (P4V).
-A specific Depot and access credentials should be provided by the XRS Team. You will work inside this Project file, and submit updates and changes via Perforce.
-If you have not used Perforce before, follow the [Content Delivery via Perforce](docs/content/perforce.md) page to get started.
+With P4V open and connected to the XR Studios Perforce server, launch the Unreal project from your workspace directory. You can find this by right-clicking on your file in the Workspace window, then going to _"Show In" → "Show In Explorer"_, which will open a window to the folder. You can also double-click the **.uproject** file in the Workspace window (below):
 
-### Getting the Cinema4D Asset Files
+![uproject](../../img/p4v/uproject.png)
 
-Use the following 3D assets to ensure the content is built out with accurate cameras and stage dimensions.
+Once the project is open, select the source control option in Unreal and click _"Connect to source control"_. This option is located in different places depending on whether you are working in UE4 or UE5:
 
-<a href="https://drive.google.com/drive/folders/1sZdLxl7ijTaw9Odrlam8zAg5OLbZpIiO?usp=sharing" target="_blank"><button type="button">Download C4D Resources</button></a>
+#### UE4 Location
 
-### Project File Overview
+In UE4, the icon is in the top left corner, next to the "Save Current" icon.
 
-[![Foo](../../../../img/ue5/unreal_file_overview.png ':size=80%')](https://xr-studios.github.io/img/ue5/unreal_file_overview.png)
+![UE4 source control location](../../img/p4v/UE4_sourcecontrol.png)
 
-All of the content will go inside the project's _Content_ folder. The Content folder should be set up as such:
+#### UE5 Location
 
--   _Scenes_ folder: This folder contains sub-folders for each separate scene in the project. Each scene should contain a _Level_ and possibly a _Sequence_ if it's relevant to your design.
-    -   Scene _Level_: A named level (.umap) that should contain all the visual content for its scene
-    -   Scene _Sequence_: A file (.uasset) that contains the animation and sequencing for its scene
-        -   This can be added by opening the Level in Unreal Engine, clicking "Cinematics" on the overhead bar, and clicking "Add Level Sequence"
-    -   Each scene should have its own named folder. For example:
-        -   Content
-            -   Scenes
-                -   Song A
-                    -   Song A Level (.umap)
-                    -   Song A Sequence (.uasset)
-                -   Song B
-                    -   Song B Level (.umap)
-                    -   Song B Sequence (.uasset)
--   _Stage_ folder: This folder contains all the technical assets related to the physical stage like LED Reference Geometry, XRCameras, and Example Tutorials. You should not need to modify anything in here.
-    -   Main Level: A level that contains reference objects to the Stage and the Cameras. Additionally, there are examples of different common XR content types and disguise integrations.
-    -   Stage A References: Meshes and 3D Objects exactly matching the XR Studios Stage A to help visualize the content's relationship to the real world.
-    -   XR Cameras: A scene containing the cameras that will stream the content to the LED Stage. Add this as a sublevel to the content's level to gain access to the cameras.
+In UE5, the icon is in the bottom right corner.
 
-The XR Studios UE 5.1 Template has color-coded content folders:
+![UE5 source control location](../../img/p4v/UE5_sourcecontrol.png)
 
-[![Foo](../../../../img/ue5/folder_colors.png ':size=80%')](https://xr-studios.github.io/img/ue5/folder_colors.png)
+In the dialog box that appears, select Perforce as your provider, then sign in using the same credentials that you are using for P4V:
+
+-   **Server:** This should always be _ssl:perforce.xrstudios.live:1666_
+-   **User:** This should be the username provided to you by XR Studios, typically along the lines of _{project-name}-collab-user-{number}_ (for example, _cheese-collab-user-1_). If only one user was provided, there won't be a number after the _collab-user_ part of the username.
+-   **Workspace:** This is the name of the workspace you created for your project. If you fill in the server and user, you should be able to select your current workspace from the available workspaces tab (P4V must be running and connected to the server).
+
+Click _"Accept Settings"_, and your UE project should now be connected to Perforce source control.
+
+### Overview of Perforce in Unreal Engine
+
+TODO
+
+## 📁Project File Overview
+
+All of the content will go inside the project's **Content** folder. The Content folder should be set up and interacted with as such:
+
+![Folder Colors](../../../../img/ue5/folder_colors.png ':size=100%')
 
 -   <span style="color: #6FDE00">Folders marked in green mean you will be interacting with them.</span>
 -   Folders marked in gray means it is highly unlikely that you will need to interact with them.
@@ -63,17 +63,26 @@ The XR Studios UE 5.1 Template has color-coded content folders:
     -   <span style="color: #FFFFFF">EditorMeshes contains a ColorCalibrator Cube.</span>
     -   <span style="color: #FFFFFF">MigratedBlueprints contains some potentially helpful tools migrated over from our UE4 Template.</span>
     -   <span style="color: #FFFFFF">OCIO contains an example OCIO config, and this is where you would also place any other configs or LUTs you may choose to use.</span>
-    -   <span style="color: #FFFFFF">UltraDynamicSky contains - you guessed it - the updated UE5.1 version of UltraDynamicSky</span>
+    -   <span style="color: #FFFFFF">UltraDynamicSky contains the updated UE5.1 version of UltraDynamicSky</span>
 
-### Creating Content with the Template
+The main two folders you will be interacting with are:
 
-#### Organization
+-   **Scenes**: This folder contains sub-folders for each separate scene in the project. Each scene should contain an Unreal Engine _Level (or map)_ and possibly a _Sequence_, if it's relevant to your design.
+    -   _Scene Level_: A named level _(.umap)_ that should contain all the visual content for its scene
+    -   _Scene Sequence_: A file _(.uasset)_ that contains the animation and sequencing for its scene
+        -   This can be added by opening the Level in Unreal Engine, clicking "Cinematics" on the overhead bar, and clicking "Add Level Sequence"
+    -   _Scene Assets_: For organization, we recommend keeping all relevant assets (files, folders, etc.) for a scene in the scene folder that it's used in.
 
--   There should be an individual folder for each Scene in the project
--   Name the Scene's folder, level, and level sequence with corresponding name
--   Keep all content related to each scene inside its respective folder
+?> Each scene should have its own named folder. The structure should look like:<br>📁Content<br>&nbsp;&nbsp;&nbsp;&nbsp;📁Scenes<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📁Scene A<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🗺️Scene A Level (.umap)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🎞️Scene A Sequence (.uasset)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⚒️Other Scene A Folders and Files...<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📁Scene B<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🗺️Scene B Level (.umap)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🎞️Scene B Sequence (.uasset)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⚒️Other Scene B Folders and Files...<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📁Etc...
 
-#### Sequences
+-   **Stage**: This folder contains all the technical assets related to the physical stage like LED Reference Geometry, XRCameras, and Example Tutorials. You should not need to modify anything in here.
+    -   **Main Level**: A level that contains reference objects to the Stage and the Cameras. Additionally, there are examples of different common XR content types and disguise integrations.
+    -   **Stage A References**: Meshes and 3D Objects exactly matching the XR Studios Stage A to help visualize the content's relationship to the real world.
+    -   **XR Cameras**: A scene containing the cameras that will stream the content to the LED Stage. Add this as a sublevel to the content's level to gain access to the cameras.
+
+## 🛠️Creating Content with the Template
+
+### Sequences
 
 -   Ensure sequences are built at a time base consistent with the shoot (e.g. 23.976fps shoot = 23.976fps level sequence)
 -   All animation that needs to sync to timecode should be included in the sequencer
@@ -81,7 +90,7 @@ The XR Studios UE 5.1 Template has color-coded content folders:
 
 !> Do **not** use the cameras from the XRCameras sublevel in your sequences, or modify them in any way. The only interaction one should have with the XRCameras Sub-Level is adding it as a Sub-Level and/or setting the Sub-Level to "Always Loaded". Use the CineCameraActor0 in the StageA_References scene to previs or add your own.
 
-#### FBX Sequences
+### FBX Sequences
 
 To import an FBX Sequence into your scene, navigate to `File > Import into Level`. The "Import" button in the Content Browser **_will not_** take you to the correct dialog
 
@@ -89,32 +98,19 @@ In the file menu popup, choose a location within the scene's folder for the impo
 
 Add an _FBX Scene_ object to the Level Sequence. Add an _FBX Animation Sequence_ object to the Animation Track.
 
-#### C4D Datasmith
-
-<em><span style="color:#FFF">This section was originally written for UE4 and has not been updated to include any changes that may exist in UE5</span></em>
-
-Datasmith is a tool that automatically brings in models from other DCC software like Cinema4D. There are some details to how these models are imported:
-
--   _Mographs_ translate over effectively. Mograph Effectors are not sent as assets into UE4 but their results translate. Mograph objects (i.e. clones) will appear in the World Outline but will each be their own individual object.
--   _Deformers_ will not appear as assets in UE4 but their results translate.
--   _Materials_ will be recreated in UE4. _Textures_ generated inside the modelling software will not translate.
--   _Animations_ will translate but will simply alter the Transform Position of the model frame by frame. Add the animation to the Level Sequence by dragging and dropping it on top of the Level Sequence to create a sub-scene.
-
-> See an example of this in the Demo Scene included with the Template File
-
-#### Niagara Particle Systems
+### Niagara Particle Systems
 
 Niagara systems must be deterministic using a [System Life Cycle](https://www.youtube.com/watch?v=rIkpu358Hak&feature=emb_title) track on the Level Sequence's timeline
 
 > See an example of this in the Demo Scene included with the Template File
 
-#### Media Tracks
+### Media Tracks
 
 Media can be added to a scene in the form of a 60fps EXR or PNG Image Sequence via a [Media Track](https://docs.unrealengine.com/4.27/en-US/WorkingWithMedia/IntegratingMedia/MediaFramework/HowTo/ImgMediaSource/) in the Level Sequence.
 
 > See an example of this in the Demo Scene included with the Template File
 
-#### Exposable Parameters
+### Exposable Parameters
 
 Exposable parameters are a useful feature that allow for quick tweaking onsite by our media server operators without having to go into the Unreal scene itself. With values exposed, we build in flexibility and can keyframe values directly from the server. Examples of this are positions of specific objects, lighting color or intensity, timing of animations, etc.
 
@@ -122,7 +118,7 @@ To do this, go inside your level blueprint and create a variable based upon your
 
 !> Currently, disguise only supports Exposed Parameters that are triggered by Event Tick nodes inside Unreal level blueprints. These can be very resource-intensive, so it is recommended to choose them wisely and continuously check FPS and performance. Ensure all Exposed Parameters are being tracked in the Project Document spreadsheet (ask your XRS rep for this if you do not have it).
 
-#### Remote Texture Sharing
+### Remote Texture Sharing
 
 The RenderStream plugin offers support for the sharing of textures through the use of exposed parameters. This allows a two-way flow of video content between disguise and the Unreal Engine project.
 Follow these steps to configure:
@@ -136,7 +132,7 @@ Follow these steps to configure:
     - The Blueprint Variable created should be of type `Texture Render Target 2D`
     - The variable's Default Value should be the Render Target created in Step 2
 
-#### Optimization
+### Optimization
 
 Optimization is a complex subject influenced by multiple variables such as (but not limited to):
 
@@ -184,7 +180,7 @@ There are a number of default options in Unreal Engine that are not suitable for
 
 Disguise's RenderStream plugin contains a feature known as the [RenderStream Validation Framework](https://help.disguise.one/en/Content/Configuring/RenderStream/RenderStream-1-30.htm?Highlight=renderstream%20validation%20framework). This feature is automatically enabled and will alert you via the Message Log of any settings that might be problematic for RenderStream.
 
-#### Performance
+### Performance
 
 -   Scenes MUST run at or above 60fps on Disguise RX2 Hardware
 -   As a general rule, keep your project's Game Time under 8ms, and its Total Frame Time under 16ms. Lower is always better!
@@ -205,7 +201,7 @@ Be aware of building and developing optimized content. There are a number of are
     -   Complex CPU logic (collisions, water, etc)
     -   Lots of blueprint logic happening every frame (i.e. using Event Tick)
 
-### Using Existing Content
+## Using Existing Content
 
 If you have existing Unreal content you can migrate it into the Template Project.
 
@@ -213,7 +209,7 @@ If you have existing Unreal content you can migrate it into the Template Project
 2. Migrate your Level: Asset Actions > Migrate. Choose the Content Folder of the Template Project as your destination.
 3. Check that there were no errors! Continue to work inside the Template Project.
 
-### Creating the Fixed Plate Render (AKA Outer Frustum)
+## Creating the Fixed Plate Render (AKA Outer Frustum)
 
 The fixed plate render is a video file rendered from a fixed camera position that is displayed on the LED outside of the camera frustrum to provide consistent ambient lighting when the camera frustrum does not cover the full LED surface. It acts as an Outer Frustum without needing to be rendered in real-time.
 
@@ -228,7 +224,7 @@ The fixed plate render is a video file rendered from a fixed camera position tha
 7. Press "Render (Remote)". The static plate .mov or .png will be in the folder specified in your Job's Output settings.
 8. If you exported a video, using the [NotchLC plugin](https://notchlc.notch.one/), convert your rendered video to a NotchLC optimal codec .mov file.
 
-### Preparing the Scene for Handoff
+## Preparing the Scene for Handoff
 
 -   Ensure there is a [Player Start Actor](https://docs.unrealengine.com/4.26/en-US/Basics/Actors/PlayerStart/) somewhere not-visible in the scene (like under the floor); this prevents the default Player Sphere from spawning on Play.
 -   Disable any mannequins
@@ -237,9 +233,9 @@ The fixed plate render is a video file rendered from a fixed camera position tha
 -   Avoid expensive functions (Get All Actors of Class, for loops, complex construction scripts, etc) especially in Blueprints that run more than once.
 -   Painlessly package your project by including any necessary plugins in the Plugin folder of the PROJECT folder structure, as opposed to them being installed to the ENGINE folder structure.
 
-## Other Resources and Videos
+## 📚Other Resources and Videos
 
-If you'd like some further
+If you'd like some further information on working with Perforce
 
 -   [How To Use Perforce Helix Core + Unreal Engine 5](https://www.perforce.com/resources/vcs/how-use-perforce-helix-core-unreal-engine-5)
 -   [Perforce U: Merging and Collaborating with Unreal Engine](https://perforceu.perforce.com/vp/merging-collaborating-unreal-engine)

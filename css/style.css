@@ -37,6 +37,8 @@ h6 {
 	--link-color: #fd371c;
 	--strong-color: #fd371c;
 	--sidebar-width: 20rem;
+	--sidebar-nav-indent: 2rem;
+	--sidebar-width: 25rem;
 	/* --link-color--hover: ??? */
 }
 
