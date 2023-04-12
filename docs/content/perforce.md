@@ -1,29 +1,28 @@
-# Content Delivery via Perforce
+# Using Perforce For Content Delivery and Version Control
 
 ![logo](../../img/p4v/flowchart.png)
 
-XR Studios uses **Perforce** for content delivery and version control. Perforce provides a single solution for sharing large files, backups, maintenance, and collaboration with XR Studios.  
-It replaces the need to manually send many large, complex files back and forth via email or link sharing, and acts as a method for both XR Studios and external partners to work on project files simultaneously. Additionally, Perforce allows for "versioning" of files and file history (similar to tools like Git), allowing for us to rollback changes if necessary.
+XR Studios uses **Perforce** for Unreal Engine content delivery and version control. Perforce provides a single solution for sharing large files, backups, maintenance, and collaboration with XR Studios. It replaces the need to manually send many large, complex files back and forth via email or link sharing, and acts as a method for both XR Studios and external partners to work on project files simultaneously. Additionally, Perforce allows for "versioning" of files and file history (similar to tools like Git), allowing for us to rollback changes if necessary.
 
-The typical workflow for Perforce is as follows:
+The steps for integrating your project with Perforce are outlined below:
 
-1. Install Perforce and connect to your project depot on the XR Studios Perforce server using the supplied credentials.
-2. Download the template scene files via Perforce.
-3. Create content and periodically submit updates via Perforce.
+## 1: Download and Install Perforce
 
-The steps for getting started are outlined below.
+![P4V download page](../../img/p4v/step1a.png ':size=50%')
 
-## 1: Download and Install Helix Visual Client (P4V)
+To utilize Perforce, you will need to download **Helix Visual Client** (or **P4V**), which is the visual interface for using Perforce. You can download [Helix Visual Client (P4V)](https://www.perforce.com/downloads/helix-visual-client-p4v) from Perforce's website.
 
-![P4V download page](../../img/p4v/step1.png ":size=50%")
+?> For Windows users, we recommend installing via the EXE installer over the MSI installer.
 
-From Perforce's website, download [Helix Visual Client (P4V)](https://www.perforce.com/downloads/helix-visual-client-p4v), then follow the default instructions provided by the installer.
+When you run the P4 installer, you should see the following screen, asking which apps to download. You should only need Helix Visual Client (P4V) and no other apps, so uncheck everything else. From here, installation should finish.
 
-?> If you are comfortable using a terminal, you can also use the [command-line interface (P4)](https://www.perforce.com/downloads/helix-command-line-client-p4) to do your work. However, P4V tends to be easier to use, so we recommend using that.
+![P4V download page](../../img/p4v/step1b.png ':size=50%')
+
+?> If you are comfortable using a terminal, you can also use the [command-line interface (P4)](https://www.perforce.com/downloads/helix-command-line-client-p4) for tracking your work. However, P4V tends to be easier to use, so we recommend using that.
 
 ## 2: Connect to the Depot
 
-![P4V login window](../../img/p4v/step2a.png ":size=50%")
+![P4V login window](../../img/p4v/step2a.png ':size=50%')
 
 Once P4V has been installed, launch it and you will be greeted by the above window. From here, you will need to input the following information:
 
@@ -33,7 +32,7 @@ Once P4V has been installed, launch it and you will be greeted by the above wind
 
 Once this done, hit "Ok". You may get a message about trusting the connection; click "Trust this connection". From here, you will be asked to input the password given to you by XR Studios. Once entered, you will be connected to the server, and should see something like this:
 
-![P4V main screen](../../img/p4v/step2b.png ":size=50%")
+![P4V main screen](../../img/p4v/step2b.png ':size=50%')
 
 ...with a view of your depots on the left (which should only be one, named after the project name) and your files/pending changes on the right. If you open up the project depot using the arrows, you should see a **dev** folder containing our Unreal Engine 5.1 Template.
 
@@ -41,17 +40,17 @@ If the username or password do not work, or you don't see the template anywhere,
 
 ## 3: Create a New Workspace
 
-![P4V workspace tab](../../img/p4v/step3a.png ":size=50%")
+![P4V workspace tab](../../img/p4v/step3a.png ':size=50%')
 
 To be able to pull down our template and begin making edits, you need to create a **workspace** in P4V. On the left side of the screen, right beside the _"Depots"_ tab, you'll see a _"Workspaces"_ tab - click on that, and you'll be brought to the workspace view.
 
 From here, you should be able to create a new workspace by going into the dropdown menu at the top of the workspace view and selecting _"New Workspace"_:
 
-![Workspace view dropdown](../../img/p4v/step3b.png ":size=30%")
+![Workspace view dropdown](../../img/p4v/step3b.png ':size=30%')
 
 You should then be greeted by the following menu:
 
-![Workspace creator](../../img/p4v/step3c.png ":size=50%")
+![Workspace creator](../../img/p4v/step3c.png ':size=50%')
 
 From here, you will need to fill out the following things:
 
@@ -59,20 +58,11 @@ From here, you will need to fill out the following things:
 -   **Workspace root:** This is the physical file location where your workspace will be on your computer. This autofills to be in your user's Perforce directory, but can be placed anywhere you like as long as it has sufficient storage.
 -   **Stream:** This is the stream that your project wll be using; you will need to click the "Browse" button and select the _dev_ stream!
 
-Additionally, there are a few optional parameters you may want to change:
-
--   <span style="color: grey">_(optional)_</span> **On Submit:** Under the "Advanced" tab, towards the bottom, there's an option to change how files are handled on submit. This is up to your preference; by default, this is "Submit all selected files". The options provided are:
-    -   **Submit all selected files:** All open files (with or without changes) are submitted to the depot.
-    -   **Don't submit unchanged files:** Only those files with content, type, or resolved changes are submitted to the depot. Any unchanged files are moved to the default changelist.
-    -   **Revert unchanged files:** Only those files with content, type, or resolved changes are submitted to the depot. Unchanged files are reverted. If possible, we recommend using this setting to ensure unchanged files aren't part of changelists.
-
-?> Changes to files are controlled in a _changelist_, which contains a list of all files which have been marked "for add". However, files don't necessarily need to have been changed to be in the changelist; any file "marked for add" can be in it. This option ensures that any files that weren't changed aren't submitted as part of the changelist. If that's confusing, just stick with "Submit all selected files" (the default).
-
 Leave the rest of the settings as default, then click "OK", and your workspace will get created on your computer.
 
 ## 4: Syncing the Template Files to your Workspace
 
-![Getting latest revision creator](../../img/p4v/step4.png ":size=50%")
+![Getting latest revision creator](../../img/p4v/step4.png ':size=50%')
 
 To pull the template from the remote depot to your local workspace, you can click _"Get Latest"_ from the shelf, or right-click your workspace folder and selecting _"Get Latest Revision"_, then wait for the files to finish syncing.
 
@@ -129,7 +119,3 @@ A dialog box will appear asking you to provide a comment to describe the changes
 Press Submit.
 
 ?> You should submit updates regularly throughout your content creation process. It's good practice to get into the habit of submitting updates after completing small milestones, often multiple times per day. This is useful because:<br>**1.** Each revision (changelist) acts like a backup, meaning you will still have your work in case of a computer crash, or you need to restore a previous version of your project.<br>**2.** Each revision also requires a comment of what work was done, meaning work can easily be tracked between revisions.
-
-## Further Reading
-
-Perforce recently launched its own learning platform called [Perforce U](https://perforceu.perforce.com/vp/merging-collaborating-unreal-engine). You can enroll in a free, self-paced course if you would like a more in-depth tutorial.

@@ -14,16 +14,8 @@ The [Studio](docs/studios/hollywood/studioInfo.md) tab contains information abou
 -   Equipment
 -   Stage layouts
 
-## Template Files
-
-<a href="https://xr-studios.github.io/#/docs/content/templates"><button type="button">Template Files for each supported software</button></a>
-
 ## Content Guidelines & Resources
 
 Are you preparing for a shoot with XRS and need to prepare your content?  
 First get set up to send and receive content by following the [Content Delivery via Perforce](docs/content/perforce.md) guide,  
 then refer to either the [Unreal](docs/content/unreal.md) or [Notch](docs/content/notch.md) XR Content Guides below for specific workflows and resources.
-
-[![Foo](img/p4v/logo.png ':size=90x90')](docs/content/perforce.md)
-[![Foo](img/ue4/logo.png ':size=120x90')](docs/content/unreal.md)
-[![Foo](img/notch/logo.jpg ':size=160x90')](docs/content/notch.md)

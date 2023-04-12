@@ -236,3 +236,10 @@ The fixed plate render is a video file rendered from a fixed camera position tha
 -   Ensure Blueprint nodes are only firing on Event Tick IF it is absolutely necessary that they run every frame. Use timers, timelines, custom tick intervals, or custom events in lieu of Event Tick wherever possible.
 -   Avoid expensive functions (Get All Actors of Class, for loops, complex construction scripts, etc) especially in Blueprints that run more than once.
 -   Painlessly package your project by including any necessary plugins in the Plugin folder of the PROJECT folder structure, as opposed to them being installed to the ENGINE folder structure.
+
+## Other Resources and Videos
+
+If you'd like some further
+
+-   [How To Use Perforce Helix Core + Unreal Engine 5](https://www.perforce.com/resources/vcs/how-use-perforce-helix-core-unreal-engine-5)
+-   [Perforce U: Merging and Collaborating with Unreal Engine](https://perforceu.perforce.com/vp/merging-collaborating-unreal-engine)
