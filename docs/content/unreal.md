@@ -167,6 +167,14 @@ Media can be added to a scene in the form of a 60fps EXR or PNG Image Sequence v
 
 Exposable parameters are a useful feature that allow for quick tweaking onsite by our media server operators without having to go into the Unreal scene itself. With values exposed, we build in flexibility and can keyframe values directly from the server. Examples of this are positions of specific objects, lighting color or intensity, timing of animations, etc.
 
+Only the following types of variables are currently supported as exposed parameters:
+
+- Number (float, int, etc.)
+- Text (NOT string)
+- Image
+- Pose
+- Transform
+
 To do this, go inside your level blueprint and create a variable based upon your needs. When a variable is selected, check Instance Editable, which allows access to the variable (you can see this with the "eye" icon opening in the _Variables_ section on the left-hand side). Additionally, inside of the specific variable, you can control the category selection and the default value which will be the starting point. Make sure you compile the blueprint upon completion of steps.
 
 !> Currently, Disguise only supports Exposed Parameters that are triggered by Event Tick nodes inside Unreal level blueprints. These can be very resource-intensive, so it is recommended to choose them wisely and continuously check FPS and performance. Ensure all Exposed Parameters are being tracked in the Project Document spreadsheet (ask your XRS rep for this if you do not have it).
