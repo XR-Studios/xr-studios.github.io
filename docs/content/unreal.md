@@ -43,7 +43,7 @@ In UE5, the icon is in the bottom right corner.
 
 In the dialog box that appears, select Perforce as your provider, then sign in using the same credentials that you are using for P4V:
 
-- **Server:** This should always be _ssl:perforce.xrstudios.live:1666_
+- **Server:** This should always be _ssl:hollywood.xrstudios.live:1666_
 - **User:** This should be the username provided to you by XR Studios, typically along the lines of _{project-name}-collab-user-{number}_ (for example, _cheese-collab-user-1_). If only one user was provided, there won't be a number after the _collab-user_ part of the username.
 - **Workspace:** This is the name of the workspace you created for your project. If you fill in the server and user, you should be able to select your current workspace from the available workspaces tab (P4V must be running and connected to the server).
 

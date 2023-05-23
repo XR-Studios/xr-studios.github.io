@@ -30,7 +30,7 @@ When you run the P4 installer, you should see the following screen, asking which
 
 Once P4V has been installed, launch it and you will be greeted by the above window. From here, you will need to input the following information:
 
--   **Server:** This should always be _ssl:perforce.xrstudios.live:1666_
+-   **Server:** This should always be _ssl:hollywood.xrstudios.live:1666_
 -   **User:** This should be the username provided to you by XR Studios, typically along the lines of _{project-name}-collab-user-{number}_ (for example, _cheese-collab-user-1_). If only one user was provided, there won't be a number after the _collab-user_ part of the username.
 -   **Workspace:** Leave this blank when initially logging in; once you create a workspace you can optionally populate this when logging in to switch to a given workspace immediately.
 

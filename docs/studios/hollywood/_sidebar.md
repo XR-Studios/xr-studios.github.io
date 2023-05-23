@@ -1,3 +1,0 @@
--   [Home](/)
--   [Studios](docs/studios/hollywood/studioInfo.md)
--   [Content](docs/content/guide.md)
