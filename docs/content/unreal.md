@@ -6,15 +6,20 @@
 
 !> Only continue on once you've pulled the XR Studios Unreal Engine Template from Perforce - look at [this guide](docs/content/perforce.md) for more information if you don't have that yet.
 
-This page contains information about how to get your Unreal Engine scene working correctly with our stage. We use **Disguise RenderStream**, which is an UE plugin, to interface UE4/5 to our stage.
+Are you ready for your Unreal Engine scene(s) to be brought to life on our stages? This page contains guides for preparing your scenes for XR. This involves:
+
+- Making sure the scene is performing well
+- Integrating the scene with **Disguise RenderStream**, which is a plugin for Unreal Engine that interfaces it to Disguise software
+
+If you're already familiar with this, then head over to the [quick start guide](#🏃quick-start); else, we recommend starting by learning how to use Perforce with Unreal Engine to improve your source control workflow.
 
 ## 🏃Quick Start
 
-This is a short overview of the steps to prepare Unreal content for delivery, intended as a quick reference for those who are already familiar with the XR Studios workflow. For a more in-depth guide on XRS Unreal Content for first-time creators, see the rest of the sections below
+This is a short overview of the steps to prepare Unreal content for delivery, intended as a quick reference for those who are already familiar with the XR Studios workflow. For a more in-depth guide on XRS Unreal Content for first-time creators, see the rest of the sections below:
 
-- If transferring content from a different Unreal project, be sure to follow the folder hierarchy found in the template file. An overview of this file can be found [below](docs/content/unreal.md#project-file-overview).
+- If transferring content from a different Unreal project, be sure to follow the folder hierarchy found in the template file. An overview of this file can be found [below](#📁project-file-overview).
 - Import the "XRCameras" and "StageA_References" levels found in the "Stage" folder to your current scene. The XR Cameras are what Disguise uses to interface with the current scene and are ESSENTIAL. The stage reference is to help with placement of shots and the height of the floor which must be at 0,0,0. Anywhere talent is intended to walk on should be level with the stage floor.
-  - Use the StageA_References assets for Previs. Do **not** modify the CineCam actors in the XRCameras levels.
+  - Use the StageA_References assets for pre-visualization. Do **not** modify the CineCam actors in the XRCameras levels.
 - Add any objects that should occlude talent to a frontplate layer in the scene named "FG" (Select desired actors in World Outliner → Layers → Add Selected Actors to New Layer). Ensure the Actor Layer is named `FG`.
   - Note that objects in the frontplate layer cannot receive lighting from any other layers. Ensure the frontplate layer has lights in it. Alternatively, it might be helpful to build any frontplate objects as Actor Blueprints so that all Lighting and Meshes exist in the same Actor Blueprint container.
 - Expose any control variables to the d3 timeline for real-time control by following the "Exposed Parameters" section of [this guide](http://help.disguise.one/Content/Configuring/Render-engines/RenderStream-Unreal.htm)
@@ -53,7 +58,7 @@ Click _"Accept Settings"_, and your UE project should now be connected to Perfor
 
 > 🚧Under construction!🚧
 
-## 📁Project File Overview
+## 📁Template File Overview
 
 All of the content will go inside the project's **Content** folder. The Content folder should be set up and interacted with as such:
 
@@ -90,6 +95,8 @@ If you have existing Unreal content you'd like to use, you can migrate it into t
 2. Migrate your Level: _Asset Actions → Migrate_. Choose the Content Folder of the Template Project as your destination.
 3. Check that there were no errors! Continue to work inside the Template Project.
 
+It's also possible to merge the Template into your project; however, this is advised against doing this, as the Template project has settings and plugins that won't transfer over in a migrate.
+
 ## 🛠️Creating Content with the Template
 
 To ensure the XR project runs correctly on the stage, there are some guidelines and steps you'll need to follow. These are detailed below...
@@ -118,50 +125,9 @@ For Unreal Engine 5, use _Nanite_ (UE5's virtualized geometry system) whenever p
 
 > 🚧Under construction!🚧
 
-### Post-Process Volumes
+### Frontplate and Backplate
 
-With post-process volumes, there are a number of options that are not suitable for use with RenderStream. Note that this can sometimes be mitigated with padding and overlap, but this must be evaluated on a case-by-case basis. These options include:
-
-- Depth of Field
-- Bloom
-- Vignette
-- Lens Flare
-- Temporal Anti Aliasing (TAA)
-- Screen Space Global Illumination (SSG)
-- Screen Space Ambient Occlusion (SSAO)
-- Screen Space Reflections (SSR)
-- Raytracing (denoiser)
-- Chromatic Aberrations
-- Eye Adaption
-- Motion Blur
-
-Additionally, the Exposure within both the post-process volume and call cameras must be set to _Manual_, to ensure that the exposure of split frames isn't different (which causes a noticeable seam).
-
-### Level Sequences
-
-Some tips for level sequences:
-
-- Ensure sequences are built at a time base consistent with the shoot (e.g. 23.976fps shoot = 23.976fps level sequence)
-- All animation that needs to sync to timecode should be included in the sequencer
-- Include 5 seconds (300frames) of pre-roll and post-roll to compensate for any delay
-
-!> Do **not** use the cameras from the XRCameras sublevel in your sequences, or modify them in any way. The only interaction one should have with the XRCameras Sub-Level is adding it as a Sub-Level and/or setting the Sub-Level to "Always Loaded". Use the CineCameraActor0 in the StageA_References scene to previs or add your own.
-
-### FBX Sequences
-
-To import an FBX Sequence into your scene, navigate to `File > Import into Level`. The "Import" button in the Content Browser **_will not_** take you to the correct dialog
-
-In the file menu popup, choose a location within the scene's folder for the imported sequence to reside. Once this is done, a dialogue with the FBX Scene Import Options should appear. Click Import.
-
-Add an _FBX Scene_ object to the Level Sequence, then an _FBX Animation Sequence_ object to the Animation Track.
-
-### Niagara Particle Systems
-
-Niagara systems must be deterministic using a [System Life Cycle](https://www.youtube.com/watch?v=rIkpu358Hak&feature=emb_title) track on the Level Sequence's timeline.
-
-### Media Tracks
-
-Media can be added to a scene in the form of a 60fps EXR or PNG Image Sequence via a [Media Track](https://docs.unrealengine.com/4.27/en-US/WorkingWithMedia/IntegratingMedia/MediaFramework/HowTo/ImgMediaSource/) in the Level Sequence.
+> 🚧Under construction!🚧
 
 ### Exposable Parameters
 
@@ -207,6 +173,51 @@ The **fixed plate render** is a video file rendered from a fixed camera position
     2. Otherwise, in the Job's settings, disable ".jpg Sequence" and add a new setting for ".png Sequence". In the Output settings, check "Use Custom Playback Range", and set "Custom End Frame" to 1. Accept settings.
 7. Press "Render (Remote)". The static plate .mov or .png will be in the folder specified in your Job's Output settings.
 8. If you exported a video, using the [NotchLC plugin](https://notchlc.notch.one/), convert your rendered video to a NotchLC optimal codec .mov file.
+
+### Post-Process Volumes
+
+With post-process volumes, there are a number of options that are not suitable for use with RenderStream. Note that this can sometimes be mitigated with padding and overlap, but this must be evaluated on a case-by-case basis. These options include:
+
+- Depth of Field
+- Bloom
+- Vignette
+- Lens Flare
+- Temporal Anti Aliasing (TAA)
+- Screen Space Global Illumination (SSG)
+- Screen Space Ambient Occlusion (SSAO)
+- Screen Space Reflections (SSR)
+- Raytracing (denoiser)
+- Chromatic Aberrations
+- Eye Adaption
+- Motion Blur
+
+Additionally, the Exposure within both the post-process volume and call cameras must be set to _Manual_, to ensure that the exposure of split frames isn't different (which causes a noticeable seam).
+
+### Level Sequences
+
+Some tips for level sequences:
+
+- Ensure sequences are built at a time base consistent with the shoot (e.g. 23.976fps shoot = 23.976fps level sequence)
+- All animation that needs to sync to timecode should be included in the sequencer
+- Include 5 seconds (300frames) of pre-roll and post-roll to compensate for any delay
+
+!> Do **not** use the cameras from the XRCameras sublevel in your sequences, or modify them in any way. The only interaction one should have with the XRCameras Sub-Level is adding it as a Sub-Level and/or setting the Sub-Level to "Always Loaded". Use the CineCameraActor0 in the StageA_References scene to previs or add your own.
+
+### FBX Sequences
+
+To import an FBX Sequence into your scene, navigate to `File > Import into Level`. The "Import" button in the Content Browser **_will not_** take you to the correct dialog
+
+In the file menu popup, choose a location within the scene's folder for the imported sequence to reside. Once this is done, a dialogue with the FBX Scene Import Options should appear. Click Import.
+
+Add an _FBX Scene_ object to the Level Sequence, then an _FBX Animation Sequence_ object to the Animation Track.
+
+### Niagara Particle Systems
+
+Niagara systems must be deterministic using a [System Life Cycle](https://www.youtube.com/watch?v=rIkpu358Hak&feature=emb_title) track on the Level Sequence's timeline.
+
+### Media Tracks
+
+Media can be added to a scene in the form of a 60fps EXR or PNG Image Sequence via a [Media Track](https://docs.unrealengine.com/4.27/en-US/WorkingWithMedia/IntegratingMedia/MediaFramework/HowTo/ImgMediaSource/) in the Level Sequence.
 
 ## ⚙️Optimizing Performance
 

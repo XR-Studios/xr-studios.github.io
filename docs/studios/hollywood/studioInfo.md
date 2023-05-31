@@ -28,7 +28,7 @@ Our studio manager should provide more information about parking and other logis
 
 <!-- TODO more information here about other equipment? -->
 
-## 🅰️ Stage A
+## 🎟️ Stage A
 
 <!-- TODO Info about Stage A -->
 
@@ -41,7 +41,7 @@ Our studio manager should provide more information about parking and other logis
 
 [![Foo](../../../../img/stage/StudioA_FloorPlan.png ':size=60%')](https://xr-studios.github.io/img/stage/StudioA_FloorPlan.png)
 
-## 🅱️Stage B
+## 🎟️ Stage B
 
 <!-- TODO Info about Stage B -->
 
