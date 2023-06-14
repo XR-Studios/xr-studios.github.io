@@ -34,29 +34,48 @@ With P4V open and connected to the XR Studios Perforce server, launch the Unreal
 
 Once the project is open, select the source control option in Unreal and click _"Connect to source control"_. This option is located in different places depending on whether you are working in UE4 or UE5:
 
-#### UE4 Location
+---
 
-In UE4, the icon is in the top left corner, next to the "Save Current" icon.
+| UE4                                                                           | UE5                                                                 |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| In UE4, the icon is in the top left corner, next to the "Save Current" icon.  | In UE5, the icon is in the bottom right corner.                     |
+| ![UE4 source control location](../../img/p4v/UE4_sourcecontrol.png)           | ![UE5 source control location](../../img/p4v/UE5_sourcecontrol.png) |
 
-![UE4 source control location](../../img/p4v/UE4_sourcecontrol.png)
+?> In UE 5.2 onwards, this feature was renamed from "Source Control" to "Revision Control"; however, the location is in the same place!
 
-#### UE5 Location
-
-In UE5, the icon is in the bottom right corner.
-
-![UE5 source control location](../../img/p4v/UE5_sourcecontrol.png)
+---
 
 In the dialog box that appears, select Perforce as your provider, then sign in using the same credentials that you are using for P4V:
+
+![Perforce Login](../../img/p4v/UE5_perforce_login.png)
 
 - **Server:** This should always be _ssl:hollywood.xrstudios.live:1666_
 - **User:** This should be the username provided to you by XR Studios, typically along the lines of _{project-name}-collab-user-{number}_ (for example, _cheese-collab-user-1_). If only one user was provided, there won't be a number after the _collab-user_ part of the username.
 - **Workspace:** This is the name of the workspace you created for your project. If you fill in the server and user, you should be able to select your current workspace from the available workspaces tab (P4V must be running and connected to the server).
 
-Click _"Accept Settings"_, and your UE project should now be connected to Perforce source control.
+Click _"Accept Settings"_, and your UE project should now be connected to Perforce source control:
+
+![Success Message](../../img/p4v/UE5_success.png)
 
 ### Overview of Perforce in Unreal Engine
 
-> 🚧Under construction!🚧
+Once you're connected to Perforce, you're free to start doing edits in UE5 as normal. If you're editing an asset, map, etc., when you save you should see a dialog box if the asset isn't checked out yet:
+
+![uproject](../../img/p4v/UE5_checkout.png)
+
+Select all the assets, then click _"Check Out Selected"_; this will add them to the Perforce checklist. From here, the workflow works as normal with Perforce - check out files, make changes to them, then save.
+
+Assets in UE5 will have an icon in the top-right corner indicating their status in Perforce:
+
+| Checked out                                       | Checked out by you                                            | Marked For Add                                         | Not In Depot                                          | Not Latest Changes                                            |
+| ------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------ | ----------------------------------------------------- | ------------------------------------------------------------- |
+| ![Checked Out Icon](../../img/p4v/CheckedOut.png) | ![Checked Out By You Icon](../../img/p4v/CheckedOutByYou.png) | ![Marked for Add Icon](../../img/p4v/MarkedForAdd.png) | ![Not In Depot Icon](../../img/p4v/NotInTheDepot.png) | ![Not Latest Changes Icon](../../img/p4v/NotHeadRevision.png) |
+
+Once you're ready to submit your changes, the process works very similar to P4V. In Unreal Engine, navigate to the _"Source Control"_ button, then click _"Submit Files"_, which will bring up the below dialog. Enter a changelist description and mark the files you want to include, then click _"Submit"_. Congrats - your changes will then be pushed to the Perforce server!
+
+![Submit Button](../../img/p4v/UE5_submitchanges.png)
+
+![Submit Dialog](../../img/p4v/UE5_submitchangeswindow.png)
 
 ## 📁Template File Overview
 
@@ -64,13 +83,13 @@ All of the content will go inside the project's **Content** folder. The Content 
 
 ![Folder Colors](../../../../img/ue5/folder_colors.png ':size=100%')
 
-- <span style="color: #6FDE00">Folders marked in green mean you will be interacting with them.</span>
-- Folders marked in gray means it is highly unlikely that you will need to interact with them.
-- <span style="color: #FFFFFF">White folders contain content that might be helpful to you depending on the needs of your project.</span>
-  - <span style="color: #FFFFFF">EditorMeshes contains a ColorCalibrator Cube.</span>
-  - <span style="color: #FFFFFF">MigratedBlueprints contains some potentially helpful tools migrated over from our UE4 Template.</span>
-  - <span style="color: #FFFFFF">OCIO contains an example OCIO config, and this is where you would also place any other configs or LUTs you may choose to use.</span>
-  - <span style="color: #FFFFFF">UltraDynamicSky contains the updated UE5.1 version of UltraDynamicSky</span>
+- Folders marked in **<span style="color: #6FDE00">green</span>** mean you will be interacting with them.
+- Folders marked in **<span style="color: #888888">gray</span>** means it is highly unlikely that you will need to interact with them.
+- **<span style="color: #FFFFFF">White</span>** folders contain content that might be helpful to you depending on the needs of your project.
+  - EditorMeshes contains a ColorCalibrator Cube.
+  - MigratedBlueprints contains some potentially helpful tools migrated over from our UE4 Template.
+  - OCIO contains an example OCIO config, and this is where you would also place any other configs or LUTs you may choose to use.
+  - UltraDynamicSky contains the updated UE5.1 version of UltraDynamicSky
 
 The main two folders you will be interacting with are:
 

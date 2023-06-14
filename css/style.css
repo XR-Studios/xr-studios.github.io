@@ -53,3 +53,24 @@ h6 {
 	object-fit: cover;
 	object-position: 50% -125px;
 }
+
+.markdown-section thead tr {
+	background: var(--table-row-odd-background) !important;
+}
+
+.markdown-section tbody tr {
+	background: var(--table-row-even-background) !important;
+}
+
+.markdown-section th,
+.markdown-section td {
+	border: none;
+	/* width: 50%; */
+}
+
+/*
+.markdown-section img {
+	margin: auto;
+	display: block;
+}
+*/

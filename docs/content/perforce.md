@@ -1,6 +1,6 @@
 # Using Perforce For Content Delivery and Version Control
 
-![logo](../../img/p4v/flowchart.png)
+<!-- ![logo](../../img/p4v/flowchart.png) -->
 
 XR Studios uses **Perforce** for Unreal Engine content delivery and version control. Perforce provides a single solution for sharing large files, backups, maintenance, and collaboration with XR Studios. It replaces the need to manually send many large, complex files back and forth via email or link sharing, and acts as a method for both XR Studios and external partners to work on project files simultaneously. Additionally, Perforce allows for "versioning" of files and file history (similar to tools like Git), allowing for us to rollback changes if necessary.
 
